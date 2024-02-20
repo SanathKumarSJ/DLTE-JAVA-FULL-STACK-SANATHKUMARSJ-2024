@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14a5b7a9-ce01-4bc8-8602-7337bfbda986" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DLTE-java-sanath/.idea/DLTE-java-sanath.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DLTE-java-sanath/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/src/main/java/basic/service/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/src/main/java/basic/service/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/DLTE-java-001-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/classes/basic/service/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/classes/basic/service/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/surefire-reports/TEST-basic.service.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/surefire-reports/TEST-basic.service.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE-java-sanath/target/surefire-reports/basic.service.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-java-sanath/target/surefire-reports/basic.service.AppTest.txt" afterDir="false" />
+    <list default="true" id="3db6e5bc-65f3-4f46-8785-3cc042e9755d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="2cRWvpd4WUFIRN3h3rxgr4aYaGn" />
+  <component name="ProjectId" id="2ccA2bifaIoTHUMcY0sxW7zKRWN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,7 +26,6 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/DLTE-java-sanath" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -58,12 +44,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="14a5b7a9-ce01-4bc8-8602-7337bfbda986" name="Default Changelist" comment="" />
-      <created>1708075105591</created>
+      <changelist id="3db6e5bc-65f3-4f46-8785-3cc042e9755d" name="Default Changelist" comment="" />
+      <created>1708400287472</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1708075105591</updated>
-      <workItem from="1708075113015" duration="18000" />
+      <updated>1708400287472</updated>
+      <workItem from="1708400295912" duration="69000" />
     </task>
     <servers />
   </component>
@@ -71,13 +57,17 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="164" key="FileChooserDialogImpl" timestamp="1708075127663">
+    <state x="549" y="164" key="FileChooserDialogImpl" timestamp="1708400319075">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="164" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708075127663" />
-    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1708075113015">
+    <state x="549" y="164" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708400319075" />
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1708400304926">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1708075113015" />
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1708400304926" />
+    <state x="209" y="105" key="new project wizard" timestamp="1708400362790">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="105" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1708400362790" />
   </component>
 </project>
