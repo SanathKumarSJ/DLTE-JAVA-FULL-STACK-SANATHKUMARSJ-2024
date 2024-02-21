@@ -50,6 +50,16 @@ public class carloanregx {
             }
             System.out.println("Fill your email");
             borrowerEmail=scanner.next();
+            String email_expression="^[A-Za-z0-9+-_]{3,}@[A-Za-z]{4,}\\.[a-z]{2,}";
+            Pattern pattern2 = Pattern.compile(email_expression);
+            Matcher matcher2=pattern2.matcher(borrowerEmail);
+            if(matcher2.matches())
+            {
+                    System.out.println("The Email "+borrowerEmail+" is valid");
+            }
+            else{
+                    System.out.println("The Email "+borrowerEmail+" is In-valid");
+            }
             System.out.println("Enter the mobile number");
             mobile=scanner.nextLong();
             // Check for 10 digit phone number and covert the long to string
