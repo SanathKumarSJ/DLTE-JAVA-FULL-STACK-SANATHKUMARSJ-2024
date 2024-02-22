@@ -145,7 +145,7 @@ public class transactionAnalysis {
         for (int select = 0; select < array.length; select++) {
             for (int next = 0; next < array.length - next - 1; next++) {
                 // swapping the name
-                if (array[next + 1].getRemarks().compareTo(array[next].getRemarks()) < 0) {
+                if (array[next + 1].getTransactionAmount().compareTo(array[next].getTransactionAmount()) < 0) {
                     backup = array[next];
                     array[next] = array[next + 1];
                     array[next + 1] = backup;

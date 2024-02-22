@@ -45,7 +45,6 @@ public class CreditAnalysis {
         for (CreditCard each : customer) {
             System.out.println(each);
         }
-
     }
 
 
