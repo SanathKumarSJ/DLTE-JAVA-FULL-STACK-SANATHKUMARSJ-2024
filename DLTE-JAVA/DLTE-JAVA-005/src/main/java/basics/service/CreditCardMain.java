@@ -36,8 +36,8 @@ public class CreditCardMain {
                 try {
                     creditAnalysis.filterdateofpayment(creditCards, new Date(2024,4,10), new Date(2024,07,10));
                     break;
-                } catch (MyCardException creditCardLimit) {
-                    logger.log(Level.WARNING, creditCardLimit.toString());
+                } catch (MyCardException dateOfBillPayment) {
+                    logger.log(Level.WARNING, dateOfBillPayment.toString());
                     creditAnalysis.filterdateofpayment(creditCards, new Date(2024,4,10), new Date(2024,07,10));
                     break;
                 }
@@ -54,6 +54,7 @@ public class CreditCardMain {
             }
             else{
                 //System.out.println("Exception");
+
                 throw new MyCardException();
             }
         }
@@ -66,7 +67,7 @@ public class CreditCardMain {
             }
             else{
                 //System.out.println("Exception block");
-                throw new MyCardException();
+                throw new MyCardDateException();
             }
         }
 
