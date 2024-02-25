@@ -9,19 +9,19 @@ create sequence transaction_seque start with 2458200 increment by 1;
 -- Inserting Records--
 insert into Transactions_Analysis(transaction_id,transaction_amount,transaction_date,transaction_to,transaction_remarks) values(transaction_seque.nextval,15000,'24-feb-2024','Rohith','Friend');
 
-1 row created.
+--1 row created.--
 
 insert into Transactions_Analysis(transaction_id,transaction_amount,transaction_date,transaction_to,transaction_remarks) values(transaction_seque.nextval,69000,'27-feb-2024','Virat','Relative');
 
-1 row created.
+--1 row created.--
 
 insert into Transactions_Analysis(transaction_id,transaction_amount,transaction_date,transaction_to,transaction_remarks) values(transaction_seque.nextval,7840,'02-mar-2024','Rishab','UPI');
 
-1 row created.
+--1 row created.--
 
 insert into Transactions_Analysis(transaction_id,transaction_amount,transaction_date,transaction_to,transaction_remarks) values(transaction_seque.nextval,98740,'05-mar-2024','Kumar','emergency');
 
-1 row created.
+--1 row created.--
 
 -- Filtering Transaction details in the given transaction_date range--
 select * from Transactions_Analysis where transaction_date between '21-feb-2024' and '03-mar-2024';
