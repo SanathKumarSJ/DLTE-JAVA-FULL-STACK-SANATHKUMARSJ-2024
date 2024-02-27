@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class carloanregx {
+public class CarLoanRegx {
     public static void main(String[] args) {
             String borrowerName="", borrowerPan="" ,borrowerAddress="", borrowerEmail="",borrowerIncTyp="";
             Long mobile=0L,adhar=0L;
