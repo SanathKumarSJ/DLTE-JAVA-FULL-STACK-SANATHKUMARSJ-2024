@@ -38,3 +38,9 @@ select count(transaction_to) from Transactions_Analysis where transaction_to='Ro
 
 --Filtering Transaction Details based on remarks--
 select * from Transactions_Analysis where transaction_remarks='emergency';
+
+--View creating
+create view Emergency as select transaction_to from Transactions_Analysis where transaction_remarks='emergency';
+
+--Execute the view
+select * from Emergency;
