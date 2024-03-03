@@ -20,7 +20,6 @@ public class CreditAnalysis {
         analysis.sortingCustomer(myBank);
         System.out.println("After sorting");
         analysis.list(myBank);
-
         analysis.filterLimit(myBank, 50000, 100000);// calling filter limit method
 
         analysis.filterdateofpayment(myBank, new Date(2024, 3, 11), new Date(2024, 3, 29));

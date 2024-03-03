@@ -1,1 +1,8 @@
+basics\service\Transaction.class
+basics\service\CreditCard.class
 basics\service\App.class
+basics\service\CustomerSupport.class
+basics\service\CreditAnalysis.class
+basics\service\BondAnalysis.class
+basics\service\BankBond.class
+basics\service\transactionAnalysis.class

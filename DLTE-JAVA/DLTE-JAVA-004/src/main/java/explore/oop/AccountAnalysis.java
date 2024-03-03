@@ -7,7 +7,6 @@ public class AccountAnalysis{
         debitCardCustomer[0]= new DebitCard(78452262352L,"Sanath", 78000.00, 78945656456416L, 4564);
         // call Amount withdraw
         debitCardCustomer[0].amountWithdraw();
-
         System.out.println("---UPI BILL PAYMENT-----");
         //Online UPI bill payment
         Gpay[] gpaycustomer = new Gpay[5];

@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b5e1a9-b976-4232-b787-41f829963f95" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../DLTE-DATABASE/DLTE-Oracle-001/Transactions_Analysis.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-DATABASE/DLTE-Oracle-001/Transactions_Analysis.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/DLTE-JAVA-002-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/classes/basics/service/CreditAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-002/target/classes/basics/service/CreditAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/classes/basics/service/transactionAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-JAVA-002/target/classes/basics/service/transactionAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/surefire-reports/TEST-basics.service.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-JAVA-002/target/surefire-reports/basics.service.AppTest.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/basic/service/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/basic/service/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +137,7 @@
       <workItem from="1708075133712" duration="7723000" />
       <workItem from="1708251094837" duration="3143000" />
       <workItem from="1708313916168" duration="754000" />
+      <workItem from="1708625064717" duration="789000" />
     </task>
     <servers />
   </component>

@@ -45,9 +45,8 @@ public class CreditCardMain {
         }
     }
 
-
     public void filterLimit(CreditCard[] limit, int start, int end) {
-        boolean flag=true;
+        int flag=0;
         for (CreditCard each : limit) {
             if (each.getCreditCardLimit() >= start && each.getCreditCardLimit() <= end) {
                 System.out.println("The Credit card Holder " + each.getCreditCardHolder() + " is having the limit within the range of " + start + " & " + end + " \n The limit is " + each.getCreditCardLimit());
@@ -70,6 +69,5 @@ public class CreditCardMain {
                 throw new MyCardDateException();
             }
         }
-
     }
 }
