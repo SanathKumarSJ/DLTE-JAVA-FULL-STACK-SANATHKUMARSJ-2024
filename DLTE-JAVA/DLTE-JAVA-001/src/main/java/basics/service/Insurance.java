@@ -1,28 +1,41 @@
 package basics.service;
+import javax.swing.*;
 import java.util.*;
 public class Insurance {
-    public static void main(String[] args)
-    {   //insurance companies with features
-        String[] metlifeInc={"sharing risk", "co-operative devices", "good customer service"};
-        String[] aflacInc ={"clarity","sharing risk","product quality"};
-        String[] humanaInc={"no claim bonus","value of risk","sharing risk"};
-        String userPromt="";
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Enter user need"); // user input
-        userPromt=scanner.nextLine();
-        System.out.println(userPromt);
+    //insurance companies with features
+    String[] metlifeInc = {"sharing risk", "co-operative devices", "good customer service"};
+    String[] aflacInc = {"clarity", "sharing risk", "product quality"};
+    String[] humanaInc = {"no claim bonus", "value of risk"};
+
+    public static void main(String[] args) {
+        Insurance insurance = new Insurance();
+        // hardcode
+        insurance.findBestPolicy("sharing risk");
+    }
+
+
+    public void findBestPolicy(String userPromt){
         // using conditional statement the insurance company name suggested
-        if (metlifeInc.equals(userPromt));
+        int flag=0;
+        System.out.println("Your input is "+userPromt);
+        if (Arrays.asList(metlifeInc).contains(userPromt))
         {
             System.out.println("User can have MetlifeInc Insurance Policy ");
+            flag=1;
         }
-        if (aflacInc.equals(userPromt));
+        if (Arrays.asList(aflacInc).contains(userPromt))
         {
             System.out.println("User can have AflacInc Insurance Policy ");
+            flag=1;
         }
-        if (humanaInc.equals(userPromt));
-        {
+        if (Arrays.asList(humanaInc).contains(userPromt)) {
             System.out.println("User can have HumanaInc Insurance Policy ");
+            flag=1;
         }
+        if(flag==0)
+        {
+            System.out.println("no policy available");
+        }
+
     }
 }
