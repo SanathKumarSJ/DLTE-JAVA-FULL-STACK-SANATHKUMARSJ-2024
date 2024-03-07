@@ -82,8 +82,11 @@ public class MainClass implements MyBank {
 //    }
     @Override
     public void addLoan(Loan loanInfo) throws IOException, ClassNotFoundException {
-        //readLoanFromFile();
+        //reading to array list
+        readLoanFromFile();
+        //adding
         loans.add(loanInfo);
+        //writing into file
         writeLoanToFile();
         System.out.println("Loan Added Successfully");
         }
@@ -111,20 +114,29 @@ public class MainClass implements MyBank {
     }
 
     private void readLoanFromFile() throws IOException, ClassNotFoundException {
+        try{
         FileInputStream inputFile=new FileInputStream(file);
         ObjectInputStream inputLoan = new ObjectInputStream(inputFile);
-        loans.addAll((ArrayList<Loan>) inputLoan.readObject());
+        loans=(ArrayList<Loan>) inputLoan.readObject();
         inputLoan.close();
         inputFile.close();
+        }
+        catch (IOException | ClassNotFoundException  ioException){
+            System.out.println(ioException);
+        }
 
     }
     private void writeLoanToFile() throws IOException, ClassNotFoundException {
-        FileOutputStream outputFile=new FileOutputStream(file);
-        ObjectOutputStream outputLoan = new ObjectOutputStream(outputFile);
-        outputLoan.writeObject(loans);
-        outputLoan.close();
-        outputFile.close();
-
+        readLoanFromFile();
+        try {
+            FileOutputStream outputFile = new FileOutputStream(file);
+            ObjectOutputStream outputLoan = new ObjectOutputStream(outputFile);
+            outputLoan.writeObject(loans);
+            outputLoan.close();
+            outputFile.close();
+        } catch (IOException expection){
+        System.out.println(expection);
+    }
     }
 }
 
