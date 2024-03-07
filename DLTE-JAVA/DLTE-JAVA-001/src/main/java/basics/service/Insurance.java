@@ -11,6 +11,8 @@ public class Insurance {
         Insurance insurance = new Insurance();
         // hardcode
         insurance.findBestPolicy("sharing risk");
+        insurance.findBestPolicy("no claim bonus");
+        insurance.findBestPolicy("fire interest");
     }
 
 
