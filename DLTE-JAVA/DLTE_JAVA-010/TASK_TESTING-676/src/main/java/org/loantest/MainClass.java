@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class MainClass implements MyBank {
     ArrayList<Loan> loanInfo=new ArrayList<>();
+
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         MainClass mainClass = new MainClass();
 

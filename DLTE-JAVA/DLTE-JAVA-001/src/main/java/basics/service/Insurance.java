@@ -3,41 +3,28 @@ import javax.swing.*;
 import java.util.*;
 public class Insurance {
     //insurance companies with features
-    String[] metlifeInc = {"sharing risk", "co-operative devices", "good customer service"};
-    String[] aflacInc = {"clarity", "sharing risk", "product quality"};
-    String[] humanaInc = {"no claim bonus", "value of risk"};
+    private static final String[][] providerFeature=
+    {{"metlifeInc","sharing risk", "co-operative devices", "good customer service"},
+    {"aflacInc","clarity", "sharing risk", "product quality","low interest"},
+            {"humanaInc","no claim bonus", "value of risk","instant withdrawal","fast service"}};
 
     public static void main(String[] args) {
-        Insurance insurance = new Insurance();
-        // hardcode
-        insurance.findBestPolicy("sharing risk");
-        insurance.findBestPolicy("no claim bonus");
-        insurance.findBestPolicy("fire interest");
+        String inputFeature= providerFeature[1][2];
+        String insuranceProvider=findBestPolicy(inputFeature);
+        System.out.println("For "+inputFeature+" suggested insurance policy is: "+insuranceProvider);
     }
 
 
-    public void findBestPolicy(String userPromt){
+    public static String findBestPolicy(String userPromt){
         // using conditional statement the insurance company name suggested
-        int flag=0;
-        System.out.println("Your input is "+userPromt);
-        if (Arrays.asList(metlifeInc).contains(userPromt))
-        {
-            System.out.println("User can have MetlifeInc Insurance Policy ");
-            flag=1;
+        for (String[] each:providerFeature){
+            String provider=each[0];
+            for(int index=1;index<each.length; index++){
+                if( each[index].equals(userPromt)){
+                    return provider;
+                }
+            }
         }
-        if (Arrays.asList(aflacInc).contains(userPromt))
-        {
-            System.out.println("User can have AflacInc Insurance Policy ");
-            flag=1;
-        }
-        if (Arrays.asList(humanaInc).contains(userPromt)) {
-            System.out.println("User can have HumanaInc Insurance Policy ");
-            flag=1;
-        }
-        if(flag==0)
-        {
-            System.out.println("no policy available");
-        }
-
+        return "No provider Found for feature "+userPromt;
     }
 }
