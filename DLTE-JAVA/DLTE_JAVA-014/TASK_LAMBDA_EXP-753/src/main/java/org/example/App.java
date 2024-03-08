@@ -10,10 +10,13 @@ import java.util.stream.Collectors;
  * Hello world!
  *
  */
-public class App implements MyBank {
+public class App {
+    static ArrayList<Loan> loanList = new ArrayList<>();
+
     public static void main(String[] args) {
         App app = new App();
 //        final List<Loan> loanList = new ArrayList<>();
+
         Loan[] loans = {
                 new Loan(85781523423L, 150000.0, new Date(2025, 8, 2), "Open", "sanath", 987655456L),
                 new Loan(855555221L, 1850000.0, new Date(2023, 7, 14), "close", "akash", 8527419639L),
@@ -23,20 +26,15 @@ public class App implements MyBank {
         for (Loan loan : loans) {
             loanList.add(loan);
         }
-        Date start=new Date(2025, 01, 10);
-        Date end=new Date(2026, 02, 10);
+        Date start = new Date(2025, 01, 10);
+        Date end = new Date(2026, 02, 10);
 
-        List<Loan> filter = filterByDate(start,end);
         //filtering based on the date
+        List<Loan> filter = loanList.stream().filter(loan -> loan.getLoanDate().after(start) && loan.getLoanDate().before(end)).collect(Collectors.toCollection(ArrayList::new));
         System.out.println("The filtered loan displayed below");
         for (Loan each : filter) {
             System.out.println(each);
         }
-
-    }
-
-    public static List<Loan> filterByDate(Date start, Date end) {
-        return loanList.stream().filter(loan -> loan.getLoanDate().after(start)&& loan.getLoanDate().before(end)).collect(Collectors.toCollection(ArrayList::new));
 
     }
 }
