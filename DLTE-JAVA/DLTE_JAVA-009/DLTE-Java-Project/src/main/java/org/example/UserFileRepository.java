@@ -55,6 +55,7 @@ public class UserFileRepository implements UserRepository {
             fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

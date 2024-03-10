@@ -41,27 +41,10 @@ public class App
                     System.out.println("exits user name");
                     user.setUserName(scanner.next());
                     System.out.println(user.getUserName());
-                    System.out.println(services.callFindByName(user.getUserName()));
-//                    try {
-//                        System.out.println("Enter the username");
-//                        String name=user.setUserName(scanner.next());
-//                        User username=services.callFindById(name);
-//                        System.out.println(username);
-//                        System.out.println(name);
-//
-//                    }
-//                    catch (UserException userException) {
-//                        System.out.println(resourceBundle.getString("user.exist"));
-//                        System.out.println("Enter the username");
-//                        String name=user.setUserName(scanner.next());
-//                        User username=userFileRepository.findById(name);
-//                        System.out.println(username);
-//                        System.out.println(name);
-//                    }
                     System.out.println("Enter the password");
                     user.setUserPassword(scanner.next());
                     while (!isValidPassword(user.getUserPassword())) { //validating password
-//                        System.out.println(resourceBundle.getString("app.password.invalid"));
+                        System.out.println(resourceBundle.getString("app.password.invalid"));
                         //invalid
                         System.out.println(resourceBundle.getString("app.password.format"));
                         user.setUserPassword(scanner.next());
