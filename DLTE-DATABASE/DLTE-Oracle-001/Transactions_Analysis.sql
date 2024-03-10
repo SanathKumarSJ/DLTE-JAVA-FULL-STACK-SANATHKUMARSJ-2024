@@ -23,6 +23,7 @@ insert into Transactions_Analysis(transaction_id,transaction_amount,transaction_
 
 --1 row created.--
 
+
 -- Filtering Transaction details in the given transaction_date range--
 select * from Transactions_Analysis where transaction_date between '21-feb-2024' and '03-mar-2024';
 
@@ -44,3 +45,19 @@ create view Emergency as select transaction_to from Transactions_Analysis where 
 
 --Execute the view
 select * from Emergency;
+
+---------------------------------------------VIEW OPERATION-----------------------------------------------------
+--Executing operation
+create view DateFilter as select * from Transactions_Analysis where transaction_date between '21-feb-2024' and '03-mar-2024';
+
+--minimum amount
+create view LeastAmount as select min(transaction_amount) from Transactions_Analysis;
+
+---- Finding Highest Transaction Amount--
+create view MaximumAmount as select max(transaction_amount) from Transactions_Analysis;
+
+--Number transaction made to particular beneficiary--
+create view CountTransaction as select count(transaction_to) from Transactions_Analysis where transaction_to='Rohith';
+
+--Filtering Transaction Details based on remarks--
+create view RemarkFilter as select * from Transactions_Analysis where transaction_remarks='emergency';
