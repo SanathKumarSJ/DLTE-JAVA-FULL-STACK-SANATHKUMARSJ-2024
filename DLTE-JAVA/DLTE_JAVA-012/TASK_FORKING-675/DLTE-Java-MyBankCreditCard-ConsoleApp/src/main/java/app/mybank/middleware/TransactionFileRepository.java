@@ -172,7 +172,7 @@ public class TransactionFileRepository implements TransactionRepository {
             System.out.println(resourceBundle.getString("transaction.empty"));
         return current;
     }
-//    filter by date
+    //filter based on date
     @Override
     public List<Transaction> findAllByDate(Date date) {
         readFromTransactionFile();
@@ -181,7 +181,7 @@ public class TransactionFileRepository implements TransactionRepository {
             System.out.println(resourceBundle.getString("transaction.empty"));
         return current;
     }
-//    filter based on merchant ID
+    //filter based on merchant ID
     @Override
     public List<Transaction> findAllByMerchant(Integer merchantId) {
         readFromTransactionFile();
@@ -192,7 +192,6 @@ public class TransactionFileRepository implements TransactionRepository {
         return current;
 
     }
-
 
 
     @Override
