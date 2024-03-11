@@ -1,0 +1,60 @@
+21:43:36.081 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanathNew User saved successfully[0;39m 
+21:45:02.811 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mmaheshNew User saved successfully[0;39m 
+21:48:10.533 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanathno such user available[0;39m 
+21:48:17.393 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msS@12345no such user available[0;39m 
+21:51:32.320 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mds no such user available[0;39m 
+21:51:44.260 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+21:52:05.853 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mmahesh no such user available[0;39m 
+21:52:32.419 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+21:55:50.142 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+21:56:00.376 [34m[main][0;39m INFO  org.example.UserFileRepository - [34m4 no such user available[0;39m 
+21:56:33.557 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath New User saved successfully[0;39m 
+21:57:09.251 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mvinha New User saved successfully[0;39m 
+21:57:34.456 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+22:03:05.114 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+22:03:53.325 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath New User saved successfully[0;39m 
+22:04:31.952 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+22:04:34.985 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+22:07:05.097 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+22:14:21.421 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanathkumar New User saved successfully[0;39m 
+22:16:57.875 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:31:37.257 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:33:06.029 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:35:27.160 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:38:06.528 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:39:25.840 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:40:13.583 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+09:42:42.001 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mrakesh New User saved successfully[0;39m 
+09:42:52.528 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+15:36:23.844 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+15:38:02.194 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mkumar New User saved successfully[0;39m 
+15:38:53.136 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mkumar no such user available[0;39m 
+15:38:58.491 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+15:43:12.035 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanth no such user available[0;39m 
+15:43:15.779 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+16:11:30.458 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+16:31:11.685 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath New User saved successfully[0;39m 
+16:31:59.278 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+16:44:28.876 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+16:45:21.788 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath no such user available[0;39m 
+16:47:00.452 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath New User saved successfully[0;39m 
+16:48:00.068 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mSs@123456 no such user available[0;39m 
+16:50:59.626 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msanath Logged In Successfully[0;39m 
+16:53:48.079 [34m[main][0;39m INFO  org.example.App - [34muser{userName='sanath', userPassword='Ss@123456', userAddress='begar', userMailId='sanath@gmail.com', contactInfo='7894561230', initialBalance='10000.0'} Logged In Successfully[0;39m 
+16:54:17.396 [34m[main][0;39m INFO  org.example.App - [34msanath Logged In Successfully[0;39m 
+17:01:42.233 [34m[main][0;39m INFO  org.example.UserFileRepository - [34msana no such user available[0;39m 
+17:04:01.832 [34m[main][0;39m INFO  org.example.App - [34msanath Logged In Successfully[0;39m 
+17:33:48.285 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:33:52.576 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:33:54.398 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:33:56.016 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:33:57.652 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:33:57.652 [31m[main][0;39m WARN  org.example.App - [31mToo many attempts, Account blocked[0;39m 
+17:34:11.057 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:34:19.212 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:35:00.294 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:35:35.586 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:35:40.697 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:38:50.784 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:39:01.167 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 
+17:48:46.671 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mdskjand5 New User saved successfully[0;39m 

@@ -7,7 +7,7 @@ public class UserException extends RuntimeException{
         super(ResourceBundle.getBundle("user").getString("user.exception"));
     }
     public UserException(String additionalInfo){
-        super(ResourceBundle.getBundle("user").getString("user.exception")+" "+additionalInfo);
+        super(ResourceBundle.getBundle("user").getString("user.exception")+additionalInfo);
     }
 
 }

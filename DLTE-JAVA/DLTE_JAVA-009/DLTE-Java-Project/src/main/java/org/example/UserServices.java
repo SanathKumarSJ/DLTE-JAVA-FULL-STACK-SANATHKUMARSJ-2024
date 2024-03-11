@@ -2,17 +2,12 @@ package org.example;
 
 import jdk.jfr.consumer.RecordedObject;
 
-import java.util.logging.Level;
 
 public class UserServices {
     UserFileRepository userFileRepository;
 
     public UserServices(StorageTarget storageTarget) {
         userFileRepository = storageTarget.getUserFileRepository();
-    }
-
-    public UserServices() {
-
     }
 
     public void callSave(User user) {

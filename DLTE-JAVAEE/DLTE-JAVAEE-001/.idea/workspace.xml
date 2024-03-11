@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="48b8dd62-bbce-41d8-b2ed-544bacaa8959" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/AccountAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/AccountAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/Gpay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/Gpay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/AccountAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/AccountAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/Gpay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/Gpay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserFileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/user.doc" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/user.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserFileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user-logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user.doc" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-012/TASK_FORKING-675/DLTE-Java-MyBankCreditCard-ConsoleApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-012/TASK_FORKING-675/DLTE-Java-MyBankCreditCard-ConsoleApp/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2dWmnBwZ7Bk7xxTiqlmXiK1tpaJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48b8dd62-bbce-41d8-b2ed-544bacaa8959" name="Default Changelist" comment="" />
+      <created>1710132372893</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710132372893</updated>
+      <workItem from="1710132377286" duration="1000" />
+    </task>
+    <servers />
+  </component>
+</project>
