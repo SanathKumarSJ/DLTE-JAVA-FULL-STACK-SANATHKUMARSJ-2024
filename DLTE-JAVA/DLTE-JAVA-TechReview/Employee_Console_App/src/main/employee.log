@@ -1,0 +1,10 @@
+23:13:24.654 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mChoose an option:
+Add new Employee Details
+Check available List
+4. Exit[0;39m 
+23:14:15.608 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34m
+Choose an option:
+1.Add new Employee Details
+2.Check available List
+3.. Exit[0;39m 
+23:57:31.811 [31m[main][0;39m WARN  org.consoleapp.EmployeeFile - [31mInvalid Username, Re-enter[0;39m 

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class OperationOnEmployee{
+
     static File myfile= new File("employee.doc");
+
         public OperationOnEmployee() throws IOException {
             System.out.println("inside constructor");
             if (myfile.exists()){
