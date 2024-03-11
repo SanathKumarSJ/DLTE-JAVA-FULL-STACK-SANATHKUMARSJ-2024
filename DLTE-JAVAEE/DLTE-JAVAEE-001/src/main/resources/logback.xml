@@ -1,0 +1,24 @@
+<configuration>
+
+    <!-- Define appenders -->
+    <appender name="myFirstServlet" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define file appender-->
+    <appender name="myFirstServletLogs" class="ch.qos.logback.core.FileAppender">
+        <file>C:\DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024\DLTE-JAVAEE\DLTE-JAVAEE-001\src\main\myFirstServlet.log </file> <!-- Define log file name and path -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger settings -->
+    <root level="INFO">
+        <appender-ref ref="myFirstServlet" />
+        <appender-ref ref="myFirstServletLogs" /> <!-- Attach file appender -->
+    </root>
+
+</configuration>

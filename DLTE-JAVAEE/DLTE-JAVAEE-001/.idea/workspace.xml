@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DLTE-JAVAEE-001:war" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="48b8dd62-bbce-41d8-b2ed-544bacaa8959" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+    <list default="true" id="00ddd067-a514-4be8-926c-98893603895b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../TASK_SIP_TXN-840-841/TASK_SIP_TXN-840-841.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/AccountAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/AccountAnalysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/Gpay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/Gpay.java" afterDir="false" />
@@ -12,39 +16,153 @@
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/AccountAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/AccountAnalysis.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/Gpay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/Gpay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserFileRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/UserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/user.doc" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/user.doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserFileRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/UserServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user-logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user.doc" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/user.doc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-012/TASK_FORKING-675/DLTE-Java-MyBankCreditCard-ConsoleApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-012/TASK_FORKING-675/DLTE-Java-MyBankCreditCard-ConsoleApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DLTE_JAVAEE_001_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE-JAVAEE-001.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DLTE-JAVAEE-001.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DLTE-JAVAEE-001.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DLTE-JAVAEE-001.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="2dWmnBwZ7Bk7xxTiqlmXiK1tpaJ" />
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2dWyyucq4BKSYxfSeSHIqbbru8P" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024\DLTE-JAVAEE\DLTE-JAVAEE-001\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="JBoss 18.1.2.Final-redhat-00001" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 18.1.2.Final-redhat-00001" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:7001/DLTE-JAVAEE-001/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="DLTE-JAVAEE-001:war">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="main-server-group" />
+        <option name="USERNAME" value="" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="54044" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="DLTE-JAVAEE-001:war" />
+        </option>
+      </method>
+    </configuration>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -56,13 +174,63 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="48b8dd62-bbce-41d8-b2ed-544bacaa8959" name="Default Changelist" comment="" />
-      <created>1710132372893</created>
+      <changelist id="00ddd067-a514-4be8-926c-98893603895b" name="Default Changelist" comment="" />
+      <created>1710138386857</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710132372893</updated>
-      <workItem from="1710132377286" duration="1000" />
+      <updated>1710138386857</updated>
+      <workItem from="1710138389520" duration="10494000" />
+      <workItem from="1710169504327" duration="1792000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="360" y="68" key="#JBoss_Server" timestamp="1710138529274">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="360" y="68" key="#JBoss_Server/0.0.1536.816@0.0.1536.816" timestamp="1710138529274" />
+    <state x="223" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1710150851555">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="223" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1710150851555" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1710149988722">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1710149988722" />
+    <state x="548" y="151" key="FileChooserDialogImpl" timestamp="1710169610773">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="548" y="151" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710169610773" />
+    <state width="1024" height="208" key="GridCell.Tab.0.bottom" timestamp="1710160349340">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1024" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710160349340" />
+    <state width="1024" height="208" key="GridCell.Tab.0.center" timestamp="1710160349340">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1024" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710160349340" />
+    <state width="1024" height="208" key="GridCell.Tab.0.left" timestamp="1710160349340">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1024" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710160349340" />
+    <state width="1024" height="208" key="GridCell.Tab.0.right" timestamp="1710160349340">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1024" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710160349340" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1710141757890">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1710141757890" />
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1710169505130">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1710169505130" />
+    <state x="209" y="105" key="new project wizard" timestamp="1710169648288">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="105" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710169648288" />
   </component>
 </project>
