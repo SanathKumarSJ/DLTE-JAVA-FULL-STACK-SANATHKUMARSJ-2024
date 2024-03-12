@@ -1,0 +1,35 @@
+23:13:24.654 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mChoose an option:
+Add new Employee Details
+Check available List
+4. Exit[0;39m 
+23:14:15.608 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34m
+Choose an option:
+1.Add new Employee Details
+2.Check available List
+3.. Exit[0;39m 
+23:57:31.811 [31m[main][0;39m WARN  org.consoleapp.EmployeeFile - [31mInvalid Username, Re-enter[0;39m 
+00:07:56.758 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+00:08:42.696 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+00:09:14.947 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+00:11:50.682 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+11:58:12.351 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+11:58:57.913 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+11:59:17.523 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:00:07.111 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:00:55.577 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:01:21.277 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:02:11.902 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:04:03.760 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+12:04:08.031 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:04:38.379 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:06:13.651 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:11:52.452 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:13:35.152 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:22:15.405 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+12:22:22.898 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+12:22:48.455 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details fetched successfully[0;39m 
+00:10:20.370 [31m[main][0;39m WARN  org.consoleapp.EmployeeFile - [31mInvalid Username, Re-enter[0;39m 
+00:26:30.770 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+00:27:59.553 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+00:29:03.923 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+00:30:47.330 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
