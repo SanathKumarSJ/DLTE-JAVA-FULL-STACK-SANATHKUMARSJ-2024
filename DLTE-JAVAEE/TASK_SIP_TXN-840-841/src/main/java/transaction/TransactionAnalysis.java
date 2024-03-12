@@ -28,19 +28,33 @@ public class TransactionAnalysis  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();
-        resp.setContentType("application/json");
-        String json = gson.toJson(transactionArrayList);
-        resp.setStatus(HttpServletResponse.SC_OK);
-        resp.getWriter().println(json);
+//        resp.setContentType("application/json");
+//        String json = gson.toJson(transactionArrayList);
+//        resp.setStatus(HttpServletResponse.SC_OK);
+//        resp.getWriter().println(json);
         //---------------Filtering-------------------------
-        double maxAmount = Double.parseDouble(req.getParameter("max"));
-        double minAmount = Double.parseDouble(req.getParameter("min"));
 
-        // filtering logic
-        List<Transaction> filter = transactionArrayList.stream().filter(each -> each.getTransactionAmount()>=(minAmount) && each.getTransactionAmount()<=(maxAmount)).collect(Collectors.toCollection(ArrayList::new));
-        //response
-        for (Transaction each : filter) {
-            resp.getWriter().println(gson.toJson(each));
+        String max = req.getParameter("max");
+        String min = req.getParameter("min");
+
+            //if max and min parameter are included then filtering operation performs
+        if (min != null && max != null) {
+            double maxAmount = Double.parseDouble(req.getParameter("max"));
+            double minAmount = Double.parseDouble(req.getParameter("min"));
+
+            // filtering logic
+            List<Transaction> filter = transactionArrayList.stream().filter(each -> each.getTransactionAmount() >= (minAmount) && each.getTransactionAmount() <= (maxAmount)).collect(Collectors.toCollection(ArrayList::new));
+            //response
+            for (Transaction each : filter) {
+                resp.getWriter().println(gson.toJson(each));
+            }
+        }
+        else {
+// display all
+            resp.setContentType("application/json");
+            String json = gson.toJson(transactionArrayList);
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.getWriter().println(json);
         }
     }
 
