@@ -36,3 +36,7 @@ Mar 10, 2024 4:07:04 PM org.example.UserFileRepository save
 INFO: varshiniNew User saved successfully
 Mar 10, 2024 9:36:42 PM org.example.UserFileRepository save
 INFO: sanathNew User saved successfully
+Mar 13, 2024 5:23:06 PM org.database.UserDatabaseRepository save
+INFO: User Account created in MyBank
+Mar 13, 2024 6:00:06 PM org.database.UserDatabaseRepository save
+INFO: User Account created in MyBank

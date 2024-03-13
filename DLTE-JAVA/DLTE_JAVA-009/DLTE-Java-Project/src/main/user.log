@@ -58,3 +58,9 @@
 17:38:50.784 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
 17:39:01.167 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 
 17:48:46.671 [34m[main][0;39m INFO  org.example.UserFileRepository - [34mdskjand5 New User saved successfully[0;39m 
+17:30:32.696 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:31:04.280 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 
+17:33:39.898 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:33:52.371 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 
+17:34:59.598 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:36:39.805 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 

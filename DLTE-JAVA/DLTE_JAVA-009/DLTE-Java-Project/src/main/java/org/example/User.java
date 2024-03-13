@@ -2,85 +2,94 @@ package org.example;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
-    private String userName;
-    private String userPassword;
-    private String userAddress;
-    private String userMailId;
-    private Long contactInfo;
-    private Double initialBalance;
-
-    public User(String userName, String userPassword, String userAddress, String userMailId,    long contactInfo, Double initialBalance) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userAddress = userAddress;
-        this.userMailId = userMailId;
-        this.contactInfo = contactInfo;
-        this.initialBalance = initialBalance;
-    }
-
-    public User() {
-
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String setUserName(String userName) {
-        this.userName = userName;
-        return userName;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserAddress() {
-        return userAddress;
-    }
-
-    public void setUserAddress(String userAddress) {
-        this.userAddress = userAddress;
-    }
-
-    public String getUserMailId() {
-        return userMailId;
-    }
-
-    public void setUserMailId(String userMailId) {
-        this.userMailId = userMailId;
-    }
-
-    public  long getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(Long contactInfo) {
-        this.contactInfo = contactInfo;
-    }
-
-    public Double getInitialBalance() {
-        return initialBalance;
-    }
-
-    public void setInitialBalance(Double initialBalance) {
-        this.initialBalance = initialBalance;
-    }
+public class User extends org.database.User implements Serializable {
+    private String username;
+    private String password;
+    private String address;
+    private String email;
+    private Long contact;
+    private Double balance;
 
     @Override
     public String toString() {
-        return "user{" +
-                "userName='" + userName + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userAddress='" + userAddress + '\'' +
-                ", userMailId='" + userMailId + '\'' +
-                ", contactInfo='" + contactInfo + '\'' +
-                ", initialBalance='" + initialBalance + '\'' +
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", contact=" + contact +
+                ", balance=" + balance +
                 '}';
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String getAddress() {
+        return address;
+    }
+
+    @Override
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public Long getContact() {
+        return contact;
+    }
+
+    @Override
+    public void setContact(Long contact) {
+        this.contact = contact;
+    }
+
+    @Override
+    public Double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public User(String username, String password, String address, String email, Long contact, Double balance, String username1, Double balance1) {
+        super(username, password, address, email, contact, balance);
+        this.username = username1;
+        this.balance = balance1;
+    }
+
+    public User(String username, Double balance) {
+        this.username = username;
+        this.balance = balance;
     }
 }

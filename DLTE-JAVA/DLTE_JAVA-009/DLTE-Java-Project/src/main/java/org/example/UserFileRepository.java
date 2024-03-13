@@ -63,14 +63,14 @@ public class UserFileRepository implements UserRepository {
     @Override
     public void save(User user) {
         readFromFile();
-        User object = userList.stream().filter(each -> each.getUserName().equals(user.getUserName())).findFirst().orElse(null);
+        User object = userList.stream().filter(each -> each.getUsername().equals(user.getUsername())).findFirst().orElse(null);
         if (object != null) {
-            logger.info(user.getUserName()+" " + resourceBundle.getString("user.exist"));
+            logger.info(user.getUsername()+" " + resourceBundle.getString("user.exist"));
             throw new UserException();
         }
         userList.add(user);
         writeIntoFile();
-        logger.info(user.getUserName()+" " + resourceBundle.getString("user.saved"));
+        logger.info(user.getUsername()+" " + resourceBundle.getString("user.saved"));
         //System.out.println(user.getUserName()+" " + resourceBundle.getString("user.saved"));
 
 
@@ -80,7 +80,7 @@ public class UserFileRepository implements UserRepository {
     public User findById(String username) {
         readFromFile();
         //System.out.println("inside find after read");
-        User object = userList.stream().filter(each -> each.getUserName().equals(username)).findFirst().orElse(null);
+        User object = userList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
 //        System.out.println(object);
         if (object == null) {
             logger.info(username+" " + resourceBundle.getString("user.notExists"));
@@ -96,7 +96,7 @@ public class UserFileRepository implements UserRepository {
         System.out.println(username);
         readFromFile();
         System.out.println("after file");
-        User object = userList.stream().filter(each -> each.getUserName().equals(username)).findFirst().orElse(null);
+        User object = userList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
 //        System.out.println(object.getUserName());
         if (object==null) {
             System.out.println("INSIDE");

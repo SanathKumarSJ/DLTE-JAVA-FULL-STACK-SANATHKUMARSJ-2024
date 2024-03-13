@@ -6,4 +6,5 @@ public class FileStorageTarget implements StorageTarget {
     public UserFileRepository getUserFileRepository() {
         return new UserFileRepository("user.doc");
     }
+
 }

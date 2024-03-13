@@ -1,11 +1,14 @@
 package org.example;
+import org.database.DatabaseTarget;
+import org.database.StorageTarget;
+import org.database.User;
+import org.database.UserServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 /**
  * Hello world!
  *
@@ -17,12 +20,14 @@ public class App
     private static ResourceBundle resourceBundle=ResourceBundle.getBundle("application");
     private static ResourceBundle resourceBundle1=ResourceBundle.getBundle("user");
     private static Scanner scanner=new Scanner(System.in);
-    private static User user;
+    private static org.database.User user;
     private static UserFileRepository userFileRepository;
     private static Logger logger= LoggerFactory.getLogger(App.class);
     public static void main( String[] args )
     {
-        storageTarget=new FileStorageTarget();
+        //StorageTarget storageTarget = new FileStorageTarget();   --- for file
+        org.database.StorageTarget storageTarget=new DatabaseTarget();
+
         services=new UserServices(storageTarget);
         int option=0;
         do{
@@ -33,51 +38,51 @@ public class App
                 case 1:loggingIn();
                 if (user!=null) {
                     System.out.println(resourceBundle.getString("app.greet"));
-                    System.out.println("Hello "+user.getUserName());
+                    System.out.println("Hello "+user.getUsername());
                     System.out.println(resourceBundle.getString("app.menu2"));
                     return;
                 }
                 break;
                 case 2:
                     System.out.println("Enter the account details");
-                    User user =new User();
+                    org.database.User user =new User();
                     System.out.println("Enter user name");
-                    user.setUserName(scanner.next());
-                    System.out.println(user.getUserName());
-                    while (!isValidUsername(user.getUserName())) {
+                    user.setUsername(scanner.next());
+                    System.out.println(user.getUsername());
+                    while (!isValidUsername(user.getUsername())) {
                         System.out.println(resourceBundle.getString("app.username.invalid"));
-                        user.setUserName(scanner.next());
+                        user.setUsername(scanner.next());
                     }
                     System.out.println("Enter the password");
-                    user.setUserPassword(scanner.next());
-                    while (!isValidPassword(user.getUserPassword())) { //validating password
+                    user.setPassword(scanner.next());
+                    while (!isValidPassword(user.getPassword())) { //validating password
                         System.out.println(resourceBundle.getString("app.password.invalid"));
                         //invalid
                         System.out.println(resourceBundle.getString("app.password.format"));
-                        user.setUserPassword(scanner.next());
+                        user.setPassword(scanner.next());
                     }
                     System.out.println("Enter the mail id");
-                    user.setUserMailId(scanner.next());
-                    while (!isValidEmail(user.getUserMailId())) { //main-validation
+                    user.setEmail(scanner.next());
+                    while (!isValidEmail(user.getEmail())) { //main-validation
                         System.out.println(resourceBundle.getString("app.mail.invalid"));
                         //invalid
-                        user.setUserMailId(scanner.next());
+                        user.setEmail(scanner.next());
                     }
                     System.out.println("Enter the contact number");
-                    user.setContactInfo(scanner.nextLong());
-                    while (!isValidContactNumber(user.getContactInfo())) { //validating contact
+                    user.setContact(scanner.nextLong());
+                    while (!isValidContactNumber(user.getContact())) { //validating contact
                         // if invalid
                         System.out.println(resourceBundle.getString("app.contact.invalid"));
-                        user.setContactInfo(scanner.nextLong());
+                        user.setContact(scanner.nextLong());
                     }
                     scanner.nextLine();
                     System.out.println("Enter the Address");
-                    user.setUserAddress(scanner.nextLine());
+                    user.setAddress(scanner.nextLine());
                     System.out.println("Enter the initial Balance");
-                    user.setInitialBalance(scanner.nextDouble());
-                    while (user.getInitialBalance()<=0) {
+                    user.setBalance(scanner.nextDouble());
+                    while (user.getBalance()<=0) {
                         logger.warn(resourceBundle.getString("app.balance.invalid"));
-                        user.setUserName(scanner.next());
+                        user.setUsername(scanner.next());
                     }
                     try{
                         services.callSave(user);
@@ -92,18 +97,17 @@ public class App
 
     }
     public static void loggingIn(){
-        User current=null;
+        org.database.User current=null;
         try{
             System.out.println(resourceBundle.getString("app.username"));
             current=services.callFindById(scanner.next());
-            System.out.println(resourceBundle.getString("app.password"));
-            String password=scanner.next();
             int maxAttempts = 5;
             int attempts = 0;
-            String validPassword = current.getUserPassword(); // Replace with your desired valid password
+            String validPassword = current.getPassword(); // Replace with your desired valid password
             while (attempts < maxAttempts) {
+//                System.out.println("enter p down");
                 System.out.println(resourceBundle.getString("app.password"));
-                password = scanner.nextLine();
+                String password = scanner.next();
                 try {
                     if (password.equals(validPassword)) {
                         logger.info(resourceBundle.getString("app.pass.ok"));
