@@ -1,0 +1,36 @@
+15:47:37.985 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+15:47:49.831 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+15:47:54.908 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+09:27:58.280 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+09:27:58.312 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+10:01:32.053 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+10:01:32.087 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+10:25:35.666 [34m[main][0;39m INFO  org.exceptionlog.Account - [34mIncorrect Pin[0;39m 
+10:25:40.666 [34m[main][0;39m INFO  org.exceptionlog.Account - [34mIncorrect Pin[0;39m 
+10:25:42.424 [34m[main][0;39m INFO  org.exceptionlog.Account - [34mIncorrect Pin[0;39m 
+10:25:44.391 [34m[main][0;39m INFO  org.exceptionlog.Account - [34mIncorrect Pin[0;39m 
+10:25:45.855 [31m[main][0;39m WARN  org.exceptionlog.Account - [31mYour account is blocked[0;39m 
+10:26:16.358 [34m[main][0;39m INFO  org.exceptionlog.Account - [34mEntered UPI PIN is valid[0;39m 
+10:26:16.388 [34m[main][0;39m INFO  org.exceptionlog.Account - [34mTransaction Completed[0;39m 
+10:27:13.900 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+10:27:22.657 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+10:27:22.657 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+10:28:21.483 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+10:28:23.290 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+10:28:23.290 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+10:36:27.970 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+10:36:30.065 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+10:36:30.069 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+23:08:13.125 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+23:08:26.960 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+23:08:26.960 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+23:12:52.672 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+23:12:52.703 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+23:14:07.069 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+23:14:14.168 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+23:14:14.174 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+23:16:07.009 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
+23:16:10.842 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+23:16:10.842 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+23:17:39.297 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mEntered UPI PIN is valid[0;39m 
+23:17:39.297 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
