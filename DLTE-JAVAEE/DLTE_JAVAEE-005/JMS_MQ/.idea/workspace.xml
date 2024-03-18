@@ -1,18 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20c40070-aeea-4fd0-a531-f2fe90e5591c" name="Default Changelist" comment="" />
+    <list default="true" id="20c40070-aeea-4fd0-a531-f2fe90e5591c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay-2024-03-13.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/JAVAEE_RMI_WORK.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/src/main/java/org/parse/xml/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/src/test/java/org/parse/xml/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/target/classes/org/parse/xml/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/target/classes/org/parse/xml/MyInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/target/classes/org/parse/xml/MyServer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/target/classes/org/parse/xml/MyUserClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/target/test-classes/org/parse/xml/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/user-logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/JAVAEE_RMI_WORK/user-logs.txt.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/Newtransaction.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/TASK_JAXB-940.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/src/main/java/org/example/xml/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/src/main/java/org/example/xml/transactionAnalysis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/src/test/java/org/example/xml/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/target/classes/org/example/xml/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/target/classes/org/example/xml/Transaction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/target/classes/org/example/xml/Unmarshalling.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/target/classes/org/example/xml/transactionAnalysis.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/target/test-classes/org/example/xml/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_JAVAEE-004/TASK_JAXB-940/transaction.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JMS_MQ.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/Consumer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/Provider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/gpay.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/AccountAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/AccountAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/Gpay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/java/org/exceptionlog/Gpay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/META-INF/TASK_EXPTN_LOG-429.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/AccountAnalysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/AccountAnalysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/Gpay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/classes/org/exceptionlog/Gpay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-005/TASK_EXPTN_LOG-429/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_App/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_App/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_App/src/main/employee.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_App/src/main/employee.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_App/src/main/java/org/consoleapp/EmployeeFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_App/src/main/java/org/consoleapp/EmployeeFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_DB/Employee_Console_DB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Console_DB/Employee_Console_DB.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Database/Employee_Database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE-JAVA-TechReview/Employee_Database/Employee_Database.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/DatabaseTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/DatabaseTarget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/UserDatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/UserDatabaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/main/java/org/database/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/test/java/org/database/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/src/test/java/org/database/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/classes/org/database/UserDatabaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/classes/org/database/UserDatabaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/classes/org/database/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/classes/org/database/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/classes/org/database/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/classes/org/database/UserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-DAOTask/target/test-classes/org/database/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-009/DLTE-Java-Project/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-012/TASK_FORKING-675/DLTE-Java-MyBankCreditCard-ConsoleApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-JAVA/DLTE_JAVA-012/TASK_FORKING-675/DLTE-Java-MyBankCreditCard-ConsoleApp/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2diKVKGFApKXuxPPCoNiFImX4LP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024\DLTE-JAVAEE\DLTE_JAVAEE-005\JMS_MQ\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Consumer">
+    <configuration name="Consumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Consumer" />
+      <module name="JMS_MQ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Provider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Provider" />
+      <module name="JMS_MQ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Consumer" />
+        <item itemvalue="Application.Provider" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -36,8 +185,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710485480717</updated>
-      <workItem from="1710485483328" duration="1000" />
+      <workItem from="1710485483328" duration="5457000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="164" key="FileChooserDialogImpl" timestamp="1710494455796">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="164" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710494455796" />
+    <state width="1493" height="124" key="GridCell.Tab.0.bottom" timestamp="1710497600190">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="124" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710497600190" />
+    <state width="1493" height="124" key="GridCell.Tab.0.center" timestamp="1710497600190">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="124" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710497600190" />
+    <state width="1493" height="124" key="GridCell.Tab.0.left" timestamp="1710497600190">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="124" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710497600190" />
+    <state width="1493" height="124" key="GridCell.Tab.0.right" timestamp="1710497600190">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="124" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710497600190" />
+    <state x="209" y="105" key="new project wizard" timestamp="1710494482395">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="105" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710494482395" />
   </component>
 </project>
