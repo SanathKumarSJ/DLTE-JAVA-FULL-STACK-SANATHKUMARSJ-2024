@@ -1,0 +1,5 @@
+org\test\soap\App.class
+web\SOAPService.class
+web\GroupTransaction.class
+web\EndPoint.class
+web\GroupUser.class
