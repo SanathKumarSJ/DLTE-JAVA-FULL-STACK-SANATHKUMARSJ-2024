@@ -14,17 +14,21 @@ public class AccountAPI {
     @Autowired
     AccountService accountService;
 
+    //post mapping for adding new account
     @PostMapping("/open")
-    public Account apiSave(Account account){
-        return accountService.callOpen(account);
+    public String apiSave(@RequestBody Account account){
+        return accountService.callSave(account)+ " added successfully";
     }
+
+    //get mapping for displaying all account
     @GetMapping("/")
     public List<Account> apiFindall(){
         return accountService.callDisplayAll();
     }
 
+    //put mapping for updating account
     @PutMapping("/update")
-    public String apiUpdate(Account account){
-        return accountService.callUpdate(account)+" updated";
+    public String apiUpdate(@RequestBody Account account){
+        return accountService.callSave(account)+" updated";
     }
 }

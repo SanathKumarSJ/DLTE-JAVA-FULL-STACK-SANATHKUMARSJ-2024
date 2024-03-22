@@ -12,16 +12,12 @@ public class AccountService {
     @Autowired
     AccountInterface accountInterface;
 
-
-    public Account callOpen(Account account){
+//save method for creating new account as well as updating
+    public Account callSave(Account account){
         return accountInterface.save(account);
     }
-
+//displaying all methods
     public List<Account> callDisplayAll(){
         return (List<Account>) accountInterface.findAll();
-    }
-
-    public Account callUpdate(Account account){
-        return accountInterface.save(account);
     }
 }
