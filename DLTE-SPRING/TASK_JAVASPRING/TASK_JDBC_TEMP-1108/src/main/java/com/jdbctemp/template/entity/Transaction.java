@@ -1,10 +1,10 @@
 package com.jdbctemp.template.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Transaction {
 
-    private String transactionId;
+    private Long transactionId;
     private Date transactionDate;
     private String transactionBy;
     private String transactionTo;
@@ -27,11 +27,11 @@ public class Transaction {
                 '}';
     }
 
-    public String getTransactionId() {
+    public Long getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(String transactionId) {
+    public void setTransactionId(Long transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -75,7 +75,7 @@ public class Transaction {
         this.transactionRemarks = transactionRemarks;
     }
 
-    public Transaction(String transactionId, Date transactionDate, String transactionBy, String transactionTo, Double transactionAmount, String transactionRemarks) {
+    public Transaction(Long transactionId, Date transactionDate, String transactionBy, String transactionTo, Double transactionAmount, String transactionRemarks) {
         this.transactionId = transactionId;
         this.transactionDate = transactionDate;
         this.transactionBy = transactionBy;
