@@ -33,3 +33,13 @@ Choose an option:
 00:27:59.553 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
 00:29:03.923 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
 00:30:47.330 [34m[main][0;39m INFO  org.consoleapp.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+09:50:38.047 [34m[main][0;39m INFO  EmployeeDatabaseRepository.class - [34mEmployee Details saved[0;39m 
+09:52:32.893 [34m[main][0;39m INFO  EmployeeDatabaseRepository.class - [34mEmployee Details saved[0;39m 
+11:53:59.291 [31m[main][0;39m WARN  org.example.EmployeeFile - [31mInvalid Username, Re-enter[0;39m 
+12:11:04.198 [34m[main][0;39m INFO  org.db.EmployeeDatabaseRepository - [34mEmployee Details saved[0;39m 
+12:11:04.200 [34m[main][0;39m INFO  org.example.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+09:40:03.488 [31m[main][0;39m WARN  org.employee.console.EmployeeFile - [31mInvalid Username, Re-enter[0;39m 
+09:40:27.720 [34m[main][0;39m INFO  org.employee.console.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+09:44:46.173 [34m[main][0;39m INFO  org.employee.console.EmployeeFile - [34mEmployee details saved successfully[0;39m 
+09:45:59.353 [34m[main][0;39m INFO  org.project1.Employee_DB - [34mEmployee Details saved[0;39m 
+09:45:59.359 [34m[main][0;39m INFO  org.employee.console.EmployeeFile - [34mEmployee details saved successfully[0;39m 

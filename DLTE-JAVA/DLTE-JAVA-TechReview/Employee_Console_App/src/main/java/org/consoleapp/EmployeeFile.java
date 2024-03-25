@@ -34,10 +34,6 @@ public class EmployeeFile implements EmplyeeInterface{
             switch (choice) {
                 case 1:
                     try {
-//                        EmployeePersonalDetails personalDetails = employeeFile.input();
-//                        employeeAllDetails.add(input());
-//                        EmployeeAddressDetails employeeAddressDetails = employeeFile.inputAdd();
-//                        employeeArray.add(employeeAddressDetails);
 
                         EmployeePersonalDetails employeePersonalDetails = new EmployeePersonalDetails();
 

@@ -1,4 +1,4 @@
-package org.project1;
+package org.exception;
 
 import java.util.ResourceBundle;
 
