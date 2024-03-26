@@ -1,0 +1,18 @@
+18:53:20.059 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34mdata is successfully collected[0;39m 
+18:53:20.074 [34m[main][0;39m INFO  org.backend.App - [34mAll the data is validated at backend[0;39m 
+18:53:20.445 [34m[main][0;39m INFO  org.backend.EmployeeDB - [34memployee details added [0;39m 
+18:55:09.410 [31m[main][0;39m WARN  o.employee.console.EmployeeConsole - [31mInvalid Username, Re-enter[0;39m 
+18:58:25.680 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34mData collected Successfully[0;39m 
+18:58:25.695 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+19:00:36.638 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34mData collected Successfully[0;39m 
+19:00:36.652 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+19:03:33.986 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34mData collected Successfully[0;39m 
+19:03:33.986 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+20:27:43.854 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+20:28:44.347 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+21:26:27.707 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34mData collected Successfully[0;39m 
+21:26:27.721 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+21:31:33.105 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34mData collected Successfully[0;39m 
+21:31:33.120 [34m[main][0;39m INFO  org.backend.App - [34muser phone validation failed[0;39m 
+21:31:33.120 [31m[main][0;39m WARN  o.employee.console.EmployeeConsole - [31mInvalid Username, Re-enter[0;39m 
+12:07:27.795 [34m[main][0;39m INFO  o.employee.console.EmployeeConsole - [34memployee details fetched[0;39m 

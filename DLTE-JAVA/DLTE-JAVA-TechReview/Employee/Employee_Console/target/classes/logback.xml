@@ -1,24 +1,38 @@
 <configuration>
 
-    <!-- Define appenders -->
-    <appender name="employee" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/JAVA_WORKSPACE/Logs/mylogs/app.log</file> <!-- Define log file name and path -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:/JAVA_WORKSPACE/Logs/mylogs/app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>2KB</maxFileSize>
+            <totalSizeCap>3KB</totalSizeCap>
+            <maxHistory>1</maxHistory>
+        </rollingPolicy>
+
         <encoder>
-            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Define file appender-->
-    <appender name="employeelog" class="ch.qos.logback.core.FileAppender">
-        <file>C:\DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024\DLTE-JAVA\DLTE-JAVA-TechReview\Employee\Employee_Console\src\main\employee.log </file> <!-- Define log file name and path -->
+    <!-- Define archive appender -->
+    <appender name="myLogsArchive" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/JAVA_WORKSPACE/Logs/Zips/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:/JAVA_WORKSPACE/Logs/Zips/app-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxFileSize>3KB</maxFileSize>
+            <totalSizeCap>3KB</totalSizeCap>
+            <maxHistory>1</maxHistory>
+        </rollingPolicy>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
     <!-- Root logger settings -->
     <root level="INFO">
-        <appender-ref ref="employee" />
-        <appender-ref ref="employeelog" /> <!-- Attach file appender -->
+        <appender-ref ref="myLogs" /> <!-- Attach file appender -->
+        <appender-ref ref="myLogsArchive" /> <!-- Attach archive appender -->
     </root>
 
 </configuration>

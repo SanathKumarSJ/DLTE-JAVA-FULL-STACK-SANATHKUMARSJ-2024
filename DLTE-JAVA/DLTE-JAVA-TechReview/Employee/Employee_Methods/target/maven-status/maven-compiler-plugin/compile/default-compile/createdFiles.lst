@@ -10,7 +10,6 @@ org\backend\DriverException.class
 org\exception\InvalidUserException.class
 org\exception\UserExist.class
 org\backend\EmployeeService.class
-org\exception\DriverException.class
 org\backend\Validation.class
 org\backend\DriverInitializer.class
 org\exception\EmployeeException.class

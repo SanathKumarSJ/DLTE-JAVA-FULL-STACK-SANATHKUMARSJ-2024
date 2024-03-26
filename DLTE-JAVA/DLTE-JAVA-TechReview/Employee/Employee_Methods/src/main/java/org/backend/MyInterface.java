@@ -13,4 +13,5 @@ public interface MyInterface {
     public ArrayList<Object> readFromFileAdd();
     List<EmployeePersonalDetails> display() throws IOException, SQLException;
     List<EmployeePersonalDetails> searchByPinCode(int pincode);
+    boolean delete(int EmployeeId);
 }

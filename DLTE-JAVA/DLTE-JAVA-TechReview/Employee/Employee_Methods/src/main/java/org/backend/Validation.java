@@ -10,47 +10,70 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validation {
+    String validate=null;
     static ResourceBundle resourceBundle= ResourceBundle.getBundle("validation");
     private static Logger logger= LoggerFactory.getLogger(App.class);
-    public void validateEmployee(EmployeePersonalDetails employee){
+
+    public String validateEmployee(EmployeePersonalDetails employee){
     if(!validateEmail(employee.getEmployeeEmail())){
         logger.info(resourceBundle.getString("validation.email"));
+        validate="email";
         throw new InvalidContactException("email");
+//        return "email";
+
     }
         if(!validatePhone(employee.getEmployeeContactNumber())) {
         logger.info(resourceBundle.getString("validation.phone"));
+        validate="phone";
         throw new InvalidContactException("phone number");
+//            return "phone";
     }
         if(!validateEmployeeId(employee.getEmployeeID())){
         logger.info(resourceBundle.getString("validation.id"));
+        validate="id";
         throw new InvalidContactException("Employee id");
+//            return "id";
     }
         if(!validateName(employee.getFirstNameOfEmployee())||!validateName(employee.getMiddleNameOfEmployee())||!validateName(employee.getLastNameOfEmployee()) ){
         logger.info(resourceBundle.getString("validation.name"));
+        validate="name";
         throw new InvalidUserException("Name");
+//        return "name";
     }
         if(!validateAdress(employee.getPermanentAddress().getHouseName())){
         logger.info(resourceBundle.getString("validation.house"));
+        validate="house";
         throw new InvalidUserException("House name");
+//        return "house";
     }
         if(!validateAdress(employee.getPermanentAddress().getCity())){
         logger.info(resourceBundle.getString("validation.city"));
+        validate="city";
         throw new InvalidUserException("City name");
+//        return "city";/
     }
         if(!validateAdress(employee.getPermanentAddress().getState())){
         logger.info(resourceBundle.getString("validation.state"));
+        validate="state";
         throw new InvalidUserException("State name");
+//        return "state";
     }
         if(!validateAdress(employee.getPermanentAddress().getStreetName())){
         logger.info(resourceBundle.getString("validation.street"));
+        validate="street";
         throw new InvalidUserException("Street name");
+//        return "street";
     }
         if(!validatePincode(employee.getPermanentAddress().getPincode()))
     {
         logger.info(resourceBundle.getString("validation.pin"));
+//        validate="pin";
         throw new InvalidUserException("Pincode");
+//        return "pin";
     }
         logger.info(resourceBundle.getString("validation.done"));
+        validate=null;
+        return validate;
 }
 
     public boolean validateName(String anyName){
@@ -76,7 +99,8 @@ public class Validation {
     }
 
 
-    public boolean validateEmail(String email) {
+    public boolean
+    validateEmail(String email) {
         String emailRegex = "^[A-Za-z0-9+-_]{3,}@[A-Za-z]{3,}(.)[A-Za-z]{2,}";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);

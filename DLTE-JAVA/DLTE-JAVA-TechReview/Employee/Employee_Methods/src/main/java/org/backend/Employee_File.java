@@ -100,5 +100,10 @@ public class Employee_File implements MyInterface{
         return null;
     }
 
+    @Override
+    public boolean delete(int EmployeeId) {
+        return false;
+    }
+
 
 }

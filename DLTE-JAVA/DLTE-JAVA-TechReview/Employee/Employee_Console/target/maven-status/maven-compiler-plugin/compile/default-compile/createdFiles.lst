@@ -1,4 +1,6 @@
-org\employee\console\EmployeeAddressDetails.class
-org\employee\console\EmployeeFile.class
+org\employee\console\entity\EmployeeAddressDetails.class
+org\employee\console\entity\EmployeePersonalDetails.class
+org\employee\console\exception\EmployeeException.class
+org\employee\console\EmployeeConsole.class
+org\employee\console\validation\Validation.class
 org\employee\console\App.class
-org\employee\console\EmployeePersonalDetails.class

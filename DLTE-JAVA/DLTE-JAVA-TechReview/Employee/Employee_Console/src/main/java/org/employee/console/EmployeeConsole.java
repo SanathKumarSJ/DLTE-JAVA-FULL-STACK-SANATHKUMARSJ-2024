@@ -5,6 +5,7 @@ import org.employee.console.validation.Validation;
 import org.exception.ConnectionException;
 import org.exception.InvalidContactException;
 import org.exception.InvalidUserException;
+import org.exception.NoDataException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,12 +47,15 @@ public class EmployeeConsole {
                         personalDetails2 = employeeConsole.inputPersonal(employee);
                         System.out.println(personalDetails2);
                         try {
+
                             String check = myInterface.input(personalDetails2);
-//                                System.out.println(resourceBundle.getString(check));
+                            System.out.println(resourceBundle.getString(check));
                         } catch (EmployeeException | ConnectionException | InvalidContactException | InvalidUserException exception) {
                             System.out.println(exception);
+                            System.out.println("here you can enter next entry");
+                            personalDetails2 = employeeConsole.inputPersonal(employee);
+                            String check2 = myInterface.input(personalDetails2);
                         }
-
                         System.out.println("Do you want to add one more record \n Enter --> yes to continue\n --> no to exit?");
                     } while (scanner.next().equalsIgnoreCase("yes"));
                     break;
@@ -81,9 +85,24 @@ public class EmployeeConsole {
                     }
                     List<org.employee.console.entity.EmployeePersonalDetails> employeePinList = new ArrayList<>();
                     employeePinList = employeeConsole.translateList(myPinList);
-                    employeeConsole.displayOutput(employeePinList);
-
+                    employeeConsole.displayPincodeOutput(employeePinList);
                 }
+
+                case 4:
+                    System.out.println("Enter Employee ID");
+                    int id=scanner.nextInt();
+                    try{
+                        boolean status= myInterface.delete(id);
+
+                        if(status==true){
+                            logger.info("employee record deleted");
+                        }
+                        else {
+                            logger.info("employee record not deleted");
+                        }
+                    }catch (NoDataException n){
+                        System.out.println(n);
+                    }
                 default:
                     System.exit(0);
             }
@@ -107,7 +126,7 @@ public class EmployeeConsole {
         employeePersonalDetails1.setFirstNameOfEmployee(scanner.nextLine());
 //        employeePersonalDetails2.setFirstNameOfEmployee(employeePersonalDetails1.getFirstNameOfEmployee());
         while (!validation.isValidUsername(employeePersonalDetails1.getFirstNameOfEmployee())) {
-            logger.warn(resourceBundle.getString("app.username.invalid"));
+//            logger.warn(resourceBundle.getString("app.username.invalid"));
             employeePersonalDetails1.setFirstNameOfEmployee(scanner.nextLine());
 //            employeePersonalDetails2.setFirstNameOfEmployee(employeePersonalDetails1.getFirstNameOfEmployee());
         }
@@ -155,7 +174,7 @@ public class EmployeeConsole {
         permenantAddress = new EmployeeAddressDetails(localPermenantAddress.getHouseName(), localPermenantAddress.getStreetName(), localPermenantAddress.getCity(), localPermenantAddress.getState(), localPermenantAddress.getPincode());
         employeeConsole.inputAdd(localtemporaryAddress);
         temporaryAddress = new EmployeeAddressDetails(localtemporaryAddress.getHouseName(), localtemporaryAddress.getStreetName(), localtemporaryAddress.getCity(), localtemporaryAddress.getState(), localtemporaryAddress.getPincode());
-        logger.info(resourceBundle.getString("data.collected"));
+        logger.info("Data collected Successfully");
         return new EmployeePersonalDetails(employeePersonalDetails1.getFirstNameOfEmployee(), employeePersonalDetails1.getMiddleNameOfEmployee(), employeePersonalDetails1.getLastNameOfEmployee(), employeePersonalDetails1.getEmployeeID(), employeePersonalDetails1.getEmployeeContactNumber(), employeePersonalDetails1.getEmployeeEmail(), permenantAddress, temporaryAddress);
     }
 
@@ -202,7 +221,6 @@ public class EmployeeConsole {
             employeeList.get(index).setEmployeeID(detailsList.get(index).getEmployeeID());
             employeeList.get(index).setEmployeeContactNumber(detailsList.get(index).getEmployeeContactNumber());
             employeeList.get(index).setEmployeeEmail(detailsList.get(index).getEmployeeEmail());
-            // employeeList.get(index).setPermenantAddress(empList.get(index).getPermenantAddress());
 
             org.employee.console.entity.EmployeeAddressDetails address = new org.employee.console.entity.EmployeeAddressDetails();
             address.setHouseName(detailsList.get(index).getPermanentAddress().getHouseName());
@@ -236,4 +254,21 @@ public class EmployeeConsole {
 
         }
     }
+
+    public void displayPincodeOutput(List<org.employee.console.entity.EmployeePersonalDetails> employeeList) {
+        int count = 1;
+        for (org.employee.console.entity.EmployeePersonalDetails each : employeeList) {
+            System.out.println("\nList of Employee " + count);
+            count++;
+            System.out.println("Name : " + each.getFirstNameOfEmployee() + "\nEmployeeId " + each.getEmployeeID() + "\nEmail " + each.getEmployeeEmail());
+            System.out.println("Permanent Address\n" + each.getPermanentAddress().getHouseName() + "," + each.getPermanentAddress().getStreetName() + "," + each.getPermanentAddress().getCity() + "," + each.getPermanentAddress().getState() + " - " + each.getPermanentAddress().getPincode());
+            System.out.println("Temporary Address\n" + each.getTemporaryAddress().getHouseName() + "," + each.getTemporaryAddress().getStreetName() + "," + each.getTemporaryAddress().getCity() + "," + each.getTemporaryAddress().getState() + " - " + each.getTemporaryAddress().getPincode());
+
+        }
+    }
 }
+
+//    ALTER TABLE EMPLOYEEPERMANENTADDRESS
+//        ADD FOREIGN KEY (EmployeeID)
+//        REFERENCES EMPLOYEEPERSONAL(EmployeeID)
+//        ON  DELETE CASCADE;
