@@ -4,10 +4,12 @@ import com.jpa.hqlsql.jpahqlsql.entity.Transaction_JPA;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.sound.midi.Track;
 import java.util.List;
 
+@Repository
 public interface MyJPARepo extends JpaRepository<Transaction_JPA,Long> {
 
     //SQL to find transaction based on given name and type range
