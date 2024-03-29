@@ -1,4 +1,4 @@
-package org.backend;
+package org.backend.connection;
 
 import oracle.jdbc.driver.OracleDriver;
 import org.exception.ConnectionException;

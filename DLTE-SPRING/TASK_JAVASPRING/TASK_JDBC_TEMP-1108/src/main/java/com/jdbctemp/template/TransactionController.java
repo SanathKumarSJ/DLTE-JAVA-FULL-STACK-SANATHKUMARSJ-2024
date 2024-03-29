@@ -6,6 +6,7 @@ import com.jdbctemp.template.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 //Rest controller
@@ -15,7 +16,20 @@ public class TransactionController {
     @Autowired
     TransactionService transactionService;
 
-    //APi's
+
+    // view all
+    @GetMapping("/all")
+    public List<Transaction> findall(){
+        List<Transaction> transactionList=null;
+        try{
+            transactionList=transactionService.apiFindAll();
+        }catch (TransactionException tr){
+            throw new TransactionException();
+        }
+        return transactionList;
+    }
+
+
     @PostMapping("/new")
     public String save(@RequestBody Transaction transaction){
         Transaction transaction1=null;
@@ -46,4 +60,5 @@ public class TransactionController {
     public Optional<Transaction> findAmount(@PathVariable("amount") Double amount){
         return transactionService.apiFindAmount(amount);
     }
+
 }

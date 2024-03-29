@@ -8,7 +8,7 @@ public class PersonalLoan implements MyLoanInterface {
     public List<Loan> find() {
         List<Loan> personalList=new ArrayList<>();
         for(Loan each:loansList){
-            if(each.getLoanType().equalsIgnoreCase("home")){
+            if(each.getLoanType().equalsIgnoreCase("personal")){
                 personalList.add(each);
             }
         }
