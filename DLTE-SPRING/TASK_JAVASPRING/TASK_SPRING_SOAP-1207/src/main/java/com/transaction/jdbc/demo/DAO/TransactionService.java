@@ -68,7 +68,7 @@ public class TransactionService {
     }
 
     public String removeOnDate(Date date1, Date date2){
-        int ack = jdbcTemplate.update("delete from Transaction_jdbc where TRANSACTIONDATE BETWEEN ? OR ?",new Object[]{date1,date2});
+        int ack = jdbcTemplate.update("delete from Transaction_jdbc WHERE TRANSACTIONDATE BETWEEN ? OR ?",new Object[]{date1,date2});
         if(ack!=0)
             return "removed";
         else
