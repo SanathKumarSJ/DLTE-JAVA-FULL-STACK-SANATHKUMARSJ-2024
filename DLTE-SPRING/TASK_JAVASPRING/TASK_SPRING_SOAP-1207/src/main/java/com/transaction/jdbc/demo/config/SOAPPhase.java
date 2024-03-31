@@ -2,6 +2,7 @@ package com.transaction.jdbc.demo.config;
 
 import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import com.fasterxml.jackson.databind.BeanProperty;
+import com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl;
 import com.transaction.jdbc.demo.DAO.Transaction;
 import com.transaction.jdbc.demo.DAO.TransactionService;
 import org.springframework.beans.BeanUtils;
@@ -13,6 +14,8 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import services.transaction.*;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -167,7 +170,7 @@ public class SOAPPhase {
     //---------------Delete on given date
     @PayloadRoot(namespace = url, localPart = "RemoveRequest")
     @ResponsePayload
-    public RemoveResponse removeOnDate(@RequestBody RemoveRequest removeRequest){
+    public RemoveResponse removeOnDate(@RequestBody RemoveRequest removeRequest) throws DatatypeConfigurationException {
         RemoveResponse removeResponse=new RemoveResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
 //        String check=transactionService.removeOnDate()
@@ -175,7 +178,6 @@ public class SOAPPhase {
 
         Date startDate=removeRequest.getStartDate().toGregorianCalendar().getTime();
         Date endDate=removeRequest.getEndDate().toGregorianCalendar().getTime();
-
         String result = transactionService.removeOnDate(startDate,endDate);
 //        if (result.equals("removed")) {
             serviceStatus.setStatus("Transaction record removed");
