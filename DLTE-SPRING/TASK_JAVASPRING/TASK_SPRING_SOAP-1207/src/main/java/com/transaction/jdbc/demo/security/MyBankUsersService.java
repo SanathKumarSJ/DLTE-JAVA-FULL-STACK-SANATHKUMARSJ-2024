@@ -15,11 +15,10 @@ public class MyBankUsersService implements UserDetailsService {
 
 
     public MyBankUsers signingUp(MyBankUsers myBankUsers){
-        int ack = jdbcTemplate.update("insert into MyBankUsers values(?,?,?,?,?,?,?)",new Object[]{
+        int ack = jdbcTemplate.update("insert into MyBankUsers values(?,?,?,?,?,?,?,?)",new Object[]{
                 //create table MyBankUsers(name varchar(255),username varchar(255), password varchar(255), contact number, email varchar(255),adhar number,role varchar(255));
                 myBankUsers.getName(),myBankUsers.getUsername(),
-                myBankUsers.getPassword(),myBankUsers.getContact(),myBankUsers.getEmail(),myBankUsers.getAdhar(),myBankUsers.getRole()
-        });
+                myBankUsers.getPassword(),myBankUsers.getContact(),myBankUsers.getEmail(),myBankUsers.getAdhar(),myBankUsers.getRole(),myBankUsers.getAddress()        });
         return myBankUsers;
     }
 

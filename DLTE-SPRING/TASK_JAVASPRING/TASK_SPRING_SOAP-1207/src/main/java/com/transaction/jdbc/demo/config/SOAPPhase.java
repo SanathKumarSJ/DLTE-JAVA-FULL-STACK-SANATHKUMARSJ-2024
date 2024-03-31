@@ -7,6 +7,7 @@ import com.transaction.jdbc.demo.DAO.Transaction;
 import com.transaction.jdbc.demo.DAO.TransactionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -27,6 +28,7 @@ public class SOAPPhase {
     @Autowired
     private TransactionService transactionService;
 
+    @PreAuthorize("hasAuthority('admin')")
     @PayloadRoot(namespace = url,localPart = "newTransactionRequest")
     @ResponsePayload
     public services.transaction.NewTransactionResponse addNewTransaction(@RequestPayload services.transaction.NewTransactionRequest newTransactionRequest){
@@ -63,6 +65,7 @@ public class SOAPPhase {
     }
 
     //-----------------------findBySender----------------
+    @PreAuthorize("hasAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "findBySenderRequest")
     @ResponsePayload
     public FindBySenderResponse findBySenderRequest(@RequestPayload FindBySenderRequest findBySenderRequest){
@@ -86,7 +89,7 @@ public class SOAPPhase {
         return findBySenderResponse;
     }
 
-
+    @PreAuthorize("hasAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "findByReceiveRequest")
     @ResponsePayload
     public FindByReceiveResponse findByReceiveResponse(@RequestPayload FindByReceiveRequest findByReceiveRequest){
@@ -110,7 +113,7 @@ public class SOAPPhase {
         return findByReceiveResponse;
     }
 
-
+    @PreAuthorize("hasAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "findByAmountRequest")
     @ResponsePayload
     public FindByAmountResponse findByAmountRequest(@RequestPayload FindByAmountRequest findByAmountRequest) {
@@ -133,7 +136,7 @@ public class SOAPPhase {
         return findByAmountResponse;
     }
 
-
+    @PreAuthorize("hasAnyAuthority('manager','admin')")
     //---------------------updateRemarks-------------
     @PayloadRoot(namespace=url, localPart = "updateRemarksRequest")
     @ResponsePayload
@@ -168,6 +171,7 @@ public class SOAPPhase {
 
 
     //---------------Delete on given date
+    @PreAuthorize("hasAuthority('admin')")
     @PayloadRoot(namespace = url, localPart = "RemoveRequest")
     @ResponsePayload
     public RemoveResponse removeOnDate(@RequestBody RemoveRequest removeRequest) throws DatatypeConfigurationException {

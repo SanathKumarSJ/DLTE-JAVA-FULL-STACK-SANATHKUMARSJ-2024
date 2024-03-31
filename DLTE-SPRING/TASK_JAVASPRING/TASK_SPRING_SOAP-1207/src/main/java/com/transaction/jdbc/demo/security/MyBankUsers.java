@@ -15,9 +15,20 @@ public class MyBankUsers implements UserDetails {
     private long contact;
     private String email;
     private long adhar;
+
+    //Authority
     private String role;
+    private String address;
 
     public MyBankUsers() {
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getRole() {
@@ -28,7 +39,7 @@ public class MyBankUsers implements UserDetails {
         this.role = role;
     }
 
-    public MyBankUsers(String name, String username, String password, long contact, String email, long adhar, String role) {
+    public MyBankUsers(String name, String username, String password, long contact, String email, long adhar, String role, String address) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -36,6 +47,7 @@ public class MyBankUsers implements UserDetails {
         this.email = email;
         this.adhar = adhar;
         this.role = role;
+        this.address = address;
     }
 
     public String getName() {
@@ -75,6 +87,7 @@ public class MyBankUsers implements UserDetails {
         this.username = username;
     }
 
+    //Authorize based on role
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<SimpleGrantedAuthority> authorities=new ArrayList<>();
