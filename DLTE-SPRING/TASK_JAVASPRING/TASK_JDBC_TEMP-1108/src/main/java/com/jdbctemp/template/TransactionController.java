@@ -6,6 +6,7 @@ import com.jdbctemp.template.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,4 +62,14 @@ public class TransactionController {
         return transactionService.apiFindAmount(amount);
     }
 
+    //update transaction details on remarks
+    @PutMapping("/update")
+    public Transaction updateRemarks(@RequestBody Transaction transaction){
+        return transactionService.updateOnRemark(transaction);
+    }
+
+    @DeleteMapping("/delete/{date1}/{date2}")
+    public String deleteRecord(@PathVariable ("date1") Date date1, @PathVariable ("date2") Date date2){
+        return transactionService.removeOnDate(date1,date2);
+    }
 }
