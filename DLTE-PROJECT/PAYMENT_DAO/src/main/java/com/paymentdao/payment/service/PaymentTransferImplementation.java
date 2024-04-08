@@ -32,16 +32,11 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
     @Override
     public List<Payee> findAllPayee(Long accountNumber) throws SQLSyntaxErrorException {
         List<Payee> payees;
-//        try {
+
 
             payees= jdbcTemplate.query("select PAYEE_ID,SENDER_ACCOUNT_NUMBER,PAYEE_ACCOUNT_NUMBER,PAYEE_NAME from MYBANK_APP_PAYEE where sender_account_number=?",
                     new Object[]{accountNumber},
                     new PayeeMapper());
-
-//        }catch (DataAccessException sqlException){
-//            logger.warn(resourceBundle.getString("payee.fail"));
-//            throw new SQLSyntaxErrorException();
-//        }
 
         if(payees.size()==0){
             logger.info(resourceBundle.getString("no.payee"));
@@ -54,6 +49,8 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
         return payees;
     }
 
+
+    //----------------fetch all the payee record-----------------------------
     @Override
     public List<Payee> fetchAllPayeeDetails() throws SQLSyntaxErrorException {
         List<Payee> payees;

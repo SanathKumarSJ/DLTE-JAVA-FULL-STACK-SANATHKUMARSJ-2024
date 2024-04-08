@@ -43,26 +43,32 @@ public class SoapPhase {
         List<Payee> payees = new ArrayList<>();
         try {
             List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayee(findAllPayeeRequest.getSenderAccount());
+            //lambda expression to fetch the payee data
             daoPayee.forEach(each -> {
                 Payee currentPayee = new Payee();
                 BeanUtils.copyProperties(each, currentPayee);
                 payees.add(currentPayee);
             });
+
+            // if the data fetched setting http code to 200 OK
             serviceStatus.setStatus(HttpStatus.OK.value());
             serviceStatus.setMessage(resourceBundle.getString("Payee.fetched"));
             logger.info(resourceBundle.getString("Payee.fetched"));
+            findAllPayeeResponse.setServiceStatus(serviceStatus);
+            findAllPayeeResponse.getPayee().addAll(payees);
+            return findAllPayeeResponse;
         }catch (PayeeException payeeEx){
-            serviceStatus.setStatus(HttpStatus.NO_CONTENT.value());
+            //setting no content 204 http code
+            serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
             serviceStatus.setMessage(payeeEx.getMessage());
             findAllPayeeResponse.setServiceStatus(serviceStatus);
+
+            //returning the response
             return findAllPayeeResponse;
         }
-
-        findAllPayeeResponse.setServiceStatus(serviceStatus);
-        findAllPayeeResponse.getPayee().addAll(payees);
-        return findAllPayeeResponse;
     }
 
+    //-----------------------Fetch all the records----------------------------------------
     @PayloadRoot(namespace = url, localPart = "fetchAllPayeeRequest")
     @ResponsePayload
     public FetchAllPayeeResponse fetchAll(@RequestPayload FetchAllPayeeRequest fetchAllPayeeRequest) throws SQLSyntaxErrorException {

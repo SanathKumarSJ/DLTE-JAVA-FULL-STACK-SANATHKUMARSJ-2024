@@ -137,7 +137,7 @@ public class EndPointTesting {
 
 
 //checking the list size
-        assertEquals("3", response.getPayee().size());
+        assertEquals(3, response.getPayee().size());
 
     }
 
