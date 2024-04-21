@@ -57,7 +57,7 @@ public class SoapPhase {
             findAllPayeeResponse.setServiceStatus(serviceStatus);
             findAllPayeeResponse.getPayee().addAll(payees);
             return findAllPayeeResponse;
-        }catch (PayeeException payeeEx){
+        } catch (PayeeException payeeEx) {
             //setting no content 204 http code
             serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
             serviceStatus.setMessage(payeeEx.getMessage());
@@ -67,35 +67,36 @@ public class SoapPhase {
             return findAllPayeeResponse;
         }
     }
+}
 
     //-----------------------Fetch all the records----------------------------------------
-    @PayloadRoot(namespace = url, localPart = "fetchAllPayeeRequest")
-    @ResponsePayload
-    public FetchAllPayeeResponse fetchAll(@RequestPayload FetchAllPayeeRequest fetchAllPayeeRequest) throws SQLSyntaxErrorException {
-        FetchAllPayeeResponse fetchAllPayeeResponse = new FetchAllPayeeResponse();
-        ServiceStatus serviceStatus = new ServiceStatus();
-        List<Payee> payees = new ArrayList<>();
-        try{
-        List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.fetchAllPayeeDetails();
-        Iterator<com.paymentdao.payment.entity.Payee> iterator = daoPayee.iterator();
-        while (iterator.hasNext()) {
-            Payee currentPayee = new Payee();
-            BeanUtils.copyProperties(iterator.next(), currentPayee);
-            payees.add(currentPayee);
-
-            serviceStatus.setStatus(HttpStatus.OK.value());
-            serviceStatus.setMessage(resourceBundle.getString("Payee.all"));
-            logger.info(resourceBundle.getString("Payee.all"));
-        }
-        }catch (PayeeException payeeEx){
-            serviceStatus.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            serviceStatus.setMessage(payeeEx.getMessage());
-        }
-            fetchAllPayeeResponse.setServiceStatus(serviceStatus);
-            fetchAllPayeeResponse.getPayee().addAll(payees);
-            return fetchAllPayeeResponse;
-        }
-    }
+//    @PayloadRoot(namespace = url, localPart = "fetchAllPayeeRequest")
+//    @ResponsePayload
+//    public FetchAllPayeeResponse fetchAll(@RequestPayload FetchAllPayeeRequest fetchAllPayeeRequest) throws SQLSyntaxErrorException {
+//        FetchAllPayeeResponse fetchAllPayeeResponse = new FetchAllPayeeResponse();
+//        ServiceStatus serviceStatus = new ServiceStatus();
+//        List<Payee> payees = new ArrayList<>();
+//        try{
+//        List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.fetchAllPayeeDetails();
+//        Iterator<com.paymentdao.payment.entity.Payee> iterator = daoPayee.iterator();
+//        while (iterator.hasNext()) {
+//            Payee currentPayee = new Payee();
+//            BeanUtils.copyProperties(iterator.next(), currentPayee);
+//            payees.add(currentPayee);
+//
+//            serviceStatus.setStatus(HttpStatus.OK.value());
+//            serviceStatus.setMessage(resourceBundle.getString("Payee.all"));
+//            logger.info(resourceBundle.getString("Payee.all"));
+//        }
+//        }catch (PayeeException payeeEx){
+//            serviceStatus.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+//            serviceStatus.setMessage(payeeEx.getMessage());
+//        }
+//            fetchAllPayeeResponse.setServiceStatus(serviceStatus);
+//            fetchAllPayeeResponse.getPayee().addAll(payees);
+//            return fetchAllPayeeResponse;
+//        }
+//    }
 
 //        Iterator<com.paymentdao.payment.entity.Payee> iterator=daoPayee.iterator();
 

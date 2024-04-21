@@ -1,6 +1,8 @@
 package com.payment.webservice.security;
 
 
+import com.paymentdao.payment.entity.MyBankOfficials;
+import com.paymentdao.payment.service.MyBankOfficialsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +25,12 @@ public class MyBankSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException, IOException, ServletException {
         MyBankOfficials myBankOfficials= (MyBankOfficials) authentication.getPrincipal();
-        if(myBankOfficials.getStatus()!=0){
+        if(myBankOfficials.getCustomerStatus().equalsIgnoreCase("active")){
             if(myBankOfficials.getAttempts()>1){
                 myBankOfficials.setAttempts(1);
                 service.updateAttempts(myBankOfficials);
             }
-            super.setDefaultTargetUrl("http://localhost:8082/payeerepo/Payee.wsdl");
+//            super.setDefaultTargetUrl("http://localhost:8082/payeerepo/Payee.wsdl");
         }
         else{
             logger.warn("Max attempts reached contact admin");

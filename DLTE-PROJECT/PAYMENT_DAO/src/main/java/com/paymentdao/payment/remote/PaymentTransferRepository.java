@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface PaymentTransferRepository {
     List<Payee> findAllPayee(Long accountNumber) throws SQLSyntaxErrorException;
-    List<Payee> fetchAllPayeeDetails() throws SQLSyntaxErrorException;
+    String addNewPayee(Payee payee);
+//    String addNewPayee(Payee payee,Long senderAccountNumber);
 }

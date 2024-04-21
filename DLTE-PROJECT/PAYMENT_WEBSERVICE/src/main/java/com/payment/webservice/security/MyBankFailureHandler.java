@@ -1,6 +1,8 @@
 package com.payment.webservice.security;
 
 
+import com.paymentdao.payment.entity.MyBankOfficials;
+import com.paymentdao.payment.service.MyBankOfficialsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,8 @@ public class MyBankFailureHandler extends SimpleUrlAuthenticationFailureHandler 
         String username = request.getParameter("username");
         MyBankOfficials myBankOfficials = service.findByUsername(username);
         if(myBankOfficials!=null){
-            if(myBankOfficials.getStatus()==1){
+            logger.info(myBankOfficials.getCustomerName()+myBankOfficials.getUserName()+myBankOfficials.getCustomerContact());
+            if(myBankOfficials.getCustomerStatus().equalsIgnoreCase("active")){
                 if(myBankOfficials.getAttempts()< myBankOfficials.getMaxAttempt()){
                     myBankOfficials.setAttempts(myBankOfficials.getAttempts()+1);
                     service.updateAttempts(myBankOfficials);
