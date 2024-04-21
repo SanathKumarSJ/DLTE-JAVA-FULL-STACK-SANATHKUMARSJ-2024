@@ -1,0 +1,66 @@
+.banner{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background: linear-gradient(15deg,rgb(108, 121, 221),rgb(0, 32, 128));
+    color: white;
+    font-family: Georgia;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgb(229, 237, 186);
+}
+
+h2{
+    color: black;
+    text-align: center;
+    font-family: Georgia;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px powderblue;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    color:rgb(0, 0, 0);
+    font-family: Georgia;
+}
+.column{
+    border-radius: 2px;
+    box-shadow: 2px 10px 10px rgb(127, 127, 127);
+    padding: 15px;
+}
+.input-group{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+input{
+    border-radius: 30px;
+    color: black;
+    background-color:transparent
+}
+#dates{
+    width: 58%;
+}
+.file{
+    display: flex;
+    flex-direction: column;
+
+}
+.btn-group{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+}
+select{
+    color: rgb(0, 0, 0);
+    background-color: rgb(204, 206, 244);
+    font-size: 14px;   
+}
+.container{
+    height:100px;
+}
