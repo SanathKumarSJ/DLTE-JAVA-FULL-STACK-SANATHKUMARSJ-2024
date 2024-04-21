@@ -1,0 +1,126 @@
+.banner{
+ 
+    display: flex;
+    width: 100%;
+    height: 80px;
+   padding: 5px;
+    justify-content: space-between;
+    background: linear-gradient(15deg,rgb(148, 152, 227),rgb(0, 6, 128));
+    background-blend-mode: color-dodge;
+    color: white;
+    font-size: large;
+    font-family: Georgia;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px powderblue;
+}
+.banner h1{
+    font-size: 50px;
+}
+h2{
+    color: purple;
+    text-align: center;
+    font-family: Georgia;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px powderblue;
+}
+.row2{
+    display: flex;
+    justify-content: space-around;
+    margin:5px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(95, 91, 95);
+    padding: 5px;
+    align-items: center;
+    color:purple;
+    font-family: Georgia;
+}
+
+.row3{
+    display: flex;
+    justify-content: center;
+    margin:5px;
+    margin-top: 10px;
+    margin-left:800px;
+    margin-right: 100px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(95, 91, 95);
+    padding: 5px;
+    align-items: center;
+    color:purple;
+    font-family: Georgia;
+}
+.logo {
+    /* margin-right: 20px; */
+    position: absolute;
+    top:120px; /* Adjust as needed */
+    left: 250px; /* Adjust as needed */
+}
+.container{
+
+    width: 100%;
+    justify-content: start;
+    margin-left:430px;
+    margin-right: 1px;
+    border-radius: 5px;
+}
+
+.account {
+    
+    text-align: left;
+    position: absolute;
+    top:250px; 
+    left: 100px;
+}
+.row1{
+    position: absolute;
+    top:330px; 
+    left: 100px; 
+    right:500px;
+}
+
+
+.newcontainer {
+    width: 100%;
+    height: 100%;
+}
+.row6{
+    height: 0vh;
+    margin-left: 700px;
+}
+.logo2 {
+    /* margin-right: 20px; */
+    position: absolute;
+    top:120px; /* Adjust as needed */
+    left: 200px; /* Adjust as needed */
+}
+.row7{
+    height: 0vh;
+    margin-left: 700px;
+  
+}
+.newcontainer2 {
+    width: 100%;
+    height: 100%;
+}
+.heading{
+    color: purple;
+    text-align: center;
+    font-family: Georgia;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px powderblue;
+    margin-top: 0;
+    height: 0;
+    margin-left:40px;
+}
+/* h1{
+    color: rgb(128, 0, 0);
+    text-align: center;
+    font-family: Georgia;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px rgb(1, 1, 1);
+} */
