@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>My Bank</title>
+    <link rel="stylesheet" href="external/form.css" />
+</head>
+<body>
+ 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="row">
+    <div>
+        <img src="external/MYBANK.png" width="400px" height="400px">
+    </div>
+        <form name="Cheque" action="#" class="column">
+            <div class="input-group">
+                <label>Account number</label>
+                <input type="number" name="accountnumber" placeholder="Account Number" />
+            </div>    
+                <div class="input-group">
+                <label>Account Holder</label>
+                <input type="text" name="accountholder" placeholder="Account Holder" />
+            </div>
+            <div class="input-group">
+                <label>Contact number</label>
+                <input type="number" name="contactnumber" placeholder="Contact Number" />
+            </div>    
+
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" name="Email" placeholder="Applicant's Email" />
+            </div>
+            <!-- Radio Buttons -->
+
+            <div class="input-group">
+                <label>Account Type</label>
+                <div>
+                    <input type="radio" name="accountType" value="savings" />Savings
+                    <input type="radio" name="accountType" value="business" />Business
+                    <input type="radio" name="accountType" value="fixed" />Fixed Deposit
+                    <input type="radio" name="accountType" value="salary" />Salary Account
+                </div>
+            </div>
+
+<!-- select -->
+            <div class="input-group">
+                <label for="chequtype">Cheque Book Type</label>
+                <select id="chequetype" name="chequetype">
+                    <option value="Single">Self Cheque</option>
+                    <option value="Single">Open Cheque</option>
+                    <option value="Duplicate">Post-Dated Cheque</option>
+                    <option value="Single">Traveller's Cheque</option>
+            
+                </select>
+            </div>
+
+            <!-- Date of apply -->
+            <div class="input-group">
+                <label>Date of apply</label>
+                <input id="dates" type="date" name="dateofapply" placeholder="Date of apply" />
+            </div>
+
+            <!-- Address -->
+            <div class="input-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address"></textarea>
+            </div>
+
+            <!-- Signature -->
+            <div class="file">
+                <label>Applicant Sign</label>
+                <input type="file" name="applicantsign" placeholder="Attach your signature" />
+            </div>
+
+
+            <div class="checkbox">
+                <input type="checkbox" id="termsAndConditions" name="termsAndConditions">
+                <label for="termsAndConditions">I agree to the Terms and Conditions</label>
+            </div>
+    
+
+            <div class="btn-group">
+                <input type="submit" value="Apply"/>
+                <input type="reset" value="Cancel"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
