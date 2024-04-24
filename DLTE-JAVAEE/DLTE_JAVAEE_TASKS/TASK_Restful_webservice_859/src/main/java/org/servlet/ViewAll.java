@@ -1,24 +1,26 @@
-package org.webrest;
-
+package org.servlet;
 
 import com.google.gson.Gson;
 import org.database.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.webrest.FindAllTransaction;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-@WebServlet(name = "FindAllByName", value = "/findtxn/*")
-public class FindAllTransaction extends HttpServlet {
+
+@WebServlet("/view")
+public class ViewAll extends HttpServlet {
+
     UserServices userService;
     private Logger logger;
     private ResourceBundle resourceBundle;
@@ -32,21 +34,11 @@ public class FindAllTransaction extends HttpServlet {
     }
 
 
-    //Getting list of transactions based on username
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
-        try {
-            List<Transaction> transactions = userService.callFindAllTransaction();
-            Gson gson = new Gson();
-            String responseData = gson.toJson(transactions);
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.getWriter().println(responseData);
-        }
-        catch (UserException | MissingResourceException userException){
-            resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            resp.getWriter().println(resourceBundle.getString("user.not.found"));
-        }
+        List<Transaction> transactions = userService.callFindAllTransaction();
+        RequestDispatcher dispatcher = req.getRequestDispatcher("viewAll.jsp");
+        req.setAttribute("myTransaction", transactions);
+        dispatcher.include(req, resp);
     }
-
 }

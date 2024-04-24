@@ -1,24 +1,27 @@
-package org.webrest;
+package org.servlet;
 
-
-import com.google.gson.Gson;
-import org.database.*;
+import org.database.DatabaseTarget;
+import org.database.StorageTarget;
+import org.database.Transaction;
+import org.database.UserServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.webrest.FindAllTransaction;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 import java.util.List;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-@WebServlet(name = "FindAllByName", value = "/findtxn/*")
-public class FindAllTransaction extends HttpServlet {
+
+@WebServlet("/viewByUsername")
+public class ViewTransactionByName extends HttpServlet {
+
     UserServices userService;
     private Logger logger;
     private ResourceBundle resourceBundle;
@@ -32,21 +35,14 @@ public class FindAllTransaction extends HttpServlet {
     }
 
 
-    //Getting list of transactions based on username
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
-        try {
-            List<Transaction> transactions = userService.callFindAllTransaction();
-            Gson gson = new Gson();
-            String responseData = gson.toJson(transactions);
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.getWriter().println(responseData);
-        }
-        catch (UserException | MissingResourceException userException){
-            resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            resp.getWriter().println(resourceBundle.getString("user.not.found"));
-        }
+        String username = req.getParameter("name");
+        List<Transaction> transactions = userService.callFindByUsername(username);
+        System.out.println(username);
+        System.out.println(transactions.get(0).getTransactionDoneBy());
+        RequestDispatcher dispatcher = req.getRequestDispatcher("viewByUsername.jsp");
+        req.setAttribute("myList", transactions);
+        dispatcher.include(req, resp);
     }
-
 }
