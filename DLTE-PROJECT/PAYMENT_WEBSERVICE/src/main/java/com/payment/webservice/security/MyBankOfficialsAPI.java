@@ -1,6 +1,6 @@
 package com.payment.webservice.security;
 
-import com.paymentdao.payment.entity.MyBankOfficials;
+import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.service.MyBankOfficialsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,8 +18,8 @@ public class MyBankOfficialsAPI {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public MyBankOfficials save(@RequestBody MyBankOfficials myBankOfficials){
-        myBankOfficials.setPassword(passwordEncoder.encode(myBankOfficials.getPassword()));
-        return service.signingUp(myBankOfficials);
+    public Customer save(@RequestBody Customer customer){
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        return service.signingUp(customer);
     }
 }

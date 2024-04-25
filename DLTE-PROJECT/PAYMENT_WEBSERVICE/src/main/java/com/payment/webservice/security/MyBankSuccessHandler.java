@@ -1,7 +1,6 @@
 package com.payment.webservice.security;
 
-
-import com.paymentdao.payment.entity.MyBankOfficials;
+import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.service.MyBankOfficialsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,27 +13,32 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ResourceBundle;
+
 
 @Component
 public class MyBankSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     @Autowired
     MyBankOfficialsService service;
-
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("payee");
     Logger logger= LoggerFactory.getLogger(MyBankSuccessHandler.class);
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException, IOException, ServletException {
-        MyBankOfficials myBankOfficials= (MyBankOfficials) authentication.getPrincipal();
-        if(myBankOfficials.getCustomerStatus().equalsIgnoreCase("active")){
-            if(myBankOfficials.getAttempts()>1){
-                myBankOfficials.setAttempts(1);
-                service.updateAttempts(myBankOfficials);
+        Customer customer= (Customer) authentication.getPrincipal();
+        if(customer.getCustomerStatus().equalsIgnoreCase("active")) {
+            if (customer.getAttempts() > 1) {
+                customer.setAttempts(1);
+                service.updateAttempts(customer);
+                logger.info(resourceBundle.getString("update.attempts"));
             }
-//            super.setDefaultTargetUrl("http://localhost:8082/payeerepo/Payee.wsdl");
+            logger.info(resourceBundle.getString("url.redirect"));
+            super.setDefaultTargetUrl(resourceBundle.getString("default.link"));
         }
+
         else{
-            logger.warn("Max attempts reached contact admin");
-            super.setDefaultTargetUrl("/login");
+            logger.warn(resourceBundle.getString("attempts.over"));
+            setDefaultTargetUrl("/login");
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

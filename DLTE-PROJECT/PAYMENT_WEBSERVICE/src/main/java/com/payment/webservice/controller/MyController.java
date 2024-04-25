@@ -1,7 +1,6 @@
 package com.payment.webservice.controller;
 
-import com.payment.webservice.configuration.SoapPhase;
-import com.paymentdao.payment.entity.MyBankOfficials;
+import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.CollusionException;
 import com.paymentdao.payment.exception.InactiveException;
@@ -22,11 +21,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
-
-
 import javax.validation.Valid;
-import java.sql.SQLSyntaxErrorException;
 import java.util.*;
 
 @RestController
@@ -52,78 +47,40 @@ public class MyController {
     })
     public ResponseEntity<String> newPayee(@Valid @RequestBody Payee payee) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        MyBankOfficials customer = service.findByUsername(username);
-        //  Long senderAccountNumber=service.getAccountNumberByCustomerId(customer.getCustomerId());
-        List<Long> senderAccountNumber = service.getAccountNumbersByCustomerId(customer.getCustomerId());
 
-        if (isPresent(senderAccountNumber,payee.getSenderAccountNumber())) {
+        String username = authentication.getName();
+
+        Customer customer = service.findByUsername(username);
+
+        List<Long> senderAccountNumberList = service.getAccountList(customer.getCustomerId());
+
+        if (senderAccountNumberList.contains(payee.getSenderAccountNumber())) {
             try {
                 String check = paymentTransferRepository.addNewPayee(payee);
             } catch (PayeeException e) {
-                logger.error("payee.not.ok" + e.getMessage());
+                logger.error(e.getMessage());
                 return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(e.getMessage());
             } catch (CollusionException e) {
-                logger.error("payee.not.ok" + e.getMessage());
+                logger.error(e.getMessage());
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
             } catch (InactiveException e) {
-                logger.error("payee.not.ok" + e.getMessage());
+                logger.error(e.getMessage());
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
             } catch (NotExistException e) {
-                logger.error("payee.not.ok" + e.getMessage());
+                logger.error(e.getMessage());
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
             }
-            logger.info("payee.ok");
+            logger.info(resourceBundle.getString("payee.ok"));
             return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString("payee.ok"));
         }else{
             return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(payee.getSenderAccountNumber()+" "+resourceBundle.getString("no.access"));
         }
     }
 
-    public static boolean isPresent(List<Long> list, Long number) {
-        for (Long element : list) {
-            if (element.equals(number)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-
-
-
-
-//    public ResponseEntity<String> newPayee(@Valid @RequestBody Payee payee){
-//    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//    String username = authentication.getName();
-//    MyBankOfficials customer=service.findByUsername(username);
-//    Long senderAccountNumber=service.getAccountNumberByCustomerId(customer.getCustomerId());
-//        try {
-//            String check = paymentTransferRepository.addNewPayee(payee);
-//        }catch (PayeeException e){
-//            logger.error("payee.not.ok" +e.getMessage());
-//            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(e.getMessage());
-//        }catch (CollusionException e){
-//            logger.error("payee.not.ok" +e.getMessage());
-//            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
-//        }catch(InactiveException e){
-//            logger.error("payee.not.ok" +e.getMessage());
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-//        }catch(NotExistException e) {
-//            logger.error("payee.not.ok" + e.getMessage());
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-//        }
-//        logger.info("payee.ok");
-//        return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString("payee.ok"));
-//    }
-
-
 
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleValidationExceptions(
-            MethodArgumentNotValidException ex) {
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
@@ -132,20 +89,4 @@ public class MyController {
         });
         return errors;
     }
-
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public String handleValidationExceptions(MethodArgumentNotValidException ex) {
-//        List<String> errors = new ArrayList<>();
-//        ex.getBindingResult().getAllErrors().forEach((error) -> {
-//            String fieldName = ((FieldError) error).getField();
-//            String errorMessage = error.getDefaultMessage();
-//            String errorMessageString = fieldName + ": " + errorMessage;
-//            errors.add(errorMessageString);
-//        });
-//        for(String each:errors){
-//            return each;
-//        }
-//        return null;
-//    }
 }
