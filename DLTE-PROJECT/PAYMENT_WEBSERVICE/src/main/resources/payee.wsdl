@@ -1,0 +1,38 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://payee.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://payee.services" targetNamespace="http://payee.services">
+
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+            <xsd:import namespace="http://payee.services" schemaLocation="Payee.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="findAllPayeeRequest">
+        <wsdl:part element="tns:findAllPayeeRequest" name="findAllPayeeRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="findAllPayeeResponse">
+        <wsdl:part element="tns:findAllPayeeResponse" name="findAllPayeeResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="PayeePort">
+        <wsdl:operation name="findAllPayee">
+            <wsdl:input message="tns:findAllPayeeRequest" name="findAllPayeeRequest"> </wsdl:input>
+            <wsdl:output message="tns:findAllPayeeResponse" name="findAllPayeeResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PayeePortSoap11" type="tns:PayeePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="findAllPayee">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="findAllPayeeRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="findAllPayeeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PayeePortService">
+        <wsdl:port binding="tns:PayeePortSoap11" name="PayeePortSoap11">
+            <soap:address location="http://localhost:8082/payeerepo"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
