@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/transaction/new}" th:object="${transaction}" method="post">
+        <input type="text" th:field="*{transactionId}" placeholder="Transaction ID"/>
+        <input type="text" th:field="*{transactionDate}" placeholder="Transaction Date"/>
+        <input type="text" th:field="*{transactionBy}" placeholder="Transaction By"/>
+        <input type="text" th:field="*{transactionTo}" placeholder="Transaction To"/>
+        <input type="text" th:field="*{transactionAmount}" placeholder="Transaction Amount"/>
+        <input type="text" th:field="*{transactionRemarks}" placeholder="Transaction Remarks"/>
+
+        <div th:if="${message}" th:text="${message}" class="message"></div>
+        <button type="submit">Add</button>
+    </form>
+</div>
+</body>
+</html>
