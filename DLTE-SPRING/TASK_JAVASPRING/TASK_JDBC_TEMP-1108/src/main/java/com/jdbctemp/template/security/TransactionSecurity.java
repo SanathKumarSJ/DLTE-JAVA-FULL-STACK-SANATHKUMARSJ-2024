@@ -37,8 +37,9 @@ public class TransactionSecurity {
             httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
 
             //Authority
-            httpSecurity.authorizeRequests().antMatchers("/transaction/new").hasAuthority("admin");
-            httpSecurity.authorizeRequests().antMatchers("/transaction//findby/{name}").hasAuthority("customer");
+            httpSecurity.authorizeRequests().antMatchers("/transaction/new").permitAll();
+//            httpSecurity.authorizeRequests().antMatchers("/transaction/new").hasAuthority("admin");
+            httpSecurity.authorizeRequests().antMatchers("/transaction//findby/{name}").permitAll();
             httpSecurity.authorizeRequests().antMatchers("/transaction//findto/{nameto}").hasAuthority("customer");
             httpSecurity.authorizeRequests().antMatchers("/transaction/findamount/{amount}").hasAuthority("customer");
             httpSecurity.authorizeRequests().antMatchers("/transaction/update").hasAnyAuthority("manager", "admin");

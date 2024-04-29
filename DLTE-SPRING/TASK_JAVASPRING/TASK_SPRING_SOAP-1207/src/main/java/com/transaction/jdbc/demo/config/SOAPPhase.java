@@ -7,7 +7,6 @@ import com.transaction.jdbc.demo.DAO.Transaction;
 import com.transaction.jdbc.demo.DAO.TransactionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -24,61 +23,61 @@ import java.util.List;
 
 @Endpoint
 public class SOAPPhase {
-    private final String url="http://transaction.services";
+    private final String url = "http://transaction.services";
     @Autowired
     private TransactionService transactionService;
 
-    @PreAuthorize("hasAuthority('admin')")
-    @PayloadRoot(namespace = url,localPart = "newTransactionRequest")
+    ////    @PreAuthorize("hasAuthority('admin')")
+//    @PayloadRoot(namespace = url,localPart = "newTransactionReq")
+//    @ResponsePayload
+////    public services.transaction.NewTransactionResponseMessage addNewTransaction(@RequestPayload services.transaction.NewTransactionRequestMessage newTransactionRequest){
+//
+//        //Transaction Response
+//        services.transaction.NewTransactionResponseMessage newTransactionResponse=new services.transaction.NewTransactionResponseMessage();
+//
+//        //service status
+//        services.transaction.ServiceStatus serviceStatus=new services.transaction.ServiceStatus();
+//
+//
+//        services.transaction.Transaction actual=newTransactionRequest.getTransaction();
+//
+//        //Transaction entity
+//        Transaction transaction=new Transaction();
+//
+//        BeanUtils.copyProperties(actual,transaction);
+//
+//       // ------------------------Save method ----------------------
+//        //Calling transaction save method
+//        transaction=transactionService.apiSave(transaction);
+//        if(transaction!=null){
+//            serviceStatus.setStatus("SUCCESS");
+//            BeanUtils.copyProperties(transaction,actual);
+//            newTransactionResponse.setTransaction(actual);
+//            serviceStatus.setMessage(actual.getTransactionId()+" has inserted");
+//        }
+//        else{
+//            serviceStatus.setStatus("FAILURE");
+//            serviceStatus.setMessage(actual.getTransactionId()+" hasn't inserted");
+//        }
+//        newTransactionResponse.setServiceStatus(serviceStatus);
+//        return newTransactionResponse;
+//    }
+////
+////    //-----------------------findBySender----------------
+//////    @PreAuthorize("hasAuthority('customer')")
+    @PayloadRoot(namespace = url, localPart = "findBySenderRequest")
     @ResponsePayload
-    public services.transaction.NewTransactionResponse addNewTransaction(@RequestPayload services.transaction.NewTransactionRequest newTransactionRequest){
-
-        //Transaction Response
-        services.transaction.NewTransactionResponse newTransactionResponse=new services.transaction.NewTransactionResponse();
-
-        //service status
-        services.transaction.ServiceStatus serviceStatus=new services.transaction.ServiceStatus();
+    public FindByReceiveRespons findBySenderRequest(@RequestPayload FindBySenderRequest findBySenderRequest) {
+        FindByReceiveRespons findBySenderResponse = new FindByReceiveRespons();
+        ServiceStatus serviceStatus = new ServiceStatus();
+        List<services.transaction.Transaction> transactList = new ArrayList<>();
+        List<Transaction> transatListTwo = transactionService.apiFindBySender(findBySenderRequest.getSenderName());
 
 
-        services.transaction.Transaction actual=newTransactionRequest.getTransaction();
-
-        //Transaction entity
-        Transaction transaction=new Transaction();
-
-        BeanUtils.copyProperties(actual,transaction);
-
-       // ------------------------Save method ----------------------
-        //Calling transaction save method
-        transaction=transactionService.apiSave(transaction);
-        if(transaction!=null){
-            serviceStatus.setStatus("SUCCESS");
-            BeanUtils.copyProperties(transaction,actual);
-            newTransactionResponse.setTransaction(actual);
-            serviceStatus.setMessage(actual.getTransactionId()+" has inserted");
-        }
-        else{
-            serviceStatus.setStatus("FAILURE");
-            serviceStatus.setMessage(actual.getTransactionId()+" hasn't inserted");
-        }
-        newTransactionResponse.setServiceStatus(serviceStatus);
-        return newTransactionResponse;
-    }
-
-    //-----------------------findBySender----------------
-    @PreAuthorize("hasAuthority('customer')")
-    @PayloadRoot(namespace = url,localPart = "findBySenderRequest")
-    @ResponsePayload
-    public FindBySenderResponse findBySenderRequest(@RequestPayload FindBySenderRequest findBySenderRequest){
-        FindBySenderResponse findBySenderResponse=new FindBySenderResponse();
-        ServiceStatus serviceStatus=new ServiceStatus();
-        List<services.transaction.Transaction> transactList=new ArrayList<>();
-        List<Transaction> transatListTwo=transactionService.apiFindBySender(findBySenderRequest.getSenderName());
-
-
-        Iterator<Transaction> iterator=transatListTwo.iterator();
-        while (iterator.hasNext()){
-            services.transaction.Transaction currentTransactions=new services.transaction.Transaction();
-            BeanUtils.copyProperties(iterator.next(),currentTransactions);
+        Iterator<Transaction> iterator = transatListTwo.iterator();
+        while (iterator.hasNext()) {
+            services.transaction.Transaction currentTransactions = new services.transaction.Transaction();
+            BeanUtils.copyProperties(iterator.next(), currentTransactions);
             transactList.add(currentTransactions);
         }
 
@@ -89,11 +88,12 @@ public class SOAPPhase {
         return findBySenderResponse;
     }
 
-    @PreAuthorize("hasAuthority('customer')")
-    @PayloadRoot(namespace = url,localPart = "findByReceiveRequest")
+////
+//////    @PreAuthorize("hasAuthority('customer')")
+    @PayloadRoot(namespace = url,localPart = "findByReceiRequest")
     @ResponsePayload
-    public FindByReceiveResponse findByReceiveResponse(@RequestPayload FindByReceiveRequest findByReceiveRequest){
-        FindByReceiveResponse findByReceiveResponse=new FindByReceiveResponse();
+    public FindByReceiveRespons findByReceiveResponse(@RequestPayload FindByReceiRequest findByReceiveRequest){
+        FindByReceiveRespons findByReceiveResponse=new FindByReceiveRespons();
         ServiceStatus serviceStatus=new ServiceStatus();
         List<services.transaction.Transaction> transactList=new ArrayList<>();
         List<Transaction> transatListTwo=transactionService.apiFindToReceiver(findByReceiveRequest.getReceiveName());
@@ -112,87 +112,88 @@ public class SOAPPhase {
         findByReceiveResponse.getTransaction().addAll(transactList);
         return findByReceiveResponse;
     }
-
-    @PreAuthorize("hasAuthority('customer')")
-    @PayloadRoot(namespace = url,localPart = "findByAmountRequest")
-    @ResponsePayload
-    public FindByAmountResponse findByAmountRequest(@RequestPayload FindByAmountRequest findByAmountRequest) {
-        FindByAmountResponse findByAmountResponse = new FindByAmountResponse();
-        ServiceStatus serviceStatus = new ServiceStatus();
-        List<services.transaction.Transaction> transactList = new ArrayList<>();
-        List<Transaction> transatListTwo = transactionService.apiFindAmount(findByAmountRequest.getAmount());
-
-        Iterator<Transaction> iterator = transatListTwo.iterator();
-        while (iterator.hasNext()) {
-            services.transaction.Transaction currentTransactions = new services.transaction.Transaction();
-            BeanUtils.copyProperties(iterator.next(), currentTransactions);
-            transactList.add(currentTransactions);
-        }
-
-        serviceStatus.setStatus("SUCCESS");
-        serviceStatus.setMessage("Transactions available");
-        findByAmountResponse.setServiceStatus(serviceStatus);
-        findByAmountResponse.getTransaction().addAll(transactList);
-        return findByAmountResponse;
-    }
-
-    @PreAuthorize("hasAnyAuthority('manager','admin')")
-    //---------------------updateRemarks-------------
-    @PayloadRoot(namespace=url, localPart = "updateRemarksRequest")
-    @ResponsePayload
-    public UpdateRemarkResponse updateRemark(@RequestBody UpdateRemarksRequest updateRemarksRequest){
-        UpdateRemarkResponse updateRemarkResponse=new UpdateRemarkResponse();
-        ServiceStatus serviceStatus=new ServiceStatus();
-
-        services.transaction.Transaction actual=updateRemarksRequest.getTransaction();
-
-        //transaction dao
-        Transaction transaction=new Transaction();
-
-        BeanUtils.copyProperties(actual,transaction);
-
-        BeanUtils.copyProperties(actual,transaction);
-
-        //Calling transaction update method
-        transaction=transactionService.updateOnRemark(transaction);
-        if(transaction!=null){
-            serviceStatus.setStatus("SUCCESS");
-            BeanUtils.copyProperties(transaction,actual);
-            updateRemarkResponse.setTransaction(actual);
-            serviceStatus.setMessage(actual.getTransactionId()+" has updated");
-        }
-        else{
-            serviceStatus.setStatus("FAILURE");
-            serviceStatus.setMessage(actual.getTransactionId()+" hasn't updated");
-        }
-        updateRemarkResponse.setServiceStatus(serviceStatus);
-        return updateRemarkResponse;
-    }
-
-
-    //---------------Delete on given date
-    @PreAuthorize("hasAuthority('admin')")
-    @PayloadRoot(namespace = url, localPart = "RemoveRequest")
-    @ResponsePayload
-    public RemoveResponse removeOnDate(@RequestBody RemoveRequest removeRequest) throws DatatypeConfigurationException {
-        RemoveResponse removeResponse=new RemoveResponse();
-        ServiceStatus serviceStatus=new ServiceStatus();
-//        String check=transactionService.removeOnDate()
-
-
-        Date startDate=removeRequest.getStartDate().toGregorianCalendar().getTime();
-        Date endDate=removeRequest.getEndDate().toGregorianCalendar().getTime();
-        String result = transactionService.removeOnDate(startDate,endDate);
-//        if (result.equals("removed")) {
-            serviceStatus.setStatus("Transaction record removed");
-//        } else {
-            serviceStatus.setStatus("No transaction record found");
-//        }
-        serviceStatus.setMessage(result);
-
-        removeResponse.setServiceStatus(serviceStatus);
-
-        return removeResponse;
-    }
-
-    }
+}
+////
+//////    @PreAuthorize("hasAuthority('customer')")
+////    @PayloadRoot(namespace = url,localPart = "findByAmountRequest")
+////    @ResponsePayload
+////    public FindByAmountResponse findByAmountRequest(@RequestPayload FindByAmountRequest findByAmountRequest) {
+////        FindByAmountResponse findByAmountResponse = new FindByAmountResponse();
+////        ServiceStatus serviceStatus = new ServiceStatus();
+////        List<services.transaction.Transaction> transactList = new ArrayList<>();
+////        List<Transaction> transatListTwo = transactionService.apiFindAmount(findByAmountRequest.getAmount());
+////
+////        Iterator<Transaction> iterator = transatListTwo.iterator();
+////        while (iterator.hasNext()) {
+////            services.transaction.Transaction currentTransactions = new services.transaction.Transaction();
+////            BeanUtils.copyProperties(iterator.next(), currentTransactions);
+////            transactList.add(currentTransactions);
+////        }
+////
+////        serviceStatus.setStatus("SUCCESS");
+////        serviceStatus.setMessage("Transactions available");
+////        findByAmountResponse.setServiceStatus(serviceStatus);
+////        findByAmountResponse.getTransaction().addAll(transactList);
+////        return findByAmountResponse;
+////    }
+////
+//////    @PreAuthorize("hasAnyAuthority('manager','admin')")
+////    //---------------------updateRemarks-------------
+////    @PayloadRoot(namespace=url, localPart = "updateRemarksRequest")
+////    @ResponsePayload
+////    public UpdateRemarkResponse updateRemark(@RequestBody UpdateRemarksRequest updateRemarksRequest){
+////        UpdateRemarkResponse updateRemarkResponse=new UpdateRemarkResponse();
+////        ServiceStatus serviceStatus=new ServiceStatus();
+////
+////        services.transaction.Transaction actual=updateRemarksRequest.getTransaction();
+////
+////        //transaction dao
+////        Transaction transaction=new Transaction();
+////
+////        BeanUtils.copyProperties(actual,transaction);
+////
+////        BeanUtils.copyProperties(actual,transaction);
+////
+////        //Calling transaction update method
+////        transaction=transactionService.updateOnRemark(transaction);
+////        if(transaction!=null){
+////            serviceStatus.setStatus("SUCCESS");
+////            BeanUtils.copyProperties(transaction,actual);
+////            updateRemarkResponse.setTransaction(actual);
+////            serviceStatus.setMessage(actual.getTransactionId()+" has updated");
+////        }
+////        else{
+////            serviceStatus.setStatus("FAILURE");
+////            serviceStatus.setMessage(actual.getTransactionId()+" hasn't updated");
+////        }
+////        updateRemarkResponse.setServiceStatus(serviceStatus);
+////        return updateRemarkResponse;
+////    }
+////
+////
+////    //---------------Delete on given date
+//////    @PreAuthorize("hasAuthority('admin')")
+////    @PayloadRoot(namespace = url, localPart = "RemoveRequest")
+////    @ResponsePayload
+////    public RemoveResponse removeOnDate(@RequestBody RemoveRequest removeRequest) throws DatatypeConfigurationException {
+////        RemoveResponse removeResponse=new RemoveResponse();
+////        ServiceStatus serviceStatus=new ServiceStatus();
+//////        String check=transactionService.removeOnDate()
+////
+////
+////        Date startDate=removeRequest.getStartDate().toGregorianCalendar().getTime();
+////        Date endDate=removeRequest.getEndDate().toGregorianCalendar().getTime();
+////        String result = transactionService.removeOnDate(startDate,endDate);
+//////        if (result.equals("removed")) {
+////            serviceStatus.setStatus("Transaction record removed");
+//////        } else {
+////            serviceStatus.setStatus("No transaction record found");
+//////        }
+////        serviceStatus.setMessage(result);
+////
+////        removeResponse.setServiceStatus(serviceStatus);
+////
+////        return removeResponse;
+////    }
+//
+//    }

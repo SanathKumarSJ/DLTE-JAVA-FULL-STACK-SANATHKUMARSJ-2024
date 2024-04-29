@@ -1,5 +1,8 @@
 package com.transaction.jdbc.demo.DAO;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
+
 
 public class Transaction {
 
@@ -11,6 +14,7 @@ public class Transaction {
     private String transactionRemarks;
 
     //    create table Transaction_jdbc(transactionId number,transactionDate date, transactionBy varchar(255) ,transactionTo varchar(255),transactionAmount number,transactionRemarks varchar(255));
+
     public Transaction() {
     }
 

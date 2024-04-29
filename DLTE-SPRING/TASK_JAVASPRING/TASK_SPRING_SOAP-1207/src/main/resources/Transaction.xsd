@@ -27,14 +27,15 @@
     <!--    Operation-->
 
     <!--   Adding new transaction-->
-    <xsd:element name="newTransactionRequest">
+    <xsd:element name="newTransactionReques">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="transaction" type="tns:transaction"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="newTransactionResponse">
+
+    <xsd:element name="newTransactiRespon">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
@@ -82,14 +83,14 @@
     </xsd:element>
 
     <!--    Find By Receive name-->
-    <xsd:element name="findByReceiveRequest">
+    <xsd:element name="findByReceiRequest">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="receiveName" type="xsd:string"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="findByReceiveResponse">
+    <xsd:element name="findByReceiveRespons">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="serviceStatus" type="tns:serviceStatus"/>

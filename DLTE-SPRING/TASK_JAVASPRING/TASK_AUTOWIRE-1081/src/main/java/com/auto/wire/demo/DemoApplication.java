@@ -11,7 +11,6 @@ public class DemoApplication {
         AnnotationConfigApplicationContext applicationContext=new AnnotationConfigApplicationContext(DemoApplication.class);
         applicationContext.scan("com.auto.wire.demo");
 //            applicationContext.refresh();
-
         //Mybank execution --> home loan injection
         MyBank myBank=applicationContext.getBean(MyBank.class);
 //        System.out.println("hello");
