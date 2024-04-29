@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PayeeController {
     @GetMapping("/")
     public String dashboard() {
-        return "dashboard";
+        return "dash";
     }
 
     @GetMapping("/view")
