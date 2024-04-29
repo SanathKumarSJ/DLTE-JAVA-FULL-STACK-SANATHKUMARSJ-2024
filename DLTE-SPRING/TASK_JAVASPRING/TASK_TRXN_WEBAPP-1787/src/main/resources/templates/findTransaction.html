@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBank Transaction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div th:replace="dash :: collapse">
+</div>
+<form th:action="@{/transaction/filter}" method="get">
+    <label>Filter By:</label>
+    <select id="filterBasedOn" name="filterBasedOn">
+        <option th:value="Sender">Filter By Sender</option>
+        <option th:value="Receiver">Filter By Receiver</option>
+        <option th:value="Amount">Filter By Amount</option>
+    </select>
+
+    <input type="text" id="search" name="search" placeholder="Enter the value">
+    <button type="submit">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Transaction ID</th>
+        <th>Transaction Date</th>
+        <th>Transaction By</th>
+        <th>Transaction To</th>
+        <th>Transaction Amount</th>
+        <th>Transaction Remarks</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="transaction : ${transactions}">
+        <td th:text="${transaction.transactionId}"></td>
+        <td th:text="${transaction.transactionDate}"></td>
+        <td th:text="${transaction.transactionBy}"></td>
+        <td th:text="${transaction.transactionTo}"></td>
+        <td th:text="${transaction.transactionAmount}"></td>
+        <td th:text="${transaction.transactionRemarks}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
