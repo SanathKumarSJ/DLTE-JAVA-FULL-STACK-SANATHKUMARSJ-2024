@@ -1,11 +1,15 @@
 package com.payment.webservice.configuration;
+import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
+import com.paymentdao.payment.service.MyBankOfficialsService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -20,6 +24,9 @@ import java.util.ResourceBundle;
 @Endpoint
 @ComponentScan("com.paymentdao.payment.service")
 public class SoapPhase {
+
+    @Autowired
+    MyBankOfficialsService service;
 
     private final String url = "http://payee.services";
 
@@ -39,34 +46,52 @@ public class SoapPhase {
 
         ServiceStatus serviceStatus = new ServiceStatus();
 
-        try {
-            List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayee(findAllPayeeRequest.getSenderAccount());
-            //lambda expression to fetch the payee data
-            daoPayee.forEach(each -> {
-                Payee currentPayee = new Payee();
-                BeanUtils.copyProperties(each, currentPayee);
-                payees.add(currentPayee);
-            });
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-            // if the data fetched setting http code to 200 OK
-            serviceStatus.setStatus(HttpStatus.OK.value());
+        String username = authentication.getName();
 
-            serviceStatus.setMessage(resourceBundle.getString("Payee.fetched"));
+        Customer customer = service.findByUsername(username);
 
-            logger.info(resourceBundle.getString("Payee.fetched"));
+        List<Long> senderAccountNumberList = service.getAccountList(customer.getCustomerId());
+
+        if (senderAccountNumberList.contains(findAllPayeeRequest.getSenderAccount())) {
+            try {
+                List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayee(findAllPayeeRequest.getSenderAccount());
+                daoPayee.forEach(each -> {
+                    Payee currentPayee = new Payee();
+                    BeanUtils.copyProperties(each, currentPayee);
+                    payees.add(currentPayee);
+                });
+
+                serviceStatus.setStatus(HttpStatus.OK.value());
+
+                serviceStatus.setMessage(resourceBundle.getString("payee.fetched"));
+
+                logger.info(resourceBundle.getString("payee.fetched"));
+
+                findAllPayeeResponse.setServiceStatus(serviceStatus);
+
+                findAllPayeeResponse.getPayee().addAll(payees);
+
+                return findAllPayeeResponse;
+
+            } catch (PayeeException payeeEx) {
+                serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
+                serviceStatus.setMessage(payeeEx.getMessage());
+                findAllPayeeResponse.setServiceStatus(serviceStatus);
+                return findAllPayeeResponse;
+            }
+        } else {
+            serviceStatus.setStatus(HttpStatus.FORBIDDEN.value());
+
+            serviceStatus.setMessage(resourceBundle.getString("no.access"));
+
+            logger.warn(resourceBundle.getString("no.access"));
 
             findAllPayeeResponse.setServiceStatus(serviceStatus);
 
             findAllPayeeResponse.getPayee().addAll(payees);
 
-            return findAllPayeeResponse;
-
-        } catch (PayeeException payeeEx) {
-            serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
-            serviceStatus.setMessage(payeeEx.getMessage());
-            findAllPayeeResponse.setServiceStatus(serviceStatus);
-
-            //returning the response
             return findAllPayeeResponse;
         }
     }

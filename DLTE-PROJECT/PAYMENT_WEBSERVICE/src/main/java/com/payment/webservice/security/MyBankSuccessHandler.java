@@ -26,6 +26,7 @@ public class MyBankSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException, IOException, ServletException {
         Customer customer= (Customer) authentication.getPrincipal();
+
         if(customer.getCustomerStatus().equalsIgnoreCase("active")) {
             if (customer.getAttempts() > 1) {
                 customer.setAttempts(1);
@@ -33,12 +34,12 @@ public class MyBankSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
                 logger.info(resourceBundle.getString("update.attempts"));
             }
             logger.info(resourceBundle.getString("url.redirect"));
-            super.setDefaultTargetUrl(resourceBundle.getString("default.link"));
+            super.setDefaultTargetUrl("/payee/dashboard");
         }
 
         else{
             logger.warn(resourceBundle.getString("attempts.over"));
-            setDefaultTargetUrl("/login");
+            super.setDefaultTargetUrl("/payee/?errors="+resourceBundle.getString("attempts.over"));
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

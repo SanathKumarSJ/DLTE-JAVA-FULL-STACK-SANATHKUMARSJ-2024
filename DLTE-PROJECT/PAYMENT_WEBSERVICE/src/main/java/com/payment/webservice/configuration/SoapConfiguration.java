@@ -23,7 +23,6 @@ public class SoapConfiguration {
         return new ServletRegistrationBean(servlet,"/payeerepo/*");
     }
 
-    // wsdl properties
     @Bean(name = "Payee")
     public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema){
         DefaultWsdl11Definition defaultWsdl11Definition=new DefaultWsdl11Definition();
@@ -33,8 +32,6 @@ public class SoapConfiguration {
         defaultWsdl11Definition.setSchema(xsdSchema);
         return defaultWsdl11Definition;
     }
-
-    // identify the xsd
     @Bean
     public XsdSchema loansSchema(){
         return new SimpleXsdSchema(new ClassPathResource("Payee.xsd"));

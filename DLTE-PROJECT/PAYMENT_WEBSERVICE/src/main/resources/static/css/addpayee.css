@@ -1,0 +1,50 @@
+h2{
+    text-align: center;
+    color: #020082;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+.card-body{
+    background-color: #b7c8e8;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+
+
+input[type="submit"] {
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: rgb(2, 0, 130);
+    border-color: rgb(67, 105, 210);
+}
+input[type="submit"]:hover {
+    background-color: #4369d2;
+    border-color: #4369d2;
+}
+input[type="reset"]{
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: rgb(61, 62, 70);
+    border-color: rgb(155, 170, 170);
+}
+input[type="reset"]:hover {
+    background-color: #5c696a;
+    border-color: #809192;
+}
