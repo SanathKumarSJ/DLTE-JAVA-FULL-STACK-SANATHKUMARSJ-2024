@@ -4,6 +4,8 @@ import com.example.demo.service.TransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -95,7 +97,7 @@ public class MyController {
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam("startDate") String startDate1,@RequestParam("endDate") String endDate1,Model model){
+    public String delete(@RequestParam("startDate") String startDate1,@RequestParam("endDate") String endDate1,Model model) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date startDate = null;
         Date endDate = null;
@@ -105,9 +107,16 @@ public class MyController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String delete=transactionServices.removeOnDate(startDate,endDate);
-        model.addAttribute("messageDelete",delete);
+        String delete = transactionServices.removeOnDate(startDate, endDate);
+        model.addAttribute("messageDelete", delete);
         return "index";
-
     }
-}
+        @PostMapping("/logout")
+        public String logout() {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth != null) {
+                SecurityContextHolder.getContext().setAuthentication(null);
+            }
+            return "redirect:/index";
+        }
+    }

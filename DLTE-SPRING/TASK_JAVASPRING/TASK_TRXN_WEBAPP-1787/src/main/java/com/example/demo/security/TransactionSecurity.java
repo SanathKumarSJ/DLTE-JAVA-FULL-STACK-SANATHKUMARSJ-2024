@@ -32,7 +32,9 @@ public class TransactionSecurity {
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
             httpSecurity.csrf().disable();
             httpSecurity.httpBasic();
-            httpSecurity.formLogin();
+            httpSecurity.formLogin().loginPage("/transaction/").usernameParameter("username");
+
+            httpSecurity.authorizeRequests().antMatchers("/web/**").permitAll();
 
             httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
 
@@ -41,13 +43,6 @@ public class TransactionSecurity {
             httpSecurity.authorizeRequests().antMatchers("/transaction/new").permitAll();
             httpSecurity.authorizeRequests().antMatchers("/transaction/filter").permitAll();
             httpSecurity.authorizeRequests().antMatchers("/transaction/find").permitAll();
-
-//            httpSecurity.authorizeRequests().antMatchers("/transaction/new").hasAuthority("admin");
-//            httpSecurity.authorizeRequests().antMatchers("/transaction//findby/{name}").permitAll();
-//            httpSecurity.authorizeRequests().antMatchers("/transaction//findto/{nameto}").hasAuthority("customer");
-//            httpSecurity.authorizeRequests().antMatchers("/transaction/findamount/{amount}").hasAuthority("customer");
-//            httpSecurity.authorizeRequests().antMatchers("/transaction/update").hasAnyAuthority("manager", "admin");
-//            httpSecurity.authorizeRequests().antMatchers("/transaction/delete/{date1}/{date2}").hasAuthority("admin");
 
 
 
