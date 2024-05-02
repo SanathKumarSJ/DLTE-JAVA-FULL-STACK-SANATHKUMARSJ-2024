@@ -36,15 +36,10 @@ public class MyController {
     }
 
     @GetMapping("/display")
-    public String display(Model model){
-        model.addAttribute("transaction",new Transaction());
+    public String display(){
         return "dash";
     }
 
-    @RequestMapping(value="/dash", method = RequestMethod.POST)
-    public String homePage(){
-        return "dash";
-    }
 
     @GetMapping("/new")
     public String show(Model model){
