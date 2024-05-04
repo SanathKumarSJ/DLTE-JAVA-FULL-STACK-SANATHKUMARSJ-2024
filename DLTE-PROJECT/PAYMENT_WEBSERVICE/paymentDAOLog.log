@@ -38,4 +38,5 @@
 [0;39m[31m2024-05-05 00:36:30,391[0;39m [32m[ERROR][0;39m com.paymentdao.payment.service.PaymentTransferImplementation http-nio-8082-exec-4 [32mPayee account doesn't exist
 [0;39m[31m2024-05-05 00:36:30,391[0;39m [32m[ERROR][0;39m com.payment.webservice.controller.MyController http-nio-8082-exec-4 [32mPayee account doesn't exist
 [0;39m[31m2024-05-05 00:36:50,380[0;39m [32m[ERROR][0;39m com.paymentdao.payment.service.PaymentTransferImplementation http-nio-8082-exec-9 [32mPayee account already exists with sender account
+[0;39m[31m2024-05-05 00:36:50,383[0;39m [32m[ERROR][0;39m com.payment.webservice.controller.MyController http-nio-8082-exec-9 [32mPayee account already exists with sender account
 [0;39m
