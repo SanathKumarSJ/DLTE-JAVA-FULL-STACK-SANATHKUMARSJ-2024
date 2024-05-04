@@ -1,23 +1,14 @@
 //package com.paymentdao.payment;
 //
 //import com.paymentdao.payment.entity.Payee;
-//import com.paymentdao.payment.exception.InactiveException;
-//import com.paymentdao.payment.exception.NotExistException;
-//import com.paymentdao.payment.exception.PayeeException;
 //import com.paymentdao.payment.service.PaymentTransferImplementation;
 //import org.junit.jupiter.api.Test;
 //import org.mockito.InjectMocks;
 //import org.mockito.Mock;
-//import org.mockito.Mockito;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.dao.DataAccessException;
 //import org.springframework.jdbc.core.JdbcTemplate;
-//import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-//import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-//import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 //
-//import java.sql.SQLException;
 //import java.util.ResourceBundle;
 //
 //import static org.junit.jupiter.api.Assertions.*;
@@ -46,13 +37,11 @@
 //        Payee payee2 = new Payee(501, 999956789654L, 963258741236L, "Arundhathi");
 //        Payee payee3 = new Payee(502, 889956789654L, 632589741233L, "Eeksha");
 //
-////        when(jdbcTemplate.update(any(String.class), any(Object[].class))).thenReturn(1);
 //        lenient().when(jdbcTemplate.update(anyString(), any(Object[].class))).thenReturn(1);
 //        String result = paymentTransferImplementation.addNewPayee(payee1);
 //
 //
 //        assertEquals("Payee record inserted successfully", result);
-////        verify(jdbcTemplate).update(any(String.class), any(Object[].class));
 //
 //    }
 //
@@ -64,7 +53,7 @@
 //        String result = paymentTransferImplementation.addNewPayee(payee);
 //
 ////        Only one time invocation done
-//        verify(jdbcTemplate, times(2)).update(anyString(), eq(payee.getSenderAccountNumber()), eq(payee.getPayeeAccountNumber()), eq(payee.getPayeeName()));
+//        verify(jdbcTemplate, times(1)).update(anyString(), eq(payee.getSenderAccountNumber()), eq(payee.getPayeeAccountNumber()), eq(payee.getPayeeName()));
 //    }
 //
 //    @Test
@@ -75,7 +64,7 @@
 //        String result = paymentTransferImplementation.addNewPayee(payee);
 //
 //        //checking the result and resource bundle
-//        assertNotEquals(resourceBundle.getString("insert.ok"),result);
+//        assertEquals(resourceBundle.getString("insert.ok"),result);
 //
 //    }
 //

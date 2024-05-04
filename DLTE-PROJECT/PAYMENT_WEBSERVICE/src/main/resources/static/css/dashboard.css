@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+}
+.carousel-container {
+    padding-top: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+.carousel {
+    border-radius: 20px;
+    overflow: hidden;
+}
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
+    border-radius: 20px;
+
+}
+.image-container{
+    padding-top: 50px;
+}
+.image-container img{
+    width: 500px;
+    border-radius: 20px;
+    height: 300px;
+
+}
+
+.description-container{
+    font-family: Poppins;
+    color: #182052;
+    padding-top: 50px;
+    margin-left: 0px;
+    margin-left: 5px;
+    font-size: 16px;
+}
+.justify-text {
+    text-align: justify;
+}

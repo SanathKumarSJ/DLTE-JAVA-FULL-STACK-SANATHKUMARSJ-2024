@@ -5,6 +5,8 @@ import com.paymentdao.payment.remote.PaymentTransferRepository;
 import com.paymentdao.payment.service.MyBankOfficialsService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,5 +49,17 @@ public class PaymentModelController {
     @GetMapping("/add")
     public String show(Model model){
         return "addpayee";
+    }
+
+    @GetMapping("/error")
+    public String error(){ return "error";}
+
+
+    @GetMapping("/username")
+    @ResponseBody
+    public String customerName(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        return service.findByUsername(name).getCustomerName();
     }
 }

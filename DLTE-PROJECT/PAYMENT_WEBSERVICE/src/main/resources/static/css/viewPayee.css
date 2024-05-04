@@ -1,7 +1,5 @@
 body {
-
     height: 100vh;
-
 }
 
 .view-all-payees {
@@ -32,18 +30,58 @@ label {
 }
 
 .narrow-btn1 {
-
     background-color: #182052; /* Orange color */
     color: #fff4f7;
     border-radius: 10px;
+    border-color: #182052;
 }
-.narrow-btn1.clicked {
-    background-color: #182052; /* White color */
-    color: #182052; /* Orange color */
+.narrow-btn1:hover{
+    background-color: white;
+    color: #182052;
+    border-color: #182052;
 }
+
 
 .narrow-btn{
     color: #fff4f7;
+    background-color: red;
     border-radius: 10px;
     margin-left: 10px;
+    border-color: red;
+
 }
+.narrow-btn:hover{
+    color: red;
+    background-color: white;
+    border-color: red;
+}
+
+.card-body{
+    background-color: #cadcfd;
+    border-radius: 15px;
+}
+.card{
+    border-style: none;
+}
+.page-link{
+    border-radius: 5px;
+    margin: 5px 10px;
+    border-color: #182052;
+    color: #182052;
+    background-color: rgba(204, 222, 255, 0.85);
+}
+.page-link:hover{
+    border-color: #182052;
+    background-color: #182052;
+    color: #CCDEFF;
+}
+
+/*.row{*/
+/*    !*margin-left: 10px;*!*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+
+/*}*/
+/*.card{*/
+/*    padding-bottom: 40px;*/
+/*}*/

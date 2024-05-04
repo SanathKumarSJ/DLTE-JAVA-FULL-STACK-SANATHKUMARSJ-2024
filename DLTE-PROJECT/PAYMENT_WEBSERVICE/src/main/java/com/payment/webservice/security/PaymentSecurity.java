@@ -44,8 +44,12 @@ public class PaymentSecurity {
                 failureHandler(myBankFailureHandler).
                 successHandler(myBankSuccessHandler);
 
-        httpSecurity.authorizeRequests().antMatchers("/payee/").permitAll();
-//        httpSecurity.authorizeRequests().antMatchers("/pay/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/payee/**").permitAll();
+
+
+
+
+        httpSecurity.authorizeRequests().antMatchers("/scripts/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/css/**").permitAll();
 

@@ -7,32 +7,20 @@ import javax.validation.constraints.Pattern;
 
 public class Payee {
 
-//    @NotNull
-    @Digits(integer = 3, fraction = 0, message = "{payee.id}")
     private Integer payeeId;
 
-    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.senderAcc}")
-    @Digits(integer = 12, fraction = 0, message = "{payee.senderAcc}")
     private Long senderAccountNumber;
 
     @Range(min = 100000000000L, max = 999999999999L,message = "{payee.payeeAcc}")
-    @NotNull
+    @NotNull(message = "{payee.payeeAcc}")
     @Digits(integer = 12, fraction = 0, message = "{payee.payeeAcc}")
     private Long payeeAccountNumber;
 
-    @NotNull
+    @NotNull(message = "{payee.holder}")
     @Pattern(regexp = "^[a-zA-Z\\s]*$",message = "{payee.holder}")
     private String payeeName;
 
-
     public Payee() {
-    }
-
-    public Payee(Integer payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
-        this.payeeId = payeeId;
-        this.senderAccountNumber = senderAccountNumber;
-        this.payeeAccountNumber = payeeAccountNumber;
-        this.payeeName = payeeName;
     }
 
     public Integer getPayeeId() {
@@ -64,6 +52,15 @@ public class Payee {
     }
 
     public void setPayeeName(String payeeName) {
+        this.payeeName = payeeName;
+    }
+
+
+
+    public Payee(Integer payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
+        this.payeeId = payeeId;
+        this.senderAccountNumber = senderAccountNumber;
+        this.payeeAccountNumber = payeeAccountNumber;
         this.payeeName = payeeName;
     }
 }

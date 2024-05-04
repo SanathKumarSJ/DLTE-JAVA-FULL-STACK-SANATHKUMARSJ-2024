@@ -26,12 +26,14 @@
         <div class="col-md-6">
             <div class="login-container">
                 <h2>SIGN IN</h2>
+
                 <h1 th:if="${param.error}" style="font-family: 'Poppins', sans-serif;text-align: center;font-size: 5px;">
                     <span style="font-size:15px;color:red;" th:text="${session?.SPRING_SECURITY_LAST_EXCEPTION?.message}"></span>
                 </h1>
                 <h1 th:if="${param.errors}" style="font-family: 'Poppins', sans-serif;text-align: center;font-size: 5px;">
                     <span style="font-size:15px;color:red;" th:text="${param.errors}"></span>
                 </h1>
+
                 <form id="loginForm"  action="#" th:action="@{'/payee/'}" method="post" >
                     <div class="form-group">
                         <label for="username">Username</label>
