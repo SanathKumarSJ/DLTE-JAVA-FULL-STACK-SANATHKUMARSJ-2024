@@ -3,6 +3,7 @@ package com.payment.webservice;
 import com.payment.webservice.configuration.SoapPhase;
 import com.payment.webservice.controller.MyController;
 import com.payment.webservice.mvc.PaymentModelViewController;
+import com.payment.webservice.security.MyBankOfficialsAPI;
 import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
@@ -25,6 +26,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -75,7 +77,6 @@ public class EndPointTesting {
         mockMvc = MockMvcBuilders.standaloneSetup(myController).build();
         mockMvc2 = MockMvcBuilders.standaloneSetup(paymentModelController).build();
     }
-
 
 
     @Test
@@ -218,7 +219,8 @@ public class EndPointTesting {
     @Test
     void testLoginError() throws Exception {
         mockMvc2.perform(post("/payee/"))
-                .andExpect(view().name("index")) ;}
+                .andExpect(view().name("index"));
+    }
 
     @Test
     void testHomePage() throws Exception {
@@ -233,6 +235,14 @@ public class EndPointTesting {
     }
 
     @Test
+    @WithMockUser(username = "shreyas12")
+    public void testErrorView() {
+        String viewName = paymentModelController.errorPage();
+        assertEquals("error", viewName);
+    }
+
+
+    @Test
     void testShow() throws Exception {
         mockMvc2.perform(get("/payee/add"))
                 .andExpect(view().name("addpayee"));
@@ -242,7 +252,8 @@ public class EndPointTesting {
     public void testError() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/payee/error")
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isNotFound()) ;}
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
 
     @Test
     void testCustomerName() throws Exception {
@@ -293,7 +304,7 @@ public class EndPointTesting {
         String username = "sanath";
         String rawPassword = "san123";
 
-        String encodedPassword =passwordEncoder.encode(rawPassword);
+        String encodedPassword = passwordEncoder.encode(rawPassword);
 
         Customer customer = new Customer();
         customer.setUserName(username);
@@ -303,9 +314,8 @@ public class EndPointTesting {
 
         UserDetails userDetails = myBankUsersServices.loadUserByUsername(username);
 
-        String enteredPassword="san123";
+        String enteredPassword = "san123";
 
         assertTrue(passwordEncoder.matches(enteredPassword, userDetails.getPassword()));
     }
-
 }
