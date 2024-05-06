@@ -24,7 +24,7 @@ public class MyBankSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     Logger logger= LoggerFactory.getLogger(MyBankSuccessHandler.class);
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException, IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws  IOException, ServletException {
         Customer customer= (Customer) authentication.getPrincipal();
 
         if(customer.getCustomerStatus().equalsIgnoreCase("active")) {

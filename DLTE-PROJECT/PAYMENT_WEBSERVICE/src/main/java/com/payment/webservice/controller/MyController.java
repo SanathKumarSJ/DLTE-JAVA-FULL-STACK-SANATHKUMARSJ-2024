@@ -42,13 +42,12 @@ public class MyController {
     @PostMapping("/add")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Payee Inserted successfully"),
-            @ApiResponse(responseCode = "409", description = "Payee account and sender's account cannot be same"),
-            @ApiResponse(responseCode = "409", description = "Payee record already exist"),
-            @ApiResponse(responseCode = "204", description = "No record exists")
+            @ApiResponse(responseCode = "EXC001", description = "Payee account and sender's account cannot be same"),
+            @ApiResponse(responseCode = "EXC002", description = "Payee account already exists with sender account"),
+            @ApiResponse(responseCode = "EXC003", description = "Payee account doesn't exist"),
+            @ApiResponse(responseCode = "EXC004", description = "Access denied for this account number")
     })
     public ResponseEntity<String> newPayee(@Valid @RequestBody Payee payee) {
-
-        String time= LocalDateTime.now().toString();
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -63,30 +62,26 @@ public class MyController {
                 String check = paymentTransferRepository.addNewPayee(payee);
 
             } catch (PayeeException e) {
-                logger.error(e.getMessage());
-                String responseBody= "Status Code: "+HttpStatus.CONFLICT.value()+" Error: "+HttpStatus.CONFLICT.getReasonPhrase()+"message: "+e.getMessage();
-                return ResponseEntity.status(HttpStatus.OK).header("Content-Type","application/json").body(responseBody);
-//                return ResponseEntity.status(HttpStatus.CONFLICT).body(responseBody);
+                logger.error(resourceBundle.getString("payee.error.one")+e.getMessage());
+                String responseBody=resourceBundle.getString("payee.error.one")+e.getMessage();
+                return ResponseEntity.status(HttpStatus.OK).body(responseBody);
 
             } catch (PayeeExistException e) {
-                logger.error(e.getMessage());
-                String responseBody="Status Code: "+HttpStatus.CONFLICT.value()+" Error: "+HttpStatus.CONFLICT.getReasonPhrase()+"message: "+e.getMessage();
+                logger.error(resourceBundle.getString("payee.error.two")+e.getMessage());
+                String responseBody=resourceBundle.getString("payee.error.two")+e.getMessage();
                 return ResponseEntity.status(HttpStatus.OK).body(responseBody);
-//                return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
 
             } catch (PayeeNotExistException e) {
-                logger.error(e.getMessage());
-                String responseBody="Status Code: "+HttpStatus.NOT_FOUND.value()+" Error: "+HttpStatus.NOT_FOUND.getReasonPhrase()+"message: "+e.getMessage();
+                logger.error(resourceBundle.getString("payee.error.three")+e.getMessage());
+                String responseBody=resourceBundle.getString("payee.error.three")+e.getMessage();
                 return ResponseEntity.status(HttpStatus.OK).body(responseBody);
-//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 
             }
             logger.info(resourceBundle.getString("payee.ok"));
             return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString("payee.ok"));
         }else{
-            String responseBody="Status Code: "+HttpStatus.FORBIDDEN.value()+" Error: "+HttpStatus.FORBIDDEN.getReasonPhrase()+"message: "+resourceBundle.getString("no.access");
+            String responseBody=resourceBundle.getString("payee.error.four")+resourceBundle.getString("no.access");
             return ResponseEntity.status(HttpStatus.OK).body(responseBody);
-//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(resourceBundle.getString("no.access"));
         }
     }
 
@@ -100,13 +95,6 @@ public class MyController {
         return senderAccountNumber;
     }
 
-    @GetMapping("/getUsername")
-    public String getName(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        Customer customer=service.findByUsername(username);
-        return customer.getUserName();
-    }
 
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)

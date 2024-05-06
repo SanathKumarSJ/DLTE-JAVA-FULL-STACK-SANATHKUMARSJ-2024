@@ -2,12 +2,12 @@ $(document).ready(function () {
     function getUserName() {
         $.ajax({
             type: "GET",
-            url: "/payee/username", // Assuming your endpoint is mapped to /web/name
-            dataType: 'text', // Expecting text response
+            url: "/payee/username",
+            dataType: 'text',
             contentType:"application/json;charset=utf-8",
 
             success: function (response) {
-                $('#username').text("Hi, " + response); // Display the name
+                $('#username').text("Hi, " + response);
             },
             error: function (xhr, status, error) {
                 console.error(xhr.responseText);

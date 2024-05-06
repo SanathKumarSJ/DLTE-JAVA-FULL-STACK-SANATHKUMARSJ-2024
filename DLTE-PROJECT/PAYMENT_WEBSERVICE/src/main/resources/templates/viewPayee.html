@@ -61,10 +61,13 @@
                     success: function (response) {
                         console.log(response)
                         const payeeDetails = [];
+                        var exceptionRegex = /EXC00\d\s*:/;
                         $(response).find(`ns2\\:serviceStatus`).each(function () {
-                            if($(this).find('ns2\\:status').text()!=200){
-                                //  alert("Error fetching payee details: " + $(this).find("ns2\\:message").text());
-                                $("#error").text($(this).find("ns2\\:message").text())
+                            if(exceptionRegex.test($(this).find('ns2\\:message').text())){
+                                var errorMessage = $(this).find('ns2\\:message').text().replace(exceptionRegex, '').trim();
+                                $("#modalhead").text(`Error occurred during viewing payee`);
+                                $("#message").text(errorMessage);
+                                $("#showmodal").modal("show");
                             }else {
                                 //  alert("Successfully fetched payee details!");
                                 $(response).find(`ns2\\:payee`).each(function () {
@@ -84,8 +87,10 @@
                         displayPayeeDetails(payeeDetails);
                     },
                     error: function (xhr, status, error) {
-                        alert("Error fetching payee details: " + error);
-                        console.error("Error fetching payees: " + error);
+                        $("#modalhead").text(`Error`);
+                        $("#message").text(xhr.responseText);
+                        $("#showmodal").modal("show");
+
                     }
                 });
             }
@@ -143,7 +148,6 @@
                         pageItem.append(pageLink);
                         pagination.append(pageItem);
                     }
-                    // pagination.find(".page-link").css("margin", "0 5px");
                     $("#payeeDetails").after(pagination);
                 }
 
@@ -157,11 +161,30 @@
 <header>
     <div th:insert="header::nav"></div>
 </header>
+
+
 <div class="view-all-payees">View All Payees</div>
-<p id="error" class="align-center text-danger ml-3"></p>
 <div>
     <label for="populate">Choose Your Account Number</label>
     <select id="populate" name="senderAccountNumber" class="form-select custom-dropdown"></select>
+</div>
+<div class="modal" id="showmodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5  id="modalhead" class="modal-title"  style="color: #182052; font-weight: bold; font-family:'Montserrat', sans-serif "></h5>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p id="message" style="color: #182052;  font-family: 'Poppins', sans-serif"></p>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <a type="button" class="btn narrow-btn" th:href="@{'/payee/dashboard'}" >Back to Home</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="payeeDetails" class="container mt-3" style="display: inline-block">
 </div>

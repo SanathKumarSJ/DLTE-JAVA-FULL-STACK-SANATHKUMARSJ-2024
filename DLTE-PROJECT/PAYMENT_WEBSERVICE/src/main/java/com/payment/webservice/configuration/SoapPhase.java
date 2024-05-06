@@ -76,8 +76,8 @@ public class SoapPhase {
                 return findAllPayeeResponse;
 
             } catch (PayeeException payeeEx) {
-                serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
-                serviceStatus.setMessage(payeeEx.getMessage());
+                serviceStatus.setStatus(HttpStatus.OK.value());
+                serviceStatus.setMessage(resourceBundle.getString("payee.error.five")+payeeEx.getMessage());
                 findAllPayeeResponse.setServiceStatus(serviceStatus);
                 return findAllPayeeResponse;
             }
