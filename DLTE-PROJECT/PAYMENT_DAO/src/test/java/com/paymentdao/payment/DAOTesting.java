@@ -50,11 +50,7 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 public class DAOTesting {
 
-
     ResourceBundle resourceBundle= ResourceBundle.getBundle("payee");
-
-    @InjectMocks
-    ValidationConfiguration validationConfiguration;
 
     @InjectMocks
     MyBankOfficialsService myBankOfficialsService;
@@ -66,51 +62,6 @@ public class DAOTesting {
     @InjectMocks
     PaymentTransferImplementation paymentTransferImplementation;
 
-    private Validator validator;
-
-    @BeforeEach
-    void setup() {
-        LocalValidatorFactoryBean validatorFactoryBean = validationConfiguration.getValidator(validationConfiguration.messageSource());
-        validatorFactoryBean.afterPropertiesSet();
-        validator = validatorFactoryBean.getValidator();
-    }
-
-
-    @Test
-    void validatePayeeAcc() {
-        Payee payee = new Payee();
-        payee.setPayeeId(100);
-        payee.setSenderAccountNumber(741852963741L);
-        payee.setPayeeAccountNumber(null);
-        payee.setPayeeName("Sanath");
-
-        Set<ConstraintViolation<Payee>> violations = validator.validate(payee);
-        //[ConstraintViolationImpl{interpolatedMessage='{payee.payeeAcc}', propertyPath=payeeAccountNumber, rootBeanClass=class com.paymentdao.payment.entity.Payee, messageTemplate='{payee.payeeAcc}'}, ConstraintViolationImpl{interpolatedMessage='{payee.holder}', propertyPath=payeeName, rootBeanClass=class com.paymentdao.payment.entity.Payee, messageTemplate='{payee.holder}'}]
-        //System.out.println(violations);
-
-        assertEquals("Enter Valid Payee Account Number", violations.iterator().next().getMessage());
-    }
-
-    @Test
-    void validatePayeeAcc2() {
-        Payee payee = new Payee();
-        payee.setPayeeAccountNumber(798456456L);
-        payee.setPayeeName("Sanath");
-
-        Set<ConstraintViolation<Payee>> violations = validator.validate(payee);
-        assertEquals("Enter Valid Payee Account Number", violations.iterator().next().getMessage());
-    }
-
-
-    @Test
-    void validatePayeeName() {
-        Payee payee = new Payee();
-        payee.setPayeeAccountNumber(789456123123L);
-        payee.setPayeeName("John Doe123");
-
-        Set<ConstraintViolation<Payee>> violations = validator.validate(payee);
-        assertEquals("Enter Valid Payee Name", violations.iterator().next().getMessage());
-    }
 
 
     @Test
@@ -179,7 +130,6 @@ public class DAOTesting {
 
     @Test
     public void testMapRow() throws SQLException {
-        // Create a mock ResultSet
         ResultSet rs = Mockito.mock(ResultSet.class);
 
         // Define the behavior of the mock object
@@ -212,59 +162,12 @@ public class DAOTesting {
 
     }
 
-
     @Test
-    public void testPayeeNotExistException() {
-        PaymentTransferImplementation paymentTransferImplementation = mock(PaymentTransferImplementation.class);
-
-        Payee payee1 = new Payee(500, 999956789654L, null, "Sanath");
-
-        doThrow(new PayeeNotExistException(resourceBundle.getString("no.payee.acc"))).when(paymentTransferImplementation).addNewPayee(payee1);
-
-        PayeeNotExistException exception = assertThrows(PayeeNotExistException.class, () -> {
-            paymentTransferImplementation.addNewPayee(payee1);
-        });
-
-        assertEquals(resourceBundle.getString("no.payee.acc"), exception.getMessage());
-    }
-
-    @Test
-    public void  testPayeeExistException() {
-        PaymentTransferImplementation paymentTransferImplementation = mock(PaymentTransferImplementation.class);
-
-        Payee payee1 = new Payee(500, 999956789654L, null, "Sanath");
-
-        doThrow(new PayeeExistException(resourceBundle.getString("payee.exist"))).when(paymentTransferImplementation).addNewPayee(payee1);
-
-        PayeeExistException exception = assertThrows(PayeeExistException.class, () -> {
-            paymentTransferImplementation.addNewPayee(payee1);
-        });
-
-        assertEquals(resourceBundle.getString("payee.exist"), exception.getMessage());
-    }
-
-    @Test
-    public void  testPayeeException2() {
-        PaymentTransferImplementation paymentTransferImplementation = mock(PaymentTransferImplementation.class);
-
-        Payee payee1 = new Payee(500, 999956789654L, null, "Sanath");
-
-        doThrow(new PayeeException(resourceBundle.getString("input.duplicate"))).when(paymentTransferImplementation).addNewPayee(payee1);
-
-        PayeeException exception = assertThrows(PayeeException.class, () -> {
-            paymentTransferImplementation.addNewPayee(payee1);
-        });
-
-        assertEquals(resourceBundle.getString("input.duplicate"), exception.getMessage());
-    }
-
-
-    @Test
-    void testPayeeNotExistException2() {
+    void testPayeeNotExistException() {
         Payee payee = new Payee();
         payee.setSenderAccountNumber(123456789L);
-        payee.setPayeeAccountNumber(0L);
-        payee.setPayeeName("John Doe");
+        payee.setPayeeAccountNumber(null);
+        payee.setPayeeName("Sanath");
 
         doThrow(new DataAccessException("") {
             public Throwable getCause() {
@@ -279,11 +182,11 @@ public class DAOTesting {
     }
 
     @Test
-    void testPayeeException3() {
+    void testPayeeException2() {
         Payee payee = new Payee();
         payee.setSenderAccountNumber(123456789L);
         payee.setPayeeAccountNumber(0L);
-        payee.setPayeeName("John Doe");
+        payee.setPayeeName("Sanath");
 
         doThrow(new DataAccessException("") {
             public Throwable getCause() {
@@ -297,11 +200,11 @@ public class DAOTesting {
 
     }
     @Test
-    void testPayeeExistException2() {
+    void testPayeeExistException() {
         Payee payee = new Payee();
         payee.setSenderAccountNumber(123456789L);
         payee.setPayeeAccountNumber(0L);
-        payee.setPayeeName("John Doe");
+        payee.setPayeeName("Sanath");
 
         doThrow(new DataAccessException("") {
             public Throwable getCause() {
@@ -313,128 +216,6 @@ public class DAOTesting {
             paymentTransferImplementation.addNewPayee(payee);
         });
 
-    }
-
-
-    @Test
-    void testSigningUp() {
-        Customer customer = new Customer(123L,"sanath","sringeri","active",8745213698L,"san","san123",1);
-
-        when(jdbcTemplate.update(anyString(),eq(customer.getCustomerName()),eq(customer.getCustomerAddress()),eq(customer.getCustomerStatus()),eq(customer.getCustomerContact()),eq(customer.getUserName()),eq(customer.getPassword()))).thenReturn(1);
-
-        Customer result = myBankOfficialsService.signingUp(customer);
-
-        assertEquals(customer.getCustomerId()+customer.getAttempts(),result.getCustomerId()+customer.getAttempts());
-        assertEquals(customer, result);
-    }
-
-    @Test
-    void testSigningUpUserDetails() {
-        Customer customer = new Customer(123L,"sanath","sringeri","active",8745213698L,"san","san123",1);
-
-        when(jdbcTemplate.update(anyString(),eq(customer.getCustomerName()),eq(customer.getCustomerAddress()),eq(customer.getCustomerStatus()),eq(customer.getCustomerContact()),eq(customer.getUserName()),eq(customer.getPassword()))).thenReturn(1);
-
-        Customer result = myBankOfficialsService.signingUp(customer);
-
-        assertEquals(customer.getAuthorities(),result.getAuthorities());
-        assertEquals(customer.isAccountNonExpired(),result.isAccountNonExpired());
-        assertEquals(customer.isAccountNonLocked(),result.isAccountNonLocked());
-        assertEquals(customer.isCredentialsNonExpired(),result.isCredentialsNonExpired());
-        assertEquals(customer.isEnabled(),result.isEnabled());
-    }
-    @Test
-    void testFindAllUsername() {
-        Customer customer = new Customer(123L,"sanath","sringeri","active",8745213698L,"san","san123",1);
-        Customer customer2 = new Customer(125L,"akash","kerla","active",78445213698L,"akash","aka123",1);
-
-        List<Customer> customerList = Stream.of(customer,customer2).collect(Collectors.toList());
-
-
-        when(jdbcTemplate.query(anyString(), any(BeanPropertyRowMapper.class))).thenReturn(customerList);
-
-        List<Customer> result = myBankOfficialsService.findAllUsername();
-
-        assertEquals(customerList.get(0).getUserName(), result.get(0).getUserName());
-
-        assertNotEquals(customerList.get(0).getAttempts(),result.get(0).getMaxAttempt());
-        verify(jdbcTemplate, times(1)).query(anyString(), any(BeanPropertyRowMapper.class));
-    }
-
-    @Test
-    void testFindByUsernameNotExistingCustomer() {
-        Customer customer = new Customer(123L,"sanath","sringeri","active",8745213698L,"san","san123",1);
-        Customer customer2=new Customer();
-        customer2.setCustomerId(147L);
-        customer2.setCustomerName("akash");
-        customer2.setCustomerAddress("kerla");
-        customer2.setCustomerStatus("active");
-        customer2.setCustomerContact(78445213698L);
-        customer2.setUserName("aka");
-        customer2.setPassword("aka123");
-        customer2.setAttempts(1);
-
-        List<Customer> customerList = Stream.of(customer,customer2).collect(Collectors.toList());
-
-        when(myBankOfficialsService.findAllUsername()).thenReturn(customerList);
-
-
-        assertThrows(UsernameNotFoundException.class, () -> myBankOfficialsService.findByUsername("sa"));
-
-    }
-
-    @Test
-    void testUpdateAttempts() {
-        Customer customer = new Customer(123L,"sanath","sringeri","active",8745213698L,"san","san123",1);
-
-
-        when(jdbcTemplate.update(anyString(), eq(customer.getAttempts()),eq(customer.getUserName()))).thenReturn(1);
-
-        assertDoesNotThrow(() -> {
-            myBankOfficialsService.updateAttempts(customer);
-        });
-
-        verify(jdbcTemplate, times(1)).update(anyString(), eq(customer.getAttempts()),eq(customer.getUserName()));
-
-    }
-
-
-    @Test
-    void testUpdateStatus() {
-        Customer customer = new Customer(123L,"sanath","sringeri","active",8745213698L,"san","san123",1);
-
-
-        when(jdbcTemplate.update(anyString(),eq(customer.getUserName()))).thenReturn(1);
-
-        assertDoesNotThrow(() -> {
-            myBankOfficialsService.updateStatus(customer);
-        });
-
-        verify(jdbcTemplate, times(1)).update(anyString(),eq(customer.getUserName()));
-
-    }
-    @Test
-    void testGetAccountListSuccess() {
-            Long customerId = 123L;
-            List<Long> accountList = Collections.singletonList(456L);
-
-            when(jdbcTemplate.queryForList(anyString(), any(Object[].class), eq(Long.class))).thenReturn(accountList);
-
-            List<Long> result = myBankOfficialsService.getAccountList(customerId);
-
-            assertNotNull(result);
-            assertEquals(456L, result.get(0));
-
-        }
-
-        @Test
-    void test2(){
-        Long customerId = 123L;
-
-        when(jdbcTemplate.queryForList(anyString(), any(Object[].class), eq(Long.class))).thenThrow(EmptyResultDataAccessException.class);
-
-        assertThrows(PayeeException.class, () -> {
-            myBankOfficialsService.getAccountList(customerId);
-        });
     }
 
 

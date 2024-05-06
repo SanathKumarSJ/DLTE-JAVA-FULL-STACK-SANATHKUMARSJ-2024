@@ -45,8 +45,6 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
 
 
 
-    //------------------------------------------ADD NEW PAYEE ----------------------------------------------
-
     @Override
     public String addNewPayee(Payee payee) {
         try {

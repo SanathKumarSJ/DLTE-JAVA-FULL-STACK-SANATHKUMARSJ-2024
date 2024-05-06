@@ -11,13 +11,13 @@ public class Payee {
 
     private Long senderAccountNumber;
 
-    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.payeeAcc}")
-    @NotNull(message = "{payee.payeeAcc}")
-    @Digits(integer = 12, fraction = 0, message = "{payee.payeeAcc}")
+    @Range(min = 100000000000L, max = 999999999999L,message = "{EXB001}")
+    @NotNull(message = "{EXB001}")
+    @Digits(integer = 12, fraction = 0, message = "{EXB001}")
     private Long payeeAccountNumber;
 
-    @NotNull(message = "{payee.holder}")
-    @Pattern(regexp = "^[a-zA-Z\\s]*$",message = "{payee.holder}")
+    @NotNull(message = "{EXB002}")
+    @Pattern(regexp = "^[a-zA-Z\\s]*$",message = "{EXB002}")
     private String payeeName;
 
     public Payee() {
