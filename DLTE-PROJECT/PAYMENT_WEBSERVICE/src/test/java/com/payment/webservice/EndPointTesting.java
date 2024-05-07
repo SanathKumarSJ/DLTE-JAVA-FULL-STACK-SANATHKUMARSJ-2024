@@ -3,7 +3,7 @@ package com.payment.webservice;
 import com.payment.webservice.configuration.SoapPhase;
 import com.payment.webservice.controller.MyController;
 import com.payment.webservice.mvc.PaymentModelViewController;
-import com.payment.webservice.security.MyBankOfficialsAPI;
+
 import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
@@ -77,7 +77,6 @@ public class EndPointTesting {
         mockMvc = MockMvcBuilders.standaloneSetup(myController).build();
         mockMvc2 = MockMvcBuilders.standaloneSetup(paymentModelController).build();
     }
-
 
     @Test
     public void testFindAll() throws SQLSyntaxErrorException {

@@ -59,7 +59,7 @@ class FailureTest {
     @Test
     void onAuthenticationFailureTest() throws Exception {
 
-        customerFailureHandler.setUseForward(true); // Disable the use of forward for testing
+//        customerFailureHandler.setUseForward(true);
         Customer customer = new Customer();
         customer.setCustomerId(123L);
         customer.setCustomerName("sanath");
@@ -75,7 +75,6 @@ class FailureTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/payee/")
                 .param("username", customer.getUserName())
                 .param("password", customer.getPassword()))
-//                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/payee/?error=Username not found"));
 
     }

@@ -60,6 +60,7 @@ public class RestEndPointTest {
     private HttpServletResponse response;
     @Mock
     private Authentication authentication;
+
     @InjectMocks
     private MyBankSuccessHandler customerSuccessHandler;
 
