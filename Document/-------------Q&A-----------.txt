@@ -1,0 +1,19 @@
+----------------------------------Q&A----------------------------------------------
+
+1. Whether the View gets reflected immediatetly after deletion in main Table??
+2. Access specifiers at Variables, class & object level? (need to try)
+flexibilties -- and overriding 
+3. Public static void method(parameters)? over loading
+   check whether two methods of same name can be exc(not the main method)
+Multiple main method with different parameter?
+4. Maven library physical location where the dependency stored.
+-- Transitive libraries( one library depending on the other library)
+
+5. What would happen when I click playbutton?
+
+
+---------------22/02/2024-----------------
+What will happens when class is defined as default?
+Access spefiers at class level and check the consistancy?
+Is it possible that we can store jar in other location?
+Check the depende

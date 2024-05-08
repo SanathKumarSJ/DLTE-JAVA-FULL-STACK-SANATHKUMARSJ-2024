@@ -1,0 +1,6 @@
+name
+id
+temad - hs name,street city state pincode
+padd
+ph
+email

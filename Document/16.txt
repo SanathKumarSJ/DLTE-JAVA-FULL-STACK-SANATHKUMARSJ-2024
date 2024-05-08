@@ -1,0 +1,33 @@
+Process automation and hardware automation
+
+Programming
+ 1. data:
+     store: variables,list,arays,hashmaps
+     variables: datatype var_name = ....
+		>inside block have to initialize--loops,switchs,cond,trycatch
+		>class not initlzd
+
+2. objects:
+  classname object_name = new Classname();  //non literal
+  Character bankType='S';   //wrapper class >> literal way >> only supports for 8 clsses: int(4),bln(1 nibble(4 bits)), shrt(2),lng(8),byte,flt(4),char(2),double(8)
+
+3. scopes:
+  --Local >> cannot be accesed out side of the block
+  ---Global(class-level) >> no need to initialize and can be accessed
+
+
+---METHOD---
+
+--> STATIC >> 
+
+--> DEFAULT >>
+
+--> PUBLIC >>
+
+--> PROTECTED >>
+
+--> PRIVATE >>
+
+--> FINAL  >>
+
+--> ABSTRACT

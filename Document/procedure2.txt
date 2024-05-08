@@ -1,0 +1,687 @@
+
+Procedure CHECKPAYEEACCOUNTEXISTS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+2/5       PLS-00103: Encountered the symbol "IN" when expecting one of the following:     <an identifier> <a double-quoted delimited-identifier>    current delete exists prior 
+Errors: check compiler log
+
+Error starting at line : 176 in command -
+CREATE PROCEDURE CheckPayeeAccountExists (
+    IN payee_account_number INT
+)
+BEGIN
+    DECLARE account_count INT;
+
+    -- Check if the payee account number exists in the account table
+    SELECT COUNT(*) INTO account_count
+    FROM MYBANK_APP_ACCOUNT
+    WHERE ACCOUNT_NUMBER = 789654123100;
+
+    -- If the count is 0, throw an exception
+exception 
+when OTHERS then 
+infos_op:='not done'||SQLERRM;
+end;
+Error report -
+ORA-00955: name is already used by an existing object
+00955. 00000 -  "name is already used by an existing object"
+*Cause:    
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+23/11     PLS-00103: Encountered the symbol "end-of-file" when expecting one of the following:     ( begin case declare end exception exit for goto if loop mod    null pragma raise return select update while with    <an identifier> <a double-quoted delimited-identifier>    <a bind variable> << continue close current delete fetch lock    insert open rollback savepoint set sql execute commit forall    merge pipe purge 
+Errors: check compiler log
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+16/5      PL/SQL: Statement ignored
+16/23     PLS-00201: identifier 'P_SENDER_ACCOUNT_NUMBE' must be declared
+Errors: check compiler log
+
+Error starting at line : 236 in command -
+BEGIN UPDATE_PAYEE_DETAILS(501,7896541230,789654123987,'Mahesh'); END;
+Error report -
+ORA-06550: line 1, column 7:
+PLS-00905: object SANATH.UPDATE_PAYEE_DETAILS is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+26/5      PL/SQL: SQL Statement ignored
+26/12     PL/SQL: ORA-00925: missing INTO keyword
+Errors: check compiler log
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+26/5      PL/SQL: SQL Statement ignored
+26/12     PL/SQL: ORA-00925: missing INTO keyword
+Errors: check compiler log
+
+Error starting at line : 233 in command -
+BEGIN UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval,7896541230,789654123987,'Mahesh'); END;
+Error report -
+ORA-06550: line 1, column 7:
+PLS-00905: object SANATH.UPDATE_PAYEE_DETAILS is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+26/5      PL/SQL: SQL Statement ignored
+26/12     PL/SQL: ORA-00925: missing INTO keyword
+Errors: check compiler log
+
+Error starting at line : 233 in command -
+BEGIN UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval,789654123770,789654123996,'Mahesh'); END;
+Error report -
+ORA-06550: line 1, column 7:
+PLS-00905: object SANATH.UPDATE_PAYEE_DETAILS is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+26/5      PL/SQL: SQL Statement ignored
+26/12     PL/SQL: ORA-00925: missing INTO keyword
+Errors: check compiler log
+
+Error starting at line : 233 in command -
+BEGIN
+    UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval, 789654123770, 789654123996, 'Mahesh');
+END;
+Error report -
+ORA-06550: line 2, column 5:
+PLS-00905: object SANATH.UPDATE_PAYEE_DETAILS is invalid
+ORA-06550: line 2, column 5:
+PL/SQL: Statement ignored
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+26/5      PL/SQL: SQL Statement ignored
+26/12     PL/SQL: ORA-00925: missing INTO keyword
+Errors: check compiler log
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+26/5      PL/SQL: SQL Statement ignored
+26/12     PL/SQL: ORA-00925: missing INTO keyword
+Errors: check compiler log
+
+Error starting at line : 233 in command -
+BEGIN UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval,789654123770,789654123996,'Mahesh'); END;
+Error report -
+ORA-06550: line 1, column 7:
+PLS-00905: object SANATH.UPDATE_PAYEE_DETAILS is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Error starting at line : 236 in command -
+BEGIN
+    UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval, 789654123770, 789654123996, 'Mahesh');
+END;
+Error report -
+ORA-06550: line 2, column 5:
+PLS-00905: object SANATH.UPDATE_PAYEE_DETAILS is invalid
+ORA-06550: line 2, column 5:
+PL/SQL: Statement ignored
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+6/1       PLS-00103: Encountered the symbol "AS" when expecting one of the following:     := ) , default character The symbol ")" was substituted for "AS" to continue. 
+22/13     PLS-00103: Encountered the symbol "ELSE" when expecting one of the following:     , ; return returning The symbol ";" was substituted for "ELSE" to continue. 
+26/5      PLS-00103: Encountered the symbol "ELSE" when expecting one of the following:     ( begin case declare end exception exit for goto if loop mod    null pragma raise return select update while with    <an identifier> <a double-quoted delimited-identifier>    <a bind variable> << continue close current delete fetch lock    insert open rollback savepoint set sql execute commit forall    merge pipe purge 
+30/1      PLS-00103: Encountered the symbol "END" 
+Errors: check compiler log
+
+Error starting at line : 245 in command -
+REATE OR REPLACE PROCEDURE UPDATE_PAYEE_DETAILS(
+Error report -
+Unknown Command
+
+
+Error starting at line : 246 in command -
+    p_payee_id IN MYBANK_APP_PAYEE.PAYEE_ID%TYPE,
+Error report -
+Unknown Command
+
+
+Error starting at line : 247 in command -
+    p_sender_account_number IN MYBANK_APP_PAYEE.SENDER_ACCOUNT_NUMBER%TYPE,
+Error report -
+Unknown Command
+
+
+Error starting at line : 248 in command -
+    p_payee_account_number IN MYBANK_APP_PAYEE.PAYEE_ACCOUNT_NUMBER%TYPE,
+Error report -
+Unknown Command
+
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+
+Error starting at line : 249 in command -
+    p_payee_name IN MYBANK_APP_PAYEE.PAYEE_NAME%TYPE
+Error report -
+Unknown Command
+
+
+Error starting at line : 250 in command -
+AS
+Error report -
+Unknown Command
+
+
+Error starting at line : 251 in command -
+  sender_acc Number(12)
+Error report -
+Unknown Command
+
+
+Error starting at line : 252 in command -
+  acc_status VARCHAR(255)
+Error report -
+Unknown Command
+
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+
+Error starting at line : 253 in command -
+BEGIN
+  SELECT ACCOUNT_NUMBER INTO sender_acc FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER = p_sender_account_number;
+    IF sender_acc = null THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Sender account is not active');
+       end if;  
+    ELSE
+           -- Check sender's balance
+           SELECT ACCOUNT_STATUS INTO acc_status FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER =  p_sender_account_number;
+           IF acc_status = 'active' THEN
+           -- Check payee's account status
+            -- Insert transaction into transaction table
+                INSERT INTO MYBANK_APP_PAYEE 
+                VALUES (payee_seq.nextval, p_sender_account_number, p_payee_account_number, p_payee_name)
+            END IF;
+            ELSE
+      -- Sender's account is not active
+             RAISE_APPLICATION_ERROR(-20001, 'Status Inactive');
+
+END;
+Error report -
+ORA-06550: line 6, column 5:
+PLS-00103: Encountered the symbol "ELSE" when expecting one of the following:
+
+   ( begin case declare end exception exit for goto if loop mod
+   null pragma raise return select update while with
+   <an identifier> <a double-quoted delimited-identifier>
+   <a bind variable> << continue close current delete fetch lock
+   insert open rollback savepoint set sql execute commit forall
+   merge pipe purge
+ORA-06550: line 14, column 13:
+PLS-00103: Encountered the symbol "END" when expecting one of the following:
+
+   , ; return returning
+06550. 00000 -  "line %s, column %s:\n%s"
+*Cause:    Usually a PL/SQL compilation error.
+*Action:
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+6/1       PLS-00103: Encountered the symbol "AS" when expecting one of the following:     := ) , default character The symbol ")" was substituted for "AS" to continue. 
+14/5      PLS-00103: Encountered the symbol "ELSE" when expecting one of the following:     ( begin case declare end exception exit for goto if loop mod    null pragma raise return select update while with    <an identifier> <a double-quoted delimited-identifier>    <a bind variable> << continue close current delete fetch lock    insert open rollback savepoint set sql execute commit forall    merge pipe purge 
+22/13     PLS-00103: Encountered the symbol "END" when expecting one of the following:     , ; return returning 
+Errors: check compiler log
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+6/1       PLS-00103: Encountered the symbol "AS" when expecting one of the following:     := ) , default character The symbol ")" was substituted for "AS" to continue. 
+11/19     PLS-00103: Encountered the symbol "=" when expecting one of the following:     . ( * @ % & = - + < / > at in is mod remainder not rem then    <an exponent (**)> <> or != or ~= >= <= <> and or like like2    like4 likec between || multiset member submultiset The symbol "* was inserted before "=" to continue. 
+14/5      PLS-00103: Encountered the symbol "ELSE" when expecting one of the following:     ( begin case declare end exception exit for goto if loop mod    null pragma raise return select update while with    <an identifier> <a double-quoted delimited-identifier>    <a bind variable> << continue close current delete fetch lock    insert open rollback savepoint set sql execute commit forall    merge pipe purge 
+22/13     PLS-00103: Encountered the symbol "END" when expecting one of the following:     , ; return returning 
+Errors: check compiler log
+
+Procedure UPDATE_PAYEE_DETAILS compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+6/1       PLS-00103: Encountered the symbol "AS" when expecting one of the following:     := ) , default character The symbol ")" was substituted for "AS" to continue. 
+11/20     PLS-00103: Encountered the symbol "=" when expecting one of the following:     ( - + all case mod new null <an identifier>    <a double-quoted delimited-identifier> <a bind variable>    continue any avg count current max min prior some sql stddev    sum variance execute forall merge time timestamp interval    date <a string literal with character set specification>    <a number> <a single-quoted SQL string> pipe    <an alternatively-quoted string literal with character set specification>    <an alternative
+14/5      PLS-00103: Encountered the symbol "ELSE" when expecting one of the following:     ( begin case declare end exception exit for goto if loop mod    null pragma raise return select update while with    <an identifier> <a double-quoted delimited-identifier>    <a bind variable> << continue close current delete fetch lock    insert open rollback savepoint set sql execute commit forall    merge pipe purge 
+22/13     PLS-00103: Encountered the symbol "END" when expecting one of the following:     , ; return returning 
+Errors: check compiler log
+
+
+
+
+-----------------------------------------------------------------/////--------------------------
+create sequence CUSTOMERID_SEQ start with 100 increment by 1;
+ 
+create table MYBANK_APP_CUSTOMER(
+CUSTOMER_ID INT,
+CUSTOMER_NAME VARCHAR2(255) NOT NULL,
+CUSTOMER_ADRESS VARCHAR2(255) NOT NULL,
+CUSTOMER_STATUS VARCHAR2(255) NOT NULL,
+CUSTOMER_CONTACT NUMBER(10) NOT NULL,
+USERNAME VARCHAR2(255) NOT NULL,
+PASSWORD VARCHAR2(255) NOT NULL
+);
+ 
+alter table MYBANK_APP_CUSTOMER add constraint CUSTOMERID_SEQ primary key(CUSTOMER_ID);
+ 
+create sequence KYC_SEQ start with 500 increment by 1;
+CREATE TABLE MYBANK_APP_KYC(
+KYC_NUMBER INT,
+CUSTOMER_ID INT NOT NULL,
+KYC_PAN VARCHAR2(255) NOT NULL UNIQUE,
+KYC_AADHAAR NUMBER(16) NOT NULL UNIQUE,
+KYC_STATUS VARCHAR2(255) NOT NULL,
+FOREIGN KEY(CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade
+);
+alter table MYBANK_APP_KYC add constraint KYC_SEQ primary key(KYC_NUMBER);
+ 
+create sequence ACC_SEQ start with 24001 increment by 1;
+CREATE TABLE MYBANK_APP_ACCOUNT(
+ACCOUNT_ID INT,
+CUSTOMER_ID INT,
+ACCOUNT_TYPE VARCHAR(50) NOT NULL,
+ACCOUNT_NUMBER Number(20) NOT NULL UNIQUE,
+ACCOUNT_STATUS Varchar(255) NOT NULL,
+FOREIGN KEY (CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade
+);
+alter table MYBANK_APP_ACCOUNT add constraint ACC_SEQ  primary key(ACCOUNT_ID);
+ 
+create sequence DEPOSIT_SEQ start with 26000 increment by 1;
+CREATE TABLE MYBANK_APP_DEPOSITAVAILABLE(
+DEPOSIT_ID INT,
+DEPOSIT_NAME VARCHAR2(255) NOT NULL,
+DEPOSIT_ROI DECIMAL(15,2) NOT NULL,
+DEPOSIT_TYPE VARCHAR(255) NOT NULL,
+DEPOSIT_DESCRIPTION CLOB NOT NULL
+);
+alter table MYBANK_APP_DEPOSITAVAILABLE add constraint DEPOSIT_SEQ primary key(DEPOSIT_ID);
+ 
+CREATE SEQUENCE DEPOSITAVAIL_SEQ START WITH 1200 INCREMENT BY 1;
+CREATE TABLE MYBANK_APP_DEPOSITAVAILED(
+DEPOSIT_AVAIL_ID INT,
+CUSTOMER_ID INT NOT NULL,
+DEPOSIT_ID INT NOT NULL,
+DEPOSITED_AMOUNT DECIMAL(15,2) NOT NULL,
+DEPOSIT_DURATION INT NOT NULL,
+DEPOSIT_MATURITY DATE NOT NULL,
+FOREIGN KEY (CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade,
+FOREIGN KEY (DEPOSIT_ID) REFERENCES MYBANK_APP_DEPOSITAVAILABLE(DEPOSIT_ID) on delete cascade
+);
+alter table MYBANK_APP_DEPOSITAVAILED add constraint DEPOSITAVAIL_SEQ primary key(DEPOSIT_AVAIL_ID);
+ 
+CREATE SEQUENCE INSURANCEID_SEQ START WITH 1000 INCREMENT BY 1;
+ 
+CREATE TABLE MYBANK_APP_INSURANCEAVAILABLE(
+INSURANCE_ID INT ,
+INSURANCE_TYPE VARCHAR2(50) NOT NULL,
+INSURANCE_NAME VARCHAR2(255)NOT NULL,
+INSURANCE_KEY_BENEFITS CLOB NOT NULL,
+INSURANCE_LIFETIME INT NOT NULL);
+alter table MYBANK_APP_INSURANCEAVAILABLE add constraint INSURANCEID_SEQ  primary key(INSURANCE_ID);
+
+CREATE SEQUENCE INSURANCE_AVAIL_ID_SEQ START WITH 11000 INCREMENT BY 1;
+ 
+CREATE TABLE MYBANK_APP_INSURANCEAVAILED(
+INSURANCE_AVAIL_ID INT,
+CUSTOMER_ID INT ,
+INSURANCE_ID INT ,
+INSURANCE_COVERAGE DECIMAL(15,2) NOT NULL,
+INSURANCE_PREMIUM DECIMAL(15,2) NOT NULL,
+FOREIGN KEY(CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade,
+FOREIGN KEY(INSURANCE_ID) REFERENCES MYBANK_APP_INSURANCEAVAILABLE(INSURANCE_ID) on delete cascade
+);
+alter table MYBANK_APP_INSURANCEAVAILED add constraint INSURANCE_AVAIL_ID_SEQ  primary key(INSURANCE_AVAIL_ID);
+ 
+create sequence DEBIT_SEQ start with 5000 increment by 1;
+CREATE TABLE MYBANK_APP_DebitCard(
+DEBITCARD_NUMBER NUMBER(20),
+ACCOUNT_NUMBER NUMBER(20),
+CUSTOMER_ID INT,
+DEBITCARD_CVV INT NOT NULL,
+DEBITCARD_EXPIRY DATE NOT NULL,
+DEBITCARD_STATUS VARCHAR(255) NOT NULL,
+DEBITCARD_DOMESTIC_LIMIT NUMBER(20) NOT NULL,
+DEBITCARD_INTERNATIONAL_LIMIT NUMBER(20) NOT NULL,
+FOREIGN KEY(ACCOUNT_NUMBER) REFERENCES  MYBANK_APP_ACCOUNT(ACCOUNT_NUMBER) ON DELETE CASCADE,
+FOREIGN KEY(CUSTOMER_ID) REFERENCES  MYBANK_APP_CUSTOMER(CUSTOMER_ID) ON DELETE CASCADE
+);
+alter table MYBANK_APP_DebitCard add constraint DEBIT_SEQ  primary key(DEBITCARD_NUMBER);
+ 
+create sequence LOAN_SEQ start with 12001 increment by 1;
+ 
+create table MYBANK_APP_LOANAVAILABLE(
+loan_number int,
+loan_type varchar2(255) not null,
+loan_name varchar(255) not null,
+loan_description clob not null,
+loan_roi decimal(15,2) not  null
+);
+alter table MYBANK_APP_LOANAVAILABLE add constraint LOAN_SEQ  primary key(loan_number);
+ 
+create sequence LOANAVAIL_SEQ start with 7800 increment by 1;
+ 
+create table MYBANK_APP_LOANAVAILED(
+loan_avail_number int,
+customer_number int,
+loan_number int,
+loan_amount decimal(15,2) not null,
+loan_emi decimal(15,2) not null,
+loan_tenure int not null,
+FOREIGN KEY (customer_number) REFERENCES MYBANK_APP_Customer(customer_Id) on delete cascade,
+FOREIGN KEY (loan_number) REFERENCES MYBANK_APP_LOANAVAILABLE(loan_number) on delete cascade
+);
+alter table MYBANK_APP_LOANAVAILED add constraint LOANAVAIL_SEQ  primary key(loan_avail_number);
+ 
+create sequence transactionid_seq start with 50000 increment by 1;
+ 
+CREATE TABLE MYBANK_APP_Transaction (
+    transaction_id INT,
+    transaction_type VARCHAR(50) not null,
+    transaction_from NUMBER(20) not null,
+    transaction_to NUMBER(20) not null,
+    transaction_date DATE not null,
+    transaction_amount DECIMAL(15,2) not null,
+    transaction_status VARCHAR(50) not null,
+    FOREIGN KEY (transaction_from) REFERENCES MYBANK_APP_Account(account_number) on delete cascade,
+     FOREIGN KEY (transaction_to) REFERENCES MYBANK_APP_Account(account_number) on delete cascade
+);
+alter table MYBANK_APP_Transaction add constraint transactionid_seq  primary key(transaction_id);
+ 
+create sequence payee_seq start with 500 increment by 1;
+ 
+CREATE TABLE MYBANK_APP_Payee (
+    payee_id INT ,
+    sender_account_number number(20),
+    payee_account_number NUMBER(20),
+    payee_name VARCHAR(255) not null,
+    FOREIGN KEY (sender_account_number) REFERENCES MYBANK_APP_Account(account_number) on delete cascade,
+    FOREIGN KEY (payee_account_number) REFERENCES MYBANK_APP_Account(account_number) on delete cascade
+); 
+alter table MYBANK_APP_Payee add constraint payee_seq  primary key(payee_id);
+ 
+alter table MYBANK_APP_ACCOUNT add account_balance decimal(8,3);
+
+
+
+create or replace procedure insert_payee(
+    payee_id INT ,
+    sender_account_number number(20),
+    payee_account_number NUMBER(20),
+    payee_name VARCHAR(255) not null,
+    )
+as
+begin 
+ insert into MYBANK_APP_Payee(payee_seq.nextval ,transaction_amount,transaction_date,transaction_to,transaction_remarks) values(t_id,t_amount,t_date,t_to,t_remark);
+ infos_op:='done';
+exception 
+when OTHERS then 
+infos_op:='not done'||SQLERRM;
+end;
+/
+
+variable infos_op varchar2;
+execute insert_transaction(TRANSACTION_SEQUENCE.nextval,'20-MAR-2013','John',500,'Friend',:infos_op);
+print infos_op;
+
+
+
+CREATE PROCEDURE CheckPayeeAccountExists (
+    IN payee_account_number INT
+)
+BEGIN
+    DECLARE account_count INT;
+    
+    -- Check if the payee account number exists in the account table
+    SELECT COUNT(*) INTO account_count
+    FROM MYBANK_APP_ACCOUNT
+    WHERE ACCOUNT_NUMBER = 789654123100;
+    
+    -- If the count is 0, throw an exception
+exception 
+when OTHERS then 
+infos_op:='not done'||SQLERRM;
+end;
+/
+
+
+
+CREATE OR REPLACE PROCEDURE UPDATE_PAYEE_DETAILS(
+    p_payee_id IN MYBANK_APP_PAYEE.PAYEE_ID%TYPE,
+    p_sender_account_number IN MYBANK_APP_PAYEE.SENDER_ACCOUNT_NUMBER%TYPE,
+    p_payee_account_number IN MYBANK_APP_PAYEE.PAYEE_ACCOUNT_NUMBER%TYPE,
+    p_payee_name IN MYBANK_APP_PAYEE.PAYEE_NAME%TYPE
+) AS
+    check_number MYBANK_APP_ACCOUNT.ACCOUNT_NUMBER%TYPE;
+    check_status MYBANK_APP_ACCOUNT.ACCOUNT_STATUS%TYPE;
+BEGIN
+    -- Check if the sender account exists and get its status
+    SELECT ACCOUNT_NUMBER INTO check_number
+    FROM MYBANK_APP_ACCOUNT
+    WHERE ACCOUNT_NUMBER = p_sender_account_number;
+ 
+    -- If the sender account is not found, raise an exception
+    IF check_number =p_sender_account_numbe  THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Sender account exists');
+    END IF;
+
+--    -- If the sender account is inactive, raise an exception
+--    IF check_status = 'inactive' THEN
+--        RAISE_APPLICATION_ERROR(-20002, 'Sender account is inactive');
+--    END IF;
+--
+    -- Update payee details
+    INSERT MYBANK_APP_PAYEE(PAYEE_ID,SENDER_ACCOUNT_NUMBER, PAYEE_ACCOUNT_NUMBER,PAYEE_NAME)
+        values(p_payee_id, p_sender_account_number, p_payee_account_number, p_payee_name);
+
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        RAISE;
+END;
+/
+
+
+execute UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval,789654123770,789654123996,'Mahesh');
+
+
+BEGIN
+    UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval, 789654123770, 789654123996, 'Mahesh');
+END;
+/
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE UPDATE_PAYEE_DETAILS(
+    p_payee_id IN MYBANK_APP_PAYEE.PAYEE_ID%TYPE,
+    p_sender_account_number IN MYBANK_APP_PAYEE.SENDER_ACCOUNT_NUMBER%TYPE,
+    p_payee_account_number IN MYBANK_APP_PAYEE.PAYEE_ACCOUNT_NUMBER%TYPE,
+    p_payee_name IN MYBANK_APP_PAYEE.PAYEE_NAME%TYPE
+AS
+  sender_acc Number(12);
+  acc_status VARCHAR(255);
+BEGIN
+  SELECT ACCOUNT_NUMBER INTO sender_acc FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER = p_sender_account_number;
+    IF sender_acc == null THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Sender account is not active'); 
+        END IF;
+    ELSE
+           -- Check sender's balance
+           SELECT ACCOUNT_STATUS INTO acc_status FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER =  p_sender_account_number;
+           IF acc_status = 'active' THEN
+           -- Check payee's account status
+            -- Insert transaction into transaction table
+                INSERT INTO MYBANK_APP_PAYEE 
+                VALUES (payee_seq.nextval, p_sender_account_number, p_payee_account_number, p_payee_name)
+            END IF;
+            ELSE
+      -- Sender's account is not active
+             RAISE_APPLICATION_ERROR(-20001, 'Status Inactive');
+ 
+END;
+/
+
+execute UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval,852963741085,789654123996,'Naresh');
+
+
+
+
+SELECT ACCOUNT_NUMBER INTO sender_acc FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER =789654123100;
+
+
+
+
+CREATE OR REPLACE PROCEDURE UPDATE_PAYEE_DETAILS(
+    p_payee_id IN MYBANK_APP_PAYEE.PAYEE_ID%TYPE,
+    p_sender_account_number IN MYBANK_APP_PAYEE.SENDER_ACCOUNT_NUMBER%TYPE,
+    p_payee_account_number IN MYBANK_APP_PAYEE.PAYEE_ACCOUNT_NUMBER%TYPE,
+    p_payee_name IN MYBANK_APP_PAYEE.PAYEE_NAME%TYPE
+) AS
+  sender_acc MYBANK_APP_ACCOUNT.ACCOUNT_NUMBER%TYPE;
+  acc_status MYBANK_APP_ACCOUNT.ACCOUNT_STATUS%TYPE;
+BEGIN
+  -- Check if the sender account exists
+  SELECT ACCOUNT_NUMBER INTO sender_acc FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER = p_sender_account_number;
+  
+  IF sender_acc IS NULL THEN
+    -- Sender account is not active
+    RAISE_APPLICATION_ERROR(-20002, 'Sender account is not active');
+  ELSE
+    -- Check sender's balance
+    SELECT ACCOUNT_STATUS INTO acc_status FROM MYBANK_APP_ACCOUNT WHERE ACCOUNT_NUMBER = p_sender_account_number;
+    
+    IF acc_status = 'active' THEN
+      -- Check payee's account status
+      -- Insert transaction into transaction table
+      INSERT INTO MYBANK_APP_PAYEE 
+      VALUES (payee_seq.nextval, p_sender_account_number, p_payee_account_number, p_payee_name);
+    ELSE
+      -- Sender's account is not active
+      RAISE_APPLICATION_ERROR(-20001, 'Sender account is inactive');
+    END IF;
+  END IF;
+END;
+/
+BEGIN
+  UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval, 85296374108, 789654123987, 'Naresh');
+END;
+/
+
+
+
+
+CREATE OR REPLACE PROCEDURE UPDATE_PAYEE_DETAILS(
+    p_payee_id IN MYBANK_APP_PAYEE.PAYEE_ID%TYPE,
+    p_sender_account_number IN MYBANK_APP_PAYEE.SENDER_ACCOUNT_NUMBER%TYPE,
+    p_payee_account_number IN MYBANK_APP_PAYEE.PAYEE_ACCOUNT_NUMBER%TYPE,
+    p_payee_name IN MYBANK_APP_PAYEE.PAYEE_NAME%TYPE
+) AS
+    sender_acc NUMBER;
+    acc_status MYBANK_APP_ACCOUNT.ACCOUNT_STATUS%TYPE;
+    payee_acc NUMBER;
+    payee_exists NUMBER;
+
+BEGIN
+    SELECT COUNT(*)
+    INTO sender_acc
+    FROM MYBANK_APP_ACCOUNT
+    WHERE ACCOUNT_NUMBER = p_sender_account_number;
+
+    SELECT COUNT(*)
+    INTO payee_acc
+    FROM MYBANK_APP_ACCOUNT
+    WHERE ACCOUNT_NUMBER = p_payee_account_number;
+    
+    IF payee_acc = 0 THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Payee account not found');
+    END IF;
+    
+    IF p_sender_account_number=p_payee_account_number THEN
+          RAISE_APPLICATION_ERROR(-20004, 'Sender and Payee account cannot be same');
+    END IF;    
+    
+    SELECT COUNT(*)
+    INTO payee_exists
+    FROM MYBANK_APP_PAYEE
+    WHERE SENDER_ACCOUNT_NUMBER = p_sender_account_number
+    AND PAYEE_ACCOUNT_NUMBER = p_payee_account_number;
+
+    IF payee_exists > 0 THEN
+        RAISE_APPLICATION_ERROR(-20005, 'Payee account already exists with sender account');
+    END IF;
+
+    INSERT INTO MYBANK_APP_PAYEE (PAYEE_ID, SENDER_ACCOUNT_NUMBER, PAYEE_ACCOUNT_NUMBER, PAYEE_NAME)
+    VALUES (p_payee_id, p_sender_account_number, p_payee_account_number, p_payee_name);
+
+    COMMIT;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20001, 'sender not exist');
+        
+END;
+/
+
+
+BEGIN
+  UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval, 789654123100, 789654123987, 'Nagesh');
+END;
+/
+
+
+

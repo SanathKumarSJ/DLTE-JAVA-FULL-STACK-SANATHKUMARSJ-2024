@@ -1,0 +1,111 @@
+>> Try catch throw and throws
+>> Perform the task
+>> files -->
+>> implement logger,excptn
+>> pin code sort
+
+
+12/3/2024
+>> avoid redundancy in file
+>> api's utilization
+>> file allign
+>> logical writing and retrieving
+>> object --> to string --> storing the file --> retirviing
+
+>> logback.xml writing limitation (in log file as well--> in realtime log files are created on daily basis based on limit)
+>> enabling and disabling (levels in log)
+>> Start designing the database( instead of file system )
+>> snapshot --> freezed version
+>> connect to database
+
+13/3/2024
+>> create address entity contains basic address parameter
+>> create temporary and permanent employee
+>> console code doesn't vary while switching between db and file.
+>> 
+
+
+>> closing connection,prreparedstatement,resultaset
+>> using logger for exception.
+
+
+19/03/2024
+>> exceptions should be visible on the display
+>> logger should be only for developer
+
+
+
+
+20/03/2024
+>> establisment of connection should be in backend
+>> establish connection whereever required and close the connection.
+>> organization of classes inside the package     
+org.----.-----
+>> entity.employee
+>> exception.--
+>> services.--
+>> interfaces.---
+
+>> logger file creation whenever exceeds the size
+>> use comments and make the code structured.
+>> entity name and objects names should be proper , readable by everyone
+>> Instead of constructor use setter
+>> validation in backend how it is handled whether permanent and temporary address objects are valid or not
+
+>> junit testing for particular unit
+
+26/03/2024
+>> table --> all details in 1 table.
+>> for address combine perm and temp table
+>> new log file creation when size exceeds and previous has to be zipped ( zipping the log file )
+>> in testing part we can increase the size.
+>> sql querry code new line compilation.
+>> use alias in the query if the column name
+>> instead of (select *) use particular column so that evey column is not processed
+>> differenece between join/innerjoin/outerjoin
+>> different type of joins and uses.
+>> what is connection--> dlte (<--) {schema / connection / database}
+
+>>console --- webservice --- backend  ((which is better design))
+>>        --- webservice --- backend
+>> new webservice project.s
+
+
+----> work on index <-------
+
+
+
+27/03/2024
+>> use flag instead of duplicated.
+>> return all record(inp:pincode)  --> apply filters to find pin code.
+>> join and inner join are different check thje condition part.
+>> define own schema and that should consist of tables created by me
+>> using console as the client
+>> complete the testing end-to-end (web---db)
+>> 3.0 console and call the webservice
+>> object passing from front end and retrieve 
+
+
+03/04/2024
+>> backend version update add jdbc template
+>> front and v..up.. and add spring boot ioc concepts
+>> spring context
+>> controller---req res
+>> AOP>> shortcuts and urls
+>> jdbc-- jdbc connectivity
+>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

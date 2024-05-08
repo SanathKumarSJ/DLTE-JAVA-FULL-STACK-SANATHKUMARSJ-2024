@@ -1,0 +1,63 @@
+--PROCEDURES_ INSERTION---
+create or replace procedure insert_transactiondata(
+	transaction_amount number,
+	transaction_date date,
+        transaction_id number,
+        transaction_to varchar2,
+        transaction_remark varchar2,
+        proced_operation out varchar2
+    )
+as
+begin 
+ insert into Transactions_Analysis(transaction_id,transaction_amount,transaction_to,transaction_date,transaction_remarks) values(transaction_id,transaction_amount,transaction_date,transaction_to,transaction_remark);
+ proced_operation:='done';
+exception 
+when OTHERS then 
+proced_operation:='not done'||SQLERRM;
+end;
+/
+
+variable proced_operation varchar2;
+execute insert_transactiondata(TRANSACTION_SEQ.nextval,75000,'Rohith','12-FEB-2026','Family',:proced_operation);
+print proced_operation;
+
+
+---PROCEDURE TO DELETE TRANSACTION GIVEN TO----
+create or replace procedure delete_transactionto(
+  enter_date date,
+  err_info out VARCHAR
+  )
+  as
+  begin 
+   delete from transactionsanalysis where transaction_date=enter_date;
+   err_info:='no erroe';
+  exception
+   when others then
+   err_info:='error due to'||SQLERRM;
+END;
+/
+
+variable err_info varchar2;
+execute delete_date('22-FEB-2022',:err_info);
+
+----Filter based on remark when it is Education---
+
+create or replace procedure filter_transactions(
+   to_names out VARCHAR2,
+   filter_err out VARCHAR2   
+)
+as 
+ begin select transaction_to into to_names from transactionsanalysis where transaction_remarks='Education';
+ filter_err:='done';
+ exception
+  when no_data_found then
+  filter_err:='No data found';
+  when others then
+  filter_err:='error due to'||SQLERRM;
+end;
+/
+variable to_name varchar;
+variable filter_error varchar2;
+execute filter_transactions(:to_name,:filter_error);
+print to_name;
+print filter_error;

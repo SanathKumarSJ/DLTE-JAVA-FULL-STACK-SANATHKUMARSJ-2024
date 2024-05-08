@@ -1,0 +1,27 @@
+>> how the object is created in xml and spring
+>> categorizing the xml
+>> bean name and bean id
+>> class level and method level annotation
+>> tomorrow jdbc template
+TECH REVIEW
+>> Console spring, dao spring,jdbc template
+
+Bean ID is an alias for the name of the bean. It provides an alternative means of referring to a bean within the container.
+In XML configuration, the id attribute explicitly defines the bean ID.
+In annotations, the default bean ID is the camelCase representation of the class name unless specified explicitly.
+Bean IDs are also used when wiring beans together using dependency injection.
+
+In Spring, every bean has a name associated with it, which is used to identify the bean within the IoC container. This name is specified using the name attribute in XML configuration or the value attribute in annotations like @Component.
+Bean names must be unique within the container. If no explicit name is provided, Spring generates a unique name for the bean.
+Bean names can contain letters, numbers, hyphens, underscores, and other special characters, but traditionally they're camelCase.
+
+
+>> at what point the dao accessing
+>> at what point the object is created
+
+
+
+
+@PayloadRoot: This annotation is used to indicate that the annotated method is intended to handle incoming SOAP messages with a specific payload root element.
+namespace: This attribute specifies the namespace of the incoming SOAP message that the method should handle.
+localPart: This attribute specifies the local part of the incoming SOAP message's root element that the method should handle.

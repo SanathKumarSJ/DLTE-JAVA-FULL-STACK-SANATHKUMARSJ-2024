@@ -1,0 +1,178 @@
+Operators:
+>> Arithmetic - +-*/%
+>> Unary ++,--
+>> Bitwise >><<&|^
+>> Shorthand += -- *= /= %= >>= <<=
+---boolean outputs---
+>> Relational > < <= >= == !=
+>> Logical && ||
+
+IMP : As soon as created any object like scanner ( we should close it) scanner.close()
+
+Control Statements: understand the user requirement and provide the solution
+* if --> Supports all datatypes
+* switch --> Int(whole number not decimals)
+	 --> char , string
+	 --> == || 
+
+Task : Income tax slabs(both old and new regimme)
+
+switch syntax:
+switch(cond){
+	case "st1" : case "or st1" :case "or st1":
+Loop Statements: (reduce space complexity)
+*while
+*do while
+*for - if the ranges provided 
+*for each - it never works with the ranges ( it executes everything) {doesn't offer the position}
+	  - for each is not used for insertin random number because it always takes the reference bit and stores in duplicate array not in 	    original array
+
+---------------------------------------------------Decoding----------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+
+Two type of type conversions
+1. Type Parsing  2. Type casting
+
+--> TYPE PARSING:
+	-its the conversion happens from String to other types using respective Wrapper class parse method
+
+--> TYPE CASTING:
+	-casting between any data types
+	-------------IMPLICIT----------
+     	>> int accountType = 'S'; (it is valid called Implicit casting)
+				Implicit casting is happens only whenever the low size datatypes are converted into large size datatypes.
+	>> char transactionType ='d'; int transType transactionType; //it is possible without mentioning the casting operator because low 	to high conversion
+	>>eg: char x ='C'; int dest=0;
+		system.out.println(dest); //output will be 67
+	
+	------------EXPLICIT------------
+	converting high size datatype to low size datatype
+	>> double x=72.01; int y=52; int res=0;
+	>> res= x+y; //Throws error
+	>> res= (int) x+y; or double res = x+Y;
+
+	
+------------------------------------------------------------------STRINGS---------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+>>Declaration 
+--> String myPortfolio = "GOLD, jSW"; // literal
+--> String myStocks = new String(original: "Wipro , reliance,HP"); //Non-literal way
+// Storage logic : CRUD
+// Strings are immutable (means requires third variable)
+
+myStocks = myStocks.concat(str:",Microsoft");
+System.out.println(myStocks);
+
+----------------//READ\\-----------------------
+System.out.println(myportfolio.charAt(0)); //G--> is the output
+System.out.println(myportfolio.substring(10,14));  // 
+
+---------------//trim\\--------------------
+Used to strip( remove the spaces on left and right side not in the middle)
+
+---------------//CONTAINS\\--------------------------
+System.out.println(myStocks.contains("Reliance"));
+output is boolean ( true/false)
+
+----------------//Update\\----------------------
+System.out.println(myStocks.replace(target:"HP", replacement:"BHARATH PETROLEUM"); // throws error
+myStocks=myStocks.replace(target:"HP", replacement:"BHARATH PETROLEUM");
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------REGEX(REGULAR EXPRESSION)------------------------------------------------------
+
+RegEx: 
+	data validation:
+Regular expression got some classes like;
+>>pattern -- compile, match
+>>Matcher -- matches
+
+^ >> start
+$ >> end
+
+[0-9] >> numbers
+[a-z A-Z] >> Alphabets
+?= >> grouping
+
+{start,limit} : length of the string
+
+---------REGULAR EXPRESSION RULE-------------
+* 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------ARRAY----------------------------------------------------------------------------
+--> Array is a storage logic, its a temproary fixed size and type specific.
+
+--> Types:
+	>> Single Dimentional -
+	>> Multi Dimentional -
+	>> Jagged - unbalanced row and column
+
+Declaration:
+-> type[] var/obj = {v1,v2,v3,..,vn}
+
+-> type[] var/obj = new type[size]; //10 >> default value in all index
+
+-> var[index] = scanner.nextDouble();
+
+------------Object class array------------
+declaration:
+Object[] storage=new Object[7];
+
+---> Object class array has the capability to adopt to different datatypes..
+example:: static Object[] storage = {"Razak Mohamad",12.5, true, 25000};
+	  ->> index were not present so we use (for each for read operation).
+	  ->> 
+
+Operation:
+CRUD
+Search
+Sort
+Analysis
+
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------METHODS-----------------------------------------------------------------------
+* Minimize space complexity by distributed code of grouping statement based on nature
+* Executed when make a call
+
+Types:
+>>Inbuilt Method:
+>> User defined:
+
+Category:
+>> Parameter with return:
+--> Type Parsing
+
+>> Parameter without return:
+--> Println
+
+>> No parameter with return type:
+--> finalize
+
+>> No Parameter without Return type:
+--> Scanner
+
+
+Task:
+1. Readme file
+2. push everuthing to git
+3. regex on loan
+	name only char
+	phone num range and only num
+	email @and . index diff
+	adhar only num upto 12
+	pan alphanum
+
+4. user gives features
+iterates and checks the insurance 
+
+feature1 2 3....
+iterate and check the features like no claim bonus and ....
+
+string cmp1={feat1,2,3,4}
+=======================
+====================
+user input feature 1 or 2 or3....
+checking with each compmy and printing if exists...

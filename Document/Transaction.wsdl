@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://transaction.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://transaction.services" targetNamespace="http://transaction.services">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://transaction.services">
+
+
+    <!--    Entity-->
+   
+<wsdl:types>
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<xsd:import  namespace="http://transaction.services" schemaLocation="Transaction.xsd"/>
+	</xsd:scheme>
+</wsdl:types>
+
+
+
+
+    <!--    Update Transaction details-->
+    <xsd:element name="updateRemarksRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="transaction" type="tns:transaction"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="updateRemarkResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="transaction" type="tns:transaction"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+    <!--    Find By sender name-->
+    <xsd:element name="findBySenderRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="senderName" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findBySenderResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element maxOccurs="unbounded" name="transaction" type="tns:transaction"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    Find By Receive name-->
+    <xsd:element name="findByReceiveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="receiveName" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findByReceiveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element maxOccurs="unbounded" name="transaction" type="tns:transaction"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <!--    Find By Transaction Amount-->
+    <xsd:element name="findByAmountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="amount" type="xsd:double"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findByAmountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element maxOccurs="unbounded" name="transaction" type="tns:transaction"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+    <!--    Remove method-->
+    <xsd:element name="RemoveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="startDate" type="xsd:date"/>
+                <xsd:element name="endDate" type="xsd:date"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RemoveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="newTransactionRequest">
+    <wsdl:part element="tns:newTransactionRequest" name="newTransactionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RemoveRequest">
+    <wsdl:part element="tns:RemoveRequest" name="RemoveRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findBySenderResponse">
+    <wsdl:part element="tns:findBySenderResponse" name="findBySenderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findByAmountRequest">
+    <wsdl:part element="tns:findByAmountRequest" name="findByAmountRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRemarkResponse">
+    <wsdl:part element="tns:updateRemarkResponse" name="updateRemarkResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findByReceiveRequest">
+    <wsdl:part element="tns:findByReceiveRequest" name="findByReceiveRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findByReceiveResponse">
+    <wsdl:part element="tns:findByReceiveResponse" name="findByReceiveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RemoveResponse">
+    <wsdl:part element="tns:RemoveResponse" name="RemoveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findBySenderRequest">
+    <wsdl:part element="tns:findBySenderRequest" name="findBySenderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRemarksRequest">
+    <wsdl:part element="tns:updateRemarksRequest" name="updateRemarksRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newTransactionResponse">
+    <wsdl:part element="tns:newTransactionResponse" name="newTransactionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findByAmountResponse">
+    <wsdl:part element="tns:findByAmountResponse" name="findByAmountResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TrxnPort">
+    <wsdl:operation name="newTransaction">
+      <wsdl:input message="tns:newTransactionRequest" name="newTransactionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:newTransactionResponse" name="newTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input message="tns:RemoveRequest" name="RemoveRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:RemoveResponse" name="RemoveResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findBySender">
+      <wsdl:input message="tns:findBySenderRequest" name="findBySenderRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:findBySenderResponse" name="findBySenderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByAmount">
+      <wsdl:input message="tns:findByAmountRequest" name="findByAmountRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:findByAmountResponse" name="findByAmountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRemark">
+      <wsdl:output message="tns:updateRemarkResponse" name="updateRemarkResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByReceive">
+      <wsdl:input message="tns:findByReceiveRequest" name="findByReceiveRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:findByReceiveResponse" name="findByReceiveResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRemarks">
+      <wsdl:input message="tns:updateRemarksRequest" name="updateRemarksRequest">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TrxnPortSoap11" type="tns:TrxnPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="newTransaction">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="newTransactionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="newTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="RemoveRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RemoveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findBySender">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findBySenderRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findBySenderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByAmount">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findByAmountRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findByAmountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRemark">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="updateRemarkResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findByReceive">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findByReceiveRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findByReceiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRemarks">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateRemarksRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TrxnPortService">
+    <wsdl:port binding="tns:TrxnPortSoap11" name="TrxnPortSoap11">
+      <soap:address location="http://localhost:8082/trxnrepo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

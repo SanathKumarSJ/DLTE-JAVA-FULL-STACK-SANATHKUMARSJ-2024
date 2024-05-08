@@ -1,0 +1,93 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------Classes:------------------------------------------------------------------------
+it is used to relate all the details
+for ex: Kyc of mine, it should consists of my details not others
+
+setter : property should be same
+getter : no parameter with return type
+
+Creating Dependency: Developers made central repository called MVN repository
+LOMBOK dependency we r goin to create.
+
+--> for setting values there are 2 ways
+>>>Constructors -- Autocalls (IMP--> Constructor name should be as same as class), no parameter , sets all value at a time.
+>>>setter-- sets value one by one Object.setXXXXXX(Value);
+
+CREATING OBJECT
+classname Objectname(x1,x2..)= new Constructor();
+
+annotation
+@Data
+@AllArgsConstructor
+@NOArgsConstructor
+
+-----------POLYMORPHISM-------------
+-->Compile time or static polymorphism ( overloading )
+-->Run time
+
+------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------OOPS-------------------------------------------------------------------------
+we are about to create an application based on the requirement
+
+>> Ananymous way of object creation is nothing but creating objects of array without physical naming of the perticular objects (it may be the index of array (no specific name))
+
+>>to call non-static method we need to create an object in the main method
+---> Classname object_name= new Constructor();
+---> object_name.method(array);
+
+example --
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------SQL-------------------------------------------------------------------------
+>> SQL Developer >>gui
+>> sqlplus  	 >> cli
+
+Table: Column and rows
+Datatypes: varchar,number,int,bigint,text,double,float,blob,date 
+
+SQL:
+ --> DDL : Data definition Language : create,drop ,alter
+==>>Create : database,table,views,procedures,sequence, types
+
+--> DCL : Data Control Language : Grant, Revoke
+==>>User
+
+--> DML : Data Manipulation Language : insert,delete,update,truncate
+
+--> DQL : Data Query Language : select>> joins
+
+--> TCL : Transaction Control Language >> commit,rollback
+
+
+-----Structure Check-----------
+describe table_name;
+
+--------altr--------------
+alter transaction_2024 add primary key(transaction_id);
+
+
+------------Sequence-----------------
+create sequence transaction_seq start with 1 increment by 1;
+
+-----------------removing column----------
+alter table_name drop column transaction_id;
+
+----------------adding column------------
+alter table transaction_second add transaction_id datatype(number) not null;
+
+
+-------------------assigning primary key to sequence and seq is transaction id-----------------
+alter table transaction_second add constraint transaction_seq primary key(transaction_id);
+
+
+
+--------------------------------------------------INSERT-------------------------------------------------
+
+-------------inserting-----------------
+insert into transaction_second(transaction_id,transaction_amount, transaction_date ,transaction_to, transaction_remarks) values(transaction_seq.nextval,100,'20Feb2024','John Doe', "Friend");
+
+
+
+
+
+

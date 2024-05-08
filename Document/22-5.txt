@@ -1,0 +1,181 @@
+>> To access members in the protected modifiers we have inherit.
+>> For final class members we cannot override or inherit
+--------------FINAL METHODS CANNOT BE OVERRIDDEN------------------------
+Error -> Can take place in both runtime and compile time error
+--> Compile Time Error: 
+	-- Syntax, logical --can be controlled before compiling the code
+
+--> Run Time Error
+	-- Stack overflow > cannot handle it
+
+Exception:
+Compile time : Checked excepton
+EX: IoException
+    InterruptedException
+    ClassNotFoundException
+    CloneNotSupported
+.
+.
+
+Run time:
+EX: InputMismatchException
+    ArrayIndexOutOfBoundException
+    etc..,
+
+
+How to handlw
+* using Throws -- not users mistake
+* try catch -- user mistake
+
+
+-Finally block exceutes if exception is not handled close the scanner.
+
+
+-------------------------------------------CREATING RESOURCE-----------------------------------------------------------
+test --> new --> directory --> resource 
+resource --> new --> file --> resource.properties
+In this file we can mention key and value
+---- ResourceBundle.resourceBundle = redourceBundle.getbundle("filename");
+sout(resourceBundle.getstring("key"));
+
+
+
+LOGGING USED to track info, irrelevent access ,events etc..,
+Logger logger = Logger.getLogger(Logger.Global_Logger_name);
+				(Level.CONFIG, resourceBundlke.getstring("propertyname"));
+
+				(Level.INFO,resourceBundlke.getstring(key));
+
+--> errors are reflected through properties files in resource folder and not hardn coded.
+Log is used to print the error methods and can extract date and time also
+--> Configure won't appear at the output.
+
+-------------------------------------INPUTMISMATCH---------------
+>> Since it related to scanner, in catch block the new scanner needs to be created
+
+
+--------------USERDEFIENED EXCEPTION------------
+>> Throwing the exception from one method to another called FORWARDING EXCEPTION..   
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ASSERTION---------------------------------------------------------------------------
+Syntax:
+--> assert <condtion>:"error info"
+ex:
+---assert tenure!0:"Invaid Tenure";
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------SQL--------------------------------------------------------------------------
+
+Procedure:
+>> Writes complex/repeated queries in procedure to compile once and excecute whenever it required
+
+--Network Traffic
+--Compilation
+--Exception Handling
+
+syntax for procedure:
+Create or replace procedure PROCEDURE_NAME
+begin
+end
+/
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ DATA TRIGGER ----------------------------------------------------------------------
+
+time >> before,after
+event >> insert,update,delete
+
+
+syntax:
+create or replace trigger TRIGGER_NAME
+TIME EVENT on TABLE
+for each row
+CONDITION
+begin
+...
+end
+/
+
+--User1 -> Select 
+create user sanath identified by sksj;
+
+--User created.
+
+grant connect to sanath;
+
+--Grant succeeded.
+
+Enter user-name: sanath
+Enter password:
+
+--Connected to:
+--Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+connect sanath/sksj;
+
+--Connected.
+
+alter session set current_schema=system;
+
+--Session altered.
+
+Enter user-name: system
+Enter password:
+
+--Connected to:
+--Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+grant select on TRANSACTIONS_ANALYSIS to sanath;
+
+--Grant succeeded.
+
+connect sanath/sksj;
+--Connected.
+
+alter session set current_schema=system;
+
+--Session altered.
+
+select * from Transactions_Analysis;
+
+
+-- ......................................................
+--User2 -> DELETE
+
+create user rohitdelte identified by hitman;
+
+--User created.
+
+grant connect to sanath;
+
+--Grant succeeded.
+
+Enter user-name: system
+Enter password:
+
+--Connected to:
+--Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+SQL> grant delete on TRANSACTIONS_ANALYSIS to rohitdelte;
+
+--Grant succeeded.
+
+SQL> connect rohitdelte/hitman;
+
+--Connected.
+
+SQL> alter session set current_schema=system;
+
+--Session altered.
+
+SQL> delete from TRANSACTIONS_ANALYSIS where TRANSACTION_ID=2458225;
+
+--1 row deleted.
+
+SQL> commit;
+
+--Commit complete.
+

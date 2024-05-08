@@ -1,0 +1,10 @@
+---------------------------------------string Concurrency----------------------------------   
+>>Lock is used to run line by line code inside the run 
+>>So that ordered exceution possible
+>>Lock lock=new Reentredlock()
+
+
+inside run
+lock.lock()
+....
+lock.unlock()

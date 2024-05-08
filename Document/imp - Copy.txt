@@ -1,0 +1,56 @@
+>> remove unwanted pom dependency
+>> change the version 1.0.0
+>> use @Before to keep the data ready
+>> Junit testing with null and attribute=null
+>> bean validation should have common message key for a particular attribute
+>> description should be provided in api docs for particular attribute
+>> soap sec
+>> soap error code
+
+
+front end
+>> name
+>> add payee alignment
+>> error page
+>> dash design
+>> cards design
+
+Test Case:
+>> test documentation, looping logic for key message pair( not if)
+
+
+
+Queries:
+>> fontstyle
+>> exception handling in fe
+>> error page 
+>> sql procedure
+>> debug
+
+
+code
+>> aria-hidden---header
+>>  pagination.find(".page-link").css("margin", "0 5px");---viewPayee
+>>  color: white !important; /* Text color on click */---login
+
+
+doubt to Razak:
+>> transaction and delete button
+
+
+changes:
+>> 20001--payeeimpl
+>>get account removed Exception--mybank service
+
+
+
+
+>> casing
+>> back and front nav buttons
+>> insert script
+
+
+
+>image ext
+>>use property
+>> log trance

@@ -1,0 +1,126 @@
+--------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------Inheritance-------------------------------------------------
+
+Inheritance:
+-Class
+-Interface
+
+
+>> derivedClass extends baseClass
+>> deriveInterface extends baseInterface
+
+>> Hierarchy ::--> one base class and multiple derived products
+example ;             GOOGLE
+		      /    \
+		   Youtube  Gmail
+
+>>Single -level ::--> mobile banking using debit card and savings.
+>> Multi-level ::--> mobile banking using debit card and savings as well as other products
+
+derivesClass implements baseInterface
+
+Override: (WRITING THE SAME METHOD TO PARENT AND CHILD CLASS/INTERFACE)
+Happens only when the inheritance is done - dynamic or runtime polymorphism(it comes into picture when running not during compilation)
+
+
+
+----------------------------------------------------------Interface----------------------------------------------------------------
+signature : public(modifirs) void(returntype) name(argument)
+in INTERFACE
+
+>> if we use public in interface method should not have the body (private,public).
+
+>> if we use default in interface method should have the body (allowable modifiers defualt, static) in order to build non-absract method.
+
+--> default: call within the package
+--> static : without calling
+
+>> Interface we don't have the constructor.
+
+
+>> we can't create abstracts inside the class even though we mention keyword 'abstract'
+>> so class is a non-abstract
+
+while inheriting if both base and derived inheritance are class or interface --use extends
+						different 		     --use implemnts
+
+
+-----------> Stuffs created inside interface cannot be modified <----------
+because we dont have constructor
+assignment is final in interface
+
+we can overload in interface ( default 
+
+OVERRIDE- inheriting bewteen classes not compulsory overriding is.
+** We can group the common methods from the diffrenent vendor and they can build their own logic..
+
+
+Tightly coupled:
+because of it using for each the getter and setter can be updated.
+
+
+Two interface sharing common inheritance it operates on the first come first serve
+
+Java has multiple inheritance interms of interface not class
+
+
+Data_triggers ; checking the whether the data is coming propoerly or not for ex: account holder name
+using overrides the user can overide and performs thier own logic
+also checking the objects whether the data is coming from the same objects or not.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------Inner class-------------------------------------------------------------------------------------------
+
+>> Class may be the member of another class
+
+1. Static
+2. Non-static
+3. Local
+4. Ananymous
+
+Modifiers:
+1. Public
+2. Private
+3. Protected (by default its a default package "have to be inherited if accessing outside the package")
+4. Default : Package scope
+5. Abstract (cannot create instance directly have to be inherited)
+6. Final : 
+7. Static:
+
+Standalone classes:
+Public, Default,abstract,final
+
+Member Classes:
+Private, protected , Static
+
+
+
+Aproach static inner class
+to access static class === Classname.staticclass name 
+to access the members inside static class i.e non- static class == Classname.staticclassname object = new Classname.staticclassname();
+
+
+---------------------------------------------------------------------Local Class-----------------------------------------------------------------
+
+We can only reach till the member of other class declared outside the block
+otherwise
+For the member access we can create a local class inside the block 
+--> Runtime runtime= Runtime.getRuntime();
+--> is used to run the
+
+
+Profile
+-username
+-pass
+-fullname
+-contact
+
+Loan
+-
+
+
+Customer
+- needs to create profile then access loan
+- create method in customer 
+	obj in customer
+	add loan

@@ -1,0 +1,62 @@
+JAVA_BASICS
+1.PUBLIC
+>> Public methods can be accessed on the same package
+>> Public variable can be accessed on different package
+>> void show()-- show method can be accessed inside class its public
+>> public void show() can be accessed any where
+
+2. PRIVATE
+>> Private variables can be used in same class
+>> Private class can be accessed using by defining constructors, getters and setters
+>> Private method can be accessed by creating public class constructor 
+
+3. PROTECTED
+>> Can create an object in same package
+>> To implement protected in different package we need to extend
+>> Same class, same package, different package
+
+4. DEFAULT
+>> Can be accessed in same package, same class.
+
+5. ABSTRACT
+>> Some methods are not implemented initially, while designing the class some methods left un implemented and we cannot remove the method also
+--> Instead of declaring method we are defining the method using keyword abstrat
+
+>> The abstract methods are declared in other class by extending the abstract the class
+>> We cannot create object of an abstract class we can create the reference by extending
+>> Abstract class can have abstract class and abstract methods
+>> We can create multiple abstract method
+>>  
+
+6. FINAL
+A)) Variable:
+--> the variable become constant 
+--> final <datatype> num =0;
+
+B)) Class:
+>> Anyone can inherit our class coz its available
+>> final class <class_name> results in restriction 
+>> Stop inheritance
+>> Cannot create subclass
+
+C)) Method:
+>> To avoid ovveride the method, we make the method final
+<access_modifiers> final <return_type> <Method_name> ()
+>> any other class which is inherited cannot have the same method although they have different functionality
+
+7. STATIC :
+A)) Variable:
+>> Making any variable static will reflects in all object
+>> for example 2 objects of same class with different members can be called and printed
+>> Common variable has the reference 
+all the objects refering to the variable so the chane in static reflects the objects
+
+B)) Method:
+>> for non-static mthod we need to crete an object
+>> can call static method directly with the class name
+syntax:
+public static void mthdname(){
+
+>> when we call static method using class, compiler get confused which method to execute
+so to avoid this confusion we can give the reference
+public static void mthdname(Classname obj){

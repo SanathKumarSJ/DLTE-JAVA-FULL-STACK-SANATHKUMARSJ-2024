@@ -1,0 +1,80 @@
+-----JAVA----
+
+import org.w3c.dom.ls.LSOutput;
+import java.util.Arrays; // for array operation
+
+public class helloworld {
+    public static void main(String[] args) {
+        System.out.println("HELLO WORLD");
+        String name = "vibes";
+        System.out.println(name.length());
+        // primitive type has fixed size whereas non- prim always have defined range
+        // new keyword is used to create reference
+        String name2 = new String("vibes");
+        System.out.println(name2.length());
+
+        //############ STRING OPERATION ############
+        //-->1. Concatination
+        String n1 = "sanath";
+        String n3 = "vib";
+        String n4 = n1 + " ispace " + n3;
+        System.out.println(n4);
+        //JAVA is a zero index lang
+        //keyword charAt() used to detect the character at its index
+        //--> 2. Indexing
+        System.out.println(n3.charAt(1));
+        //--> 3. Replace
+        //destvar = srcvar.replace(old,new)
+        String n2 = n1.replace('a','b');
+        System.out.println(n2);
+        // old string is immutable(Java strings are immutable cant change once defined)
+        //--> 4. SUBSTRING
+        //syntax sout(varname.substring(from,to+1))
+        String name3 = "hello world";
+        System.out.println(name3.substring(4,8));
+
+        //############# ARRAYS ###################
+        int age=30;
+        int physics=97;
+        int maths = 100;
+        // array initialization
+        int[] marks = new int[3]; // size of the list
+        marks[0] = 97;
+        marks[1] = 19;
+
+//        marks[2] = 397;
+        System.out.println(marks);//won't display marks --> array variable cannot be printed
+        System.out.println(marks[0]); // and so on...,
+        // marks[2] is null by default
+        System.out.println(marks[2]);
+
+        //--> 1. Length (length)-> paranthesis not required due to array property
+        System.out.println(marks.length);
+
+        //--> 2. Sort (package needs to be installed
+        System.out.println(marks[0]); //before sorting
+        Arrays.sort(marks);
+        System.out.println(marks[0]); //after sorting
+
+        //--> 3. Initialization of array {}
+        int[] marks1d = {34,56,78,89};
+
+        int[][] marks2d = {{56,89,96},{94,97,99}};
+        System.out.println(marks2d[0][2]);
+
+        //--> 4. Casting - conversion of data types
+        //---> 4A. Implicit-- storing small size dtyp into large one ( java allows it eg. int---double)
+        double price= 100.00;
+        double finalprice = price + 18; // 18--> int
+        System.out.println(finalprice);
+        //---> 4B. Explicit-- storing large dtyp into small ( java wont allow eg double to int)
+
+        int priceex = 100;
+        int finalex = priceex + (int) 18.0; //int finalex = priceex + 18.0;(error)
+        System.out.println(finalex);
+
+        //--> 5. Constants
+        final int age2 = 30; // fixed value...
+
+    }
+}

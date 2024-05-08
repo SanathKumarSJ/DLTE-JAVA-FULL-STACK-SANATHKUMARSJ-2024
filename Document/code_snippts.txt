@@ -1,0 +1,54 @@
+//    @NotNull
+//    @Digits(integer = 3, fraction = 0, message = "{payee.id}")
+
+    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.senderAcc}")
+    @Digits(integer = 12, fraction = 0, message = "{payee.senderAcc}")
+
+
+
+
+//    @Test
+//    public void testPayeeNotExistException() {
+//        PaymentTransferImplementation paymentTransferImplementation = mock(PaymentTransferImplementation.class);
+//
+//        Payee payee1 = new Payee(500, 999956789654L, null, "Sanath");
+//
+//        doThrow(new PayeeNotExistException(resourceBundle.getString("no.payee.acc"))).when(paymentTransferImplementation).addNewPayee(payee1);
+//
+//        PayeeNotExistException exception = assertThrows(PayeeNotExistException.class, () -> {
+//            paymentTransferImplementation.addNewPayee(payee1);
+//        });
+//
+//        assertEquals(resourceBundle.getString("no.payee.acc"), exception.getMessage());
+//    }
+//
+//    @Test
+//    public void  testPayeeExistException() {
+//        PaymentTransferImplementation paymentTransferImplementation = mock(PaymentTransferImplementation.class);
+//
+//        Payee payee1 = new Payee(500, 999956789654L, null, "Sanath");
+//
+//        doThrow(new PayeeExistException(resourceBundle.getString("payee.exist"))).when(paymentTransferImplementation).addNewPayee(payee1);
+//
+//        PayeeExistException exception = assertThrows(PayeeExistException.class, () -> {
+//            paymentTransferImplementation.addNewPayee(payee1);
+//        });
+//
+//        assertEquals(resourceBundle.getString("payee.exist"), exception.getMessage());
+//    }
+//
+//    @Test
+//    public void  testPayeeException2() {
+//        PaymentTransferImplementation paymentTransferImplementation = mock(PaymentTransferImplementation.class);
+//
+//        Payee payee1 = new Payee(500, 999956789654L, null, "Sanath");
+//
+//        doThrow(new PayeeException(resourceBundle.getString("input.duplicate"))).when(paymentTransferImplementation).addNewPayee(payee1);
+//
+//        PayeeException exception = assertThrows(PayeeException.class, () -> {
+//            paymentTransferImplementation.addNewPayee(payee1);
+//        });
+//
+//        assertEquals(resourceBundle.getString("input.duplicate"), exception.getMessage());
+//    }
+

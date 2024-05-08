@@ -1,0 +1,67 @@
+1. Atomicity:
+-- it ensures that a trasaction is treated as a single unit of work, either all operations within transaction are succesfully completed or none of them
+-- bank transfer involves two op--deducting money from one acc and credit to other , if one op fails, entire transaction is rolled back, the other not executes.
+
+2. Consistancy:
+-- it ensures that database remains in a consistant state before and after execution of a transaction
+-- like bank has 2 acc- A&B, A has 1000 B has2000 total 3000, if A sends 500 to B , A=500,B=2500 total remails same 3000,
+
+3. Isolation:
+-- it ensures that the exceution of current transaction doesnt interfere with each other. Each transactions appears executes independently of other transaction.
+-- if 2 people transfer funds from their account, isolation ensures that each transaction sees a consistant snapshot of database, not affected by the other concurrent transaction.
+
+4. Durability
+-- it ensures that once a transaction is committed, its affects are permanently stored in database and survive system failure
+-- after a succesfull bank transfer transaction, the changes made to account balances are durably stored in the database, even if the system crashes immediatly , when system restarts it can recover the committed transaction from transaction log.
+
+
+-------------------DIFFF----------------
+FILE--File based systems were an early attempt to computerize the manual system. It is also called a traditional based approach in which a decentralized approach was taken where each department stored and controlled its own data with the help of a data processing specialist.
+
+Database-A database approach is a well-organized collection of data that are related in a meaningful way which can be accessed by different users but stored only once in a system. 
+
+-------------------Stream and lamda-------------
+
+==:Lambda Expressions:==
+
+Lambda expressions are used to create anonymous functions (functions without a name) in Java.
+
+They provide a concise way to express instances of single-method interfaces (functional interfaces) using a compact syntax.
+
+Lambda expressions facilitate functional programming by allowing functions to be passed as arguments to methods, stored in variables, and returned from methods.
+
+They can be used to replace anonymous inner classes in many scenarios, making the code more readable and expressive.
+
+
+===Streams====:
+Streams provide a declarative way to process collections of data in Java.
+
+They represent a sequence of elements that support various operations to perform computations on those elements in a functional style.
+
+Streams can be operated sequentially or in parallel, leveraging the multicore processors effectively.
+
+They offer a set of intermediate and terminal operations. Intermediate operations transform the stream into another stream (e.g., filter, map), while terminal operations produce a result or a side-effect (e.g., forEach, collect).
+
+Difference:
+
+Lambda Expressions: They are used to define anonymous functions and facilitate functional programming by providing a compact syntax for expressing behaviors.
+
+Streams: They are used to process collections of data in a declarative and functional style, allowing operations like filtering, mapping, and reducing to be performed on elements of the collection.
+
+
+
+
+JAVAEE
+>> servlets differe from standalone 
+>> diff between application & web server
+>> life cycle of the servlet --> service--init--
+>> Soap-- when soap url exc
+--------- when endpoint get exctd
+--------- when url & wsdl gnrt
+	  retrieving whole business logic using wsdl
+
+
+
+
+>> top down and bottom up approach for rest and soap , how it is applicable
+

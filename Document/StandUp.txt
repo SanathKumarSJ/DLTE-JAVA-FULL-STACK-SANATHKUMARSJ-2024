@@ -1,0 +1,21 @@
+8/4/2024
+>> @annotations levels how do we come to know
+>> writing a bean of type "dao" in xml, do we have any tagging element, by looking at any line of xml we can say this bean belongs to "dao".
+>> 
+
+18/04/2024
+* Can I use the xsd outside the wsdl and refer it somewhere.
+* Complex type.
+* what is port name what does it do.
+
+
+19/04/2024
+* If Im not having wsdl url and file, how can my client establish
+* any other methodology to retrieve wsdl
+* java and class file should be in different
+  -> Whatever we write that should be insile the src other thing should be inside the target.
+
+{TECH_REVIEW}
+23/04/2024
+* service and consumer development can be parallel
+* proc
