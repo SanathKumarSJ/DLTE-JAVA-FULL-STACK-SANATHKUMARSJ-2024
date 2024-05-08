@@ -46,4 +46,10 @@
 [0;39m[31m2024-05-08 10:42:30,636[0;39m [32m[INFO][0;39m com.paymentdao.payment.service.PaymentTransferImplementation http-nio-8082-exec-1 [32mSender Account Number - 741741741741, Payee Account Number - 741741741741, Payee Name - Arundathi
 [0;39m[31m2024-05-08 10:42:30,735[0;39m [32m[ERROR][0;39m com.paymentdao.payment.service.PaymentTransferImplementation http-nio-8082-exec-1 [32mSender account and payee account cannot be the same
 [0;39m[31m2024-05-08 10:42:30,735[0;39m [32m[ERROR][0;39m com.payment.webservice.controller.MyController http-nio-8082-exec-1 [32mEXC001 :Sender account and payee account cannot be the same
+[0;39m[31m2024-05-08 11:18:41,390[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m43s590ms105µs600ns).
+[0;39m[31m2024-05-08 11:26:12,707[0;39m [32m[INFO][0;39m com.payment.webservice.security.MyBankSuccessHandler http-nio-8082-exec-8 [32mRedirecting to default URL
+[0;39m[31m2024-05-08 11:26:23,495[0;39m [32m[INFO][0;39m com.payment.webservice.controller.MyController http-nio-8082-exec-4 [32mSender Account Number - 741741741741, Payee Account Number - 963963963963, Payee Name - Arundathi
+[0;39m[31m2024-05-08 11:26:23,501[0;39m [32m[INFO][0;39m com.paymentdao.payment.service.PaymentTransferImplementation http-nio-8082-exec-4 [32mSender Account Number - 741741741741, Payee Account Number - 963963963963, Payee Name - Arundathi
+[0;39m[31m2024-05-08 11:26:23,518[0;39m [32m[ERROR][0;39m com.paymentdao.payment.service.PaymentTransferImplementation http-nio-8082-exec-4 [32mPayee account already exists with sender account
+[0;39m[31m2024-05-08 11:26:23,518[0;39m [32m[ERROR][0;39m com.payment.webservice.controller.MyController http-nio-8082-exec-4 [32mEXC002 :Payee account already exists with sender account
 [0;39m

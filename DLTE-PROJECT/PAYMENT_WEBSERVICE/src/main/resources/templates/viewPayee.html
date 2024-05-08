@@ -26,11 +26,11 @@
                     response.forEach(accountNumber => {
                         $("#populate").append(`<option value="${accountNumber}">${accountNumber}</option>`);
                     });
-                    console.log(response);
+                    // console.log(response);
                 },
                 error:function (error){
                     // alert(JSON.stringify(error))
-                    console.error("Error fetching:"+error);
+                    console.log("Error fetching:"+error);
                 }
             })
             $("#populate").change(function () {
