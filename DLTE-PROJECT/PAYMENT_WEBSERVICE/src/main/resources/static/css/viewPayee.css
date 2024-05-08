@@ -58,6 +58,7 @@ label {
 
 .card-body{
     background-color: #cadcfd;
+    /*border-style: ;*/
     border-radius: 15px;
 }
 .card{

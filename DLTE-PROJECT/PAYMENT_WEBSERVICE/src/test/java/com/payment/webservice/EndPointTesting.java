@@ -304,6 +304,7 @@ public class EndPointTesting {
         String rawPassword = "san123";
 
         String encodedPassword = passwordEncoder.encode(rawPassword);
+        System.out.println(encodedPassword);
 
         Customer customer = new Customer();
         customer.setUserName(username);
@@ -312,7 +313,7 @@ public class EndPointTesting {
                 .thenReturn(customer);
 
         UserDetails userDetails = myBankUsersServices.loadUserByUsername(username);
-
+        System.out.println(userDetails.getPassword());
         String enteredPassword = "san123";
 
         assertTrue(passwordEncoder.matches(enteredPassword, userDetails.getPassword()));

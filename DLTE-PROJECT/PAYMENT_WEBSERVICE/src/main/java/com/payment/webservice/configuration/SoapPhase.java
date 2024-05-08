@@ -72,19 +72,21 @@ public class SoapPhase {
                 findAllPayeeResponse.setServiceStatus(serviceStatus);
 
                 findAllPayeeResponse.getPayee().addAll(payees);
-//                if (!payees.isEmpty()) {
-//                    for (Payee payee : payees) {
-//                        logger.info("Payee details: PayeeId - " + payee.getPayeeId() +
-//                                ", Sender Account Number - " + payee.getSenderAccountNumber() +
-//                                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
-//                                ", Payee Name - " + payee.getPayeeName());
-//                    }
-//                }
+
+                if (!payees.isEmpty()) {
+                    for (Payee payee : payees) {
+                        logger.info("Payee details: PayeeId - " + payee.getPayeeId() +
+                                ", Sender Account Number - " + payee.getSenderAccountNumber() +
+                                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                                ", Payee Name - " + payee.getPayeeName());
+                    }
+                }
 
                 return findAllPayeeResponse;
 
             } catch (PayeeException payeeEx) {
                 serviceStatus.setStatus(HttpStatus.OK.value());
+                logger.error(resourceBundle.getString("payee.error.five")+payeeEx.getMessage());
                 serviceStatus.setMessage(resourceBundle.getString("payee.error.five")+payeeEx.getMessage());
                 findAllPayeeResponse.setServiceStatus(serviceStatus);
                 return findAllPayeeResponse;

@@ -60,6 +60,5 @@ public class PaymentSecurity {
         manager = builder.build();
         httpSecurity.authenticationManager(manager);
         return httpSecurity.build();
-
     }
 }
