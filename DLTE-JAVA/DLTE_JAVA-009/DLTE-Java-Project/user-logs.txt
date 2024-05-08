@@ -40,3 +40,17 @@ Mar 13, 2024 5:23:06 PM org.database.UserDatabaseRepository save
 INFO: User Account created in MyBank
 Mar 13, 2024 6:00:06 PM org.database.UserDatabaseRepository save
 INFO: User Account created in MyBank
+Mar 18, 2024 5:44:11 PM org.database.UserDatabaseRepository save
+INFO: User Account created in MyBank
+Mar 18, 2024 5:44:27 PM org.database.UserDatabaseRepository findById
+INFO: no such user available
+Mar 18, 2024 5:45:05 PM org.database.UserDatabaseRepository findById
+INFO: no such user available
+Mar 18, 2024 5:46:08 PM org.database.UserDatabaseRepository findById
+INFO: no such user available
+Mar 18, 2024 5:47:37 PM org.database.UserDatabaseRepository findById
+INFO: no such user available
+Mar 18, 2024 5:55:21 PM org.database.UserDatabaseRepository findById
+INFO: no such user available
+Mar 18, 2024 6:01:11 PM org.database.UserDatabaseRepository findById
+INFO: no such user available

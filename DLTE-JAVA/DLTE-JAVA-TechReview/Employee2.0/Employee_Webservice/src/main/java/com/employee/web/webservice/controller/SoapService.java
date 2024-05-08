@@ -22,14 +22,12 @@ import java.sql.SQLException;
 import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
+
 
 @ComponentScan( "com.employee.dao")
 @Endpoint
 public class SoapService {
     Logger logger = LoggerFactory.getLogger(SoapService.class);
-
-//    ResourceBundle resourceBundle= ResourceBundle.getBundle("accounts");
 
     private final String url = "http://employee.services";
 
@@ -47,12 +45,6 @@ public class SoapService {
            EmployeePersonalDetails daoEmployee=new EmployeePersonalDetails();
             EmployeeAddressDetails daoTempAddress=new EmployeeAddressDetails();
             EmployeeAddressDetails daoPermAddress=new EmployeeAddressDetails();
-//            BeanUtils.copyProperties(actualEmployee.getFirstNameOfEmployee(),daoEmployee.getFirstNameOfEmployee());
-//            BeanUtils.copyProperties(actualEmployee.getMiddleNameOfEmployee(),daoEmployee.getMiddleNameOfEmployee());
-//            BeanUtils.copyProperties(actualEmployee.getLastNameOfEmployee(),daoEmployee.getLastNameOfEmployee());
-//            BeanUtils.copyProperties(actualEmployee.getEmployeeID(),daoEmployee.getEmployeeID());
-//            BeanUtils.copyProperties(actualEmployee.getEmployeeContactNumber(),daoEmployee.getEmployeeContactNumber());
-//            BeanUtils.copyProperties(actualEmployee.getEmployeeEmail(),daoEmployee.getEmployeeEmail());
 
             BeanUtils.copyProperties(actualEmployee,daoEmployee);
             BeanUtils.copyProperties(actualEmployee.getEmployeePermanentAddress(), daoPermAddress);
@@ -72,6 +64,7 @@ public class SoapService {
             employeeResponse.setEmployee(actualEmployee);
             serviceStatus.setMessage("Input Success");
             logger.info("Insertion Success");
+
         } catch (EmployeeNotFoundException | SQLException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
             serviceStatus.setMessage("Insertion Failure");
@@ -84,39 +77,32 @@ public class SoapService {
 
     @PayloadRoot(namespace = url, localPart = "findAllEmployeeRequest")
     @ResponsePayload
-    public FindAllEmployeeResponse listAllPayee(@RequestPayload FindAllEmployeeRequest findAllEmployeeRequest) {
+    public FindAllEmployeeResponse listAllEmployee(@RequestPayload FindAllEmployeeRequest findAllEmployeeRequest) {
         FindAllEmployeeResponse findAllEmployeeResponse = new FindAllEmployeeResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
         List<EmployeePersonal> employees = new ArrayList<>();
         try {
-
             List<EmployeePersonalDetails> daoEmployee = myInterface.display();
+            System.out.println(daoEmployee.get(0).getTemporaryAddress().getHouseName());
             daoEmployee.forEach(each -> {
                 EmployeePersonal currentEmployee = new EmployeePersonal();
                 EmployeeAddress tempAddress = new EmployeeAddress();
                 EmployeeAddress permAddress = new EmployeeAddress();
                 BeanUtils.copyProperties(each, currentEmployee);
-                BeanUtils.copyProperties(each.getPermanentAddress(), permAddress);
+
                 BeanUtils.copyProperties(each.getTemporaryAddress(), tempAddress);
+                BeanUtils.copyProperties(each.getPermanentAddress(), permAddress);
                 currentEmployee.setFirstNameOfEmployee(each.getFirstNameOfEmployee());
                 currentEmployee.setMiddleNameOfEmployee(each.getMiddleNameOfEmployee());
                 currentEmployee.setLastNameOfEmployee(each.getLastNameOfEmployee());
                 currentEmployee.setEmployeeID(each.getEmployeeID());
                 currentEmployee.setEmployeeContactNumber(each.getEmployeeContactNumber());
                 currentEmployee.setEmployeeEmail(each.getEmployeeEmail());
-                tempAddress.setHouseName(each.getTemporaryAddress().getHouseName());
-                tempAddress.setStreetName(each.getTemporaryAddress().getStreetName());
-                tempAddress.setCity(each.getTemporaryAddress().getCity());
-                tempAddress.setState(each.getTemporaryAddress().getStreetName());
-                tempAddress.setPincode(each.getTemporaryAddress().getPincode());
-                currentEmployee.setEmployeeTemporaryAddress(tempAddress);
+                System.out.println(tempAddress.getHouseName());
 
-                permAddress.setHouseName(each.getPermanentAddress().getHouseName());
-                permAddress.setStreetName(each.getPermanentAddress().getStreetName());
-                permAddress.setCity(each.getPermanentAddress().getCity());
-                permAddress.setState(each.getPermanentAddress().getStreetName());
-                permAddress.setPincode(each.getPermanentAddress().getPincode());
-                currentEmployee.setEmployeePermanentAddress(permAddress);
+
+                currentEmployee.setEmployeeTemporaryAddress(tempAddress);
+                System.out.println(currentEmployee.getEmployeeTemporaryAddress().getHouseName());
 
                 employees.add(currentEmployee);
             });
@@ -136,6 +122,7 @@ public class SoapService {
         findAllEmployeeResponse.getEmployee().addAll(employees);
         return findAllEmployeeResponse;
     }
+
 
     @PayloadRoot(namespace = url,localPart = "getEmployeeByPinCodeRequest")
     @ResponsePayload
@@ -158,19 +145,6 @@ public class SoapService {
                 currentEmployee.setEmployeeID(each.getEmployeeID());
                 currentEmployee.setEmployeeContactNumber(each.getEmployeeContactNumber());
                 currentEmployee.setEmployeeEmail(each.getEmployeeEmail());
-//                tempAddress.setHouseName(each.getTemporaryAddress().getHouseName());
-//                tempAddress.setStreetName(each.getTemporaryAddress().getStreetName());
-//                tempAddress.setCity(each.getTemporaryAddress().getCity());
-//                tempAddress.setState(each.getTemporaryAddress().getStreetName());
-//                tempAddress.setPincode(each.getTemporaryAddress().getPincode());
-//                currentEmployee.setEmployeeTemporaryAddress(tempAddress);
-//
-//                permAddress.setHouseName(each.getPermanentAddress().getHouseName());
-//                permAddress.setStreetName(each.getPermanentAddress().getStreetName());
-//                permAddress.setCity(each.getPermanentAddress().getCity());
-//                permAddress.setState(each.getPermanentAddress().getStreetName());
-//                permAddress.setPincode(each.getPermanentAddress().getPincode());
-//                currentEmployee.setEmployeePermanentAddress(permAddress);
 
                 employees.add(currentEmployee);
             });

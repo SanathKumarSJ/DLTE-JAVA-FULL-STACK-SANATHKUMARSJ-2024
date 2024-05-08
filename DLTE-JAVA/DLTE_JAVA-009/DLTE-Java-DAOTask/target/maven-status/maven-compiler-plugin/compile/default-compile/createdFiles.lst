@@ -1,5 +1,6 @@
 org\database\App.class
 org\database\DatabaseTarget.class
+org\database\Transaction.class
 org\database\UserDatabaseRepository.class
 org\database\UserException.class
 org\database\UserServices.class

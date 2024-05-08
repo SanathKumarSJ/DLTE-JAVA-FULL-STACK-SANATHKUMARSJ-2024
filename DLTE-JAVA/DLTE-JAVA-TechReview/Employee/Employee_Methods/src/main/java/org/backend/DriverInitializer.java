@@ -1,4 +1,4 @@
-package org.backend.connection;
+package org.backend;
 
 import oracle.jdbc.driver.OracleDriver;
 import org.exception.ConnectionException;
@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 public class DriverInitializer{
     private static ResourceBundle resourceBundle=ResourceBundle.getBundle("database");
     private Connection connection;
-    public Connection makeConnection() {
+    public static Connection makeConnection() {
         ResourceBundle resourceBundle=ResourceBundle.getBundle("database");
         try {
             Driver driver = new OracleDriver();

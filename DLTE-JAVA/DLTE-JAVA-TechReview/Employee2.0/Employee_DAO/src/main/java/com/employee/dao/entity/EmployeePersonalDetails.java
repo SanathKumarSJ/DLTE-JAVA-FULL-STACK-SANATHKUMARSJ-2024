@@ -31,6 +31,17 @@ public class EmployeePersonalDetails implements Serializable {
                 '}';
     }
 
+    public EmployeePersonalDetails(String firstNameOfEmployee, String middleNameOfEmployee, String lastNameOfEmployee, Integer employeeID, Long employeeContactNumber, String employeeEmail, com.employee.dao.entity.EmployeeAddressDetails permanentAddress, com.employee.dao.entity.EmployeeAddressDetails temporaryAddress) {
+        this.firstNameOfEmployee = firstNameOfEmployee;
+        this.middleNameOfEmployee = middleNameOfEmployee;
+        this.lastNameOfEmployee = lastNameOfEmployee;
+        this.employeeID = employeeID;
+        this.employeeContactNumber = employeeContactNumber;
+        this.employeeEmail = employeeEmail;
+        this.permanentAddress = permanentAddress;
+        this.temporaryAddress = temporaryAddress;
+    }
+
     public String getFirstNameOfEmployee() {
         return firstNameOfEmployee;
     }
@@ -83,37 +94,15 @@ public class EmployeePersonalDetails implements Serializable {
         return permanentAddress;
     }
 
-    public void setPermanentAddress(com.employee.dao.entity.EmployeeAddressDetails permanentAddress) {
+    public void setPermanentAddress(EmployeeAddressDetails permanentAddress) {
         this.permanentAddress = permanentAddress;
-    }
-
-    public void setTemporaryAddress(com.employee.dao.entity.EmployeeAddressDetails temporaryAddress) {
-        this.temporaryAddress = temporaryAddress;
     }
 
     public EmployeeAddressDetails getTemporaryAddress() {
         return temporaryAddress;
     }
 
-
-
-    public EmployeePersonalDetails(String firstNameOfEmployee, String middleNameOfEmployee, String lastNameOfEmployee, Integer employeeID, Long employeeContactNumber, String employeeEmail) {
-        this.firstNameOfEmployee = firstNameOfEmployee;
-        this.middleNameOfEmployee = middleNameOfEmployee;
-        this.lastNameOfEmployee = lastNameOfEmployee;
-        this.employeeID = employeeID;
-        this.employeeContactNumber = employeeContactNumber;
-        this.employeeEmail = employeeEmail;
-    }
-
-    public EmployeePersonalDetails(String firstNameOfEmployee, String middleNameOfEmployee, String lastNameOfEmployee, Integer employeeID, Long employeeContactNumber, String employeeEmail, EmployeeAddressDetails permanentAddress, EmployeeAddressDetails temporaryAddress) {
-        this.firstNameOfEmployee = firstNameOfEmployee;
-        this.middleNameOfEmployee = middleNameOfEmployee;
-        this.lastNameOfEmployee = lastNameOfEmployee;
-        this.employeeID = employeeID;
-        this.employeeContactNumber = employeeContactNumber;
-        this.employeeEmail = employeeEmail;
-        this.permanentAddress = permanentAddress;
+    public void setTemporaryAddress(EmployeeAddressDetails temporaryAddress) {
         this.temporaryAddress = temporaryAddress;
     }
 }

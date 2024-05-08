@@ -35,8 +35,10 @@ public class FindAllTransaction extends HttpServlet {
     //Getting list of transactions based on username
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("name");
+        String username = "sanath";
         resp.setContentType("application/json");
+//        List<Transaction> transactions=null;
+//        resp.getStatus();
         try {
             System.out.println(username);
             List<Transaction> transactions = userService.callFindByUsername(username);
@@ -46,8 +48,9 @@ public class FindAllTransaction extends HttpServlet {
             resp.getWriter().println(responseData);
         }
         catch (UserException | MissingResourceException userException){
-            resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            resp.getWriter().println(resourceBundle.getString("user.not.found"));
+            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//            resp.getWriter().println(transactions);
+//            resp.getWriter().println(resourceBundle.getString("user.not.found"));
         }
     }
 

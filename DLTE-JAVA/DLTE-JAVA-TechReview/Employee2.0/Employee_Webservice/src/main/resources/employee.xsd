@@ -3,7 +3,7 @@
             xmlns:tns="http://employee.services"
             elementFormDefault="qualified">
 
-    <!-- EmployeeBasicDetails Root element-->
+
     <xsd:complexType name="employeePersonal">
         <xsd:sequence>
             <xsd:element name="firstNameOfEmployee" type="xsd:string"/>
@@ -56,23 +56,6 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-
-<!--&lt;!&ndash;    Find employee Id&ndash;&gt;-->
-<!--    <xsd:element name="filterByIdRequest">-->
-<!--        <xsd:complexType>-->
-<!--            <xsd:sequence>-->
-<!--                <xsd:element name="employeeID" type="xsd:string"/>-->
-<!--            </xsd:sequence>-->
-<!--        </xsd:complexType>-->
-<!--    </xsd:element>-->
-<!--    <xsd:element name="filterByIdResponse">-->
-<!--        <xsd:complexType>-->
-<!--            <xsd:sequence>-->
-<!--                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>-->
-<!--                <xsd:element name="employeePersonal" type="tns:employeePersonal"/>-->
-<!--            </xsd:sequence>-->
-<!--        </xsd:complexType>-->
-<!--    </xsd:element>-->
 
     <!--    Find all employee-->
     <xsd:element name="findAllEmployeeRequest">

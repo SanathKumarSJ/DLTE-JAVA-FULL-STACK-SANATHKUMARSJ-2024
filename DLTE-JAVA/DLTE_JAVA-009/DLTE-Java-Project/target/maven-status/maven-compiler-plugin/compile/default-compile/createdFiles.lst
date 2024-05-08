@@ -4,4 +4,5 @@ org\example\StorageTarget.class
 org\example\User.class
 org\example\UserException.class
 org\example\UserRepository.class
+org\example\App.class
 org\example\UserServices.class

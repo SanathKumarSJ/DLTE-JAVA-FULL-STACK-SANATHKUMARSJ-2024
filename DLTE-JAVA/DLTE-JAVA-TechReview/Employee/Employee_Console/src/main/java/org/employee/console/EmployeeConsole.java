@@ -2,10 +2,7 @@ package org.employee.console;
 
 import org.backend.*;
 import org.employee.console.validation.Validation;
-import org.exception.ConnectionException;
-import org.exception.InvalidContactException;
-import org.exception.InvalidUserException;
-import org.exception.NoDataException;
+import org.exception.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -169,7 +166,6 @@ public class EmployeeConsole {
             //invalid
 //            employeePersonalDetails2.setEmployeeEmail(employeePersonalDetails1.getEmployeeEmail());
         }
-
         employeeConsole.inputAdd(localPermenantAddress);
         permenantAddress = new EmployeeAddressDetails(localPermenantAddress.getHouseName(), localPermenantAddress.getStreetName(), localPermenantAddress.getCity(), localPermenantAddress.getState(), localPermenantAddress.getPincode());
         employeeConsole.inputAdd(localtemporaryAddress);

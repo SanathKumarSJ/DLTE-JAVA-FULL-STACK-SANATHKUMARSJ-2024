@@ -64,3 +64,10 @@
 17:33:52.371 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 
 17:34:59.598 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
 17:36:39.805 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 
+17:42:37.851 [31m[main][0;39m WARN  org.example.App - [31mInvalid balance[0;39m 
+17:42:40.998 [31m[main][0;39m WARN  org.example.App - [31mInvalid balance[0;39m 
+17:42:47.036 [31m[main][0;39m WARN  org.example.App - [31mInvalid balance[0;39m 
+17:44:07.434 [31m[main][0;39m WARN  org.example.App - [31mInvalid balance[0;39m 
+17:52:27.515 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:52:39.729 [34m[main][0;39m INFO  org.example.App - [34mInvalid Password![0;39m 
+17:52:50.260 [34m[main][0;39m INFO  org.example.App - [34mPassword accepted. Access granted![0;39m 

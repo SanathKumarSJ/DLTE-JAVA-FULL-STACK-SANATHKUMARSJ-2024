@@ -1,5 +1,6 @@
 package org.backend;
 import org.exception.ConnectionException;
+import org.exception.EmployeeException;
 import org.exception.NoDataException;
 import org.exception.UserExist;
 import org.slf4j.Logger;
@@ -14,7 +15,6 @@ public class EmployeeDB implements MyInterface {
     private Validation validation = new Validation();
     static Logger logger = LoggerFactory.getLogger(EmployeeDB.class);
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
-    ResultSet resultSet;
     public EmployeeDB() {
     }
 
@@ -25,14 +25,6 @@ public class EmployeeDB implements MyInterface {
         if(val!=null){
             return val;
         }
-
-//        create table EMPLOYEEPERMANENTADDRESS(HouseName varchar(255) not null, StreetName varchar(255) not null,City varchar(255) not null, StateName varchar(255) not null, Pincode number not null);
-//        create table EMPLOYEETEMPORARYADDRESS(HouseName varchar(255) not null, StreetName varchar(255) not null,City varchar(255) not null, StateName varchar(255) not null, Pincode number not null);
-//        ALTER TABLE EMPLOYEEPERMANENTADDRESS ADD EMPLOYEEID number;
-//        ALTER TABLE EMPLOYEETEMPORARYADDRESS ADD EMPLOYEEID number;
-//
-//        alter table EMPLOYEETEMPORARYADDRESS add FOREIGN key(EMPLOYEEID) references EMPLOYEEPERSONAL(EMPLOYEEID);
-
         try {
             DriverInitializer setConnection = new DriverInitializer();
             Connection connection = setConnection.makeConnection();
@@ -47,7 +39,7 @@ public class EmployeeDB implements MyInterface {
                 preparedStatement.setString(6, employeePersonalDetails.getEmployeeEmail());
                 int record = preparedStatement.executeUpdate();
 
-                String query1 = "insert into EMPLOYEEADDRESS values(?,?,?,?,?,?,?,?,?,?,?)";
+                String query1 = "insert into EMPLOYEEADDRESS(HOUSENAME,STREETNAME,CITY,STATENAME,PINCODE,EMPLOYEEID,ADDRESS_ID,ADDRESS_TYPE) values(?,?,?,?,?,?,ADDID_SEQ.nextval,0)";
                 preparedStatement = connection.prepareStatement(query1);
                 preparedStatement.setString(1, employeePersonalDetails.getPermanentAddress().getHouseName());
                 preparedStatement.setString(2, employeePersonalDetails.getPermanentAddress().getStreetName());
@@ -55,15 +47,19 @@ public class EmployeeDB implements MyInterface {
                 preparedStatement.setString(4, employeePersonalDetails.getPermanentAddress().getState());
                 preparedStatement.setInt(5, employeePersonalDetails.getPermanentAddress().getPincode());
                 preparedStatement.setInt(6, employeePersonalDetails.getEmployeeID());
-                preparedStatement.setString(7, employeePersonalDetails.getTemporaryAddress().getHouseName());
-                preparedStatement.setString(8, employeePersonalDetails.getTemporaryAddress().getStreetName());
-                preparedStatement.setString(9, employeePersonalDetails.getTemporaryAddress().getCity());
-                preparedStatement.setString(10, employeePersonalDetails.getTemporaryAddress().getState());
-                preparedStatement.setInt(11, employeePersonalDetails.getTemporaryAddress().getPincode());
+                int record1 = preparedStatement.executeUpdate();
 
-                int recordOne = preparedStatement.executeUpdate();
+                String query2 = "insert into EMPLOYEEADDRESS(HOUSENAME,STREETNAME,CITY,STATENAME,PINCODE,EMPLOYEEID,ADDRESS_ID,ADDRESS_TYPE) values(?,?,?,?,?,?,ADDID_SEQ.nextval,1)";
+                preparedStatement = connection.prepareStatement(query2);
+                preparedStatement.setString(1, employeePersonalDetails.getTemporaryAddress().getHouseName());
+                preparedStatement.setString(2, employeePersonalDetails.getTemporaryAddress().getStreetName());
+                preparedStatement.setString(3, employeePersonalDetails.getTemporaryAddress().getCity());
+                preparedStatement.setString(4, employeePersonalDetails.getTemporaryAddress().getState());
+                preparedStatement.setInt(5, employeePersonalDetails.getTemporaryAddress().getPincode());
+                preparedStatement.setInt(6, employeePersonalDetails.getEmployeeID());
+                int record2 = preparedStatement.executeUpdate();
 
-                if (record != 0 && recordOne != 0 ) {
+                if (record != 0 && record1 != 0 && record2 != 0) {
                     logger.info(resourceBundle.getString("employee.added"));
                     preparedStatement.close();
                     connection.close();
@@ -80,7 +76,6 @@ public class EmployeeDB implements MyInterface {
             } catch (ConnectionException exp) {
                 throw new ConnectionException();
         }
-
     }
 
     public List<EmployeePersonalDetails> display() throws SQLException {
@@ -88,47 +83,42 @@ public class EmployeeDB implements MyInterface {
         try {
             DriverInitializer setConnection = new DriverInitializer();
             Connection connection = setConnection.makeConnection();
-            String query = "select * from EMPLOYEEPERSONAL";
+//            String query = "select e.FIRSTNAMEOFEMPLOYEE,e.MIDDLENAMEOFEMPLOYEE,e.LASTNAMEOFEMPLOYEE,e.EMPLOYEEID,e.EMPLOYEECONTACTNUMBER,e.EMPLOYEEEMAIL,t.HOUSENAME,t.STREETNAME,t.CITY,t.STATENAME,t.PINCODE from EMPLOYEEPERSONAL e join EMPLOYEEADDRESS t on e.EMPLOYEEID=t.EMPLOYEEID where t.ADDRESS_TYPE in (1,0)";
+            String query="select e.FIRSTNAMEOFEMPLOYEE,e.MIDDLENAMEOFEMPLOYEE,e.LASTNAMEOFEMPLOYEE,e.EMPLOYEEID,e.EMPLOYEECONTACTNUMBER,e.EMPLOYEEEMAIL, p.HOUSENAME,p.STREETNAME,p.CITY,p.STATENAME,p.PINCODE, t.HOUSENAME,t.STREETNAME,t.CITY,t.STATENAME,t.PINCODE from EMPLOYEEPERSONAL e inner join EMPLOYEEADDRESS t ON e.EMPLOYEEID = t.EMPLOYEEID AND t.ADDRESS_TYPE = 0 inner join EMPLOYEEADDRESS p ON e.EMPLOYEEID = p.EMPLOYEEID AND p.ADDRESS_TYPE = 1";// where e.EMPLOYEEID=?";
+
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            String queryTwo = "select * from EMPLOYEEADDRESS where EMPLOYEEID=?";
-            PreparedStatement preparedStatementTwo = connection.prepareStatement(queryTwo);
             ResultSet resultSetOne;
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
-                throw new NoDataException("Input employee data not found");
-            }
-            while (resultSet.next()) {
+            resultSetOne = preparedStatement.executeQuery();
+            while (resultSetOne.next()) {
                 EmployeePersonalDetails employee = new EmployeePersonalDetails();
                 EmployeeAddressDetails permenantAddress = new EmployeeAddressDetails();
                 EmployeeAddressDetails temporaryAddress = new EmployeeAddressDetails();
-                preparedStatementTwo.setString(1, String.valueOf(resultSet.getInt(4)));
-                resultSetOne = preparedStatementTwo.executeQuery();
-                if (resultSetOne.next()) {
-                    permenantAddress.setHouseName(resultSetOne.getString(1));
-                    permenantAddress.setStreetName(resultSetOne.getString(2));
-                    permenantAddress.setCity(resultSetOne.getString(3));
-                    permenantAddress.setState(resultSetOne.getString(4));
-                    permenantAddress.setPincode(resultSetOne.getInt(5));
-                    temporaryAddress.setHouseName(resultSetOne.getString(7));
-                    temporaryAddress.setStreetName(resultSetOne.getString(8));
-                    temporaryAddress.setCity(resultSetOne.getString(9));
-                    temporaryAddress.setState(resultSetOne.getString(10));
-                    temporaryAddress.setPincode(resultSetOne.getInt(11));
-                }
-                employee.setFirstNameOfEmployee(resultSet.getString(1));
-                employee.setMiddleNameOfEmployee(resultSet.getString(2));
-                employee.setLastNameOfEmployee(resultSet.getString(3));
-                employee.setEmployeeID(resultSet.getInt(4));
-                employee.setEmployeeContactNumber(resultSet.getLong(5));
-                employee.setEmployeeEmail(resultSet.getString(6));
+                employee.setFirstNameOfEmployee(resultSetOne.getString(1));
+                employee.setMiddleNameOfEmployee(resultSetOne.getString(2));
+                employee.setLastNameOfEmployee(resultSetOne.getString(3));
+                employee.setEmployeeID(resultSetOne.getInt(4));
+                employee.setEmployeeContactNumber(resultSetOne.getLong(5));
+                employee.setEmployeeEmail(resultSetOne.getString(6));
+                    permenantAddress.setHouseName(resultSetOne.getString(7));
+                    permenantAddress.setStreetName(resultSetOne.getString(8));
+                    permenantAddress.setCity(resultSetOne.getString(9));
+                    permenantAddress.setState(resultSetOne.getString(10));
+                    permenantAddress.setPincode(resultSetOne.getInt(11));
+//                if (resultSetOne.next()) {
+                    temporaryAddress.setHouseName(resultSetOne.getString(12));
+                    temporaryAddress.setStreetName(resultSetOne.getString(13));
+                    temporaryAddress.setCity(resultSetOne.getString(14));
+                    temporaryAddress.setState(resultSetOne.getString(15));
+                    temporaryAddress.setPincode(resultSetOne.getInt(16));
+
                 employee.setPermanentAddress(permenantAddress);
                 employee.setTemporaryAddress(temporaryAddress);
                 employeeList.add(employee);
+
             }
             preparedStatement.close();
-            preparedStatementTwo.close();
             connection.close();
-            resultSet.close();
+            resultSetOne.close();
 
 
         } catch (ConnectionException exp) {
@@ -136,62 +126,127 @@ public class EmployeeDB implements MyInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return employeeList;
+        if(employeeList==null){
+            throw new EmployeeException(resourceBundle.getString("Employee list not found"));
+        }
+        else{
+            return employeeList;
+        }
 
     }
 
     @Override
-    public List<EmployeePersonalDetails> searchByPinCode(int pin) {
+    public List<EmployeePersonalDetails> searchByPinCode(int pinCode) {
         List<EmployeePersonalDetails> employeeList = new ArrayList<>();
+        ResultSet resultSetOne;
         try {
             DriverInitializer setConnection = new DriverInitializer();
             Connection connection = setConnection.makeConnection();
-            ResultSet resultSet;
-            try {
-                String query="select e.FIRSTNAMEOFEMPLOYEE,e.EMPLOYEEEMAIL,e.EMPLOYEEID,a.PERMANENTHOUSENAME,a.PERMANENTSTREETNAME,a.PERMANENTCITY,a.PERMANENTSTATENAME,a.PERMANENTPINCODE, a.TEMPORARYHOUSENAME,a.TEMPORARYSTREETNAME,a.TEMPORARYCITY,a.TEMPORARYSTATENAME,a.TEMPORARYPINCODE from EMPLOYEEPERSONAL e join EMPLOYEEADDRESS a on e.EMPLOYEEID=a.EMPLOYEEID where a.PERMANENTPINCODE=? or a.TEMPORARYPINCODE=?";
-                PreparedStatement preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setInt(1, pin);
-                preparedStatement.setInt(2, pin);
+//            String query = "select e.FIRSTNAMEOFEMPLOYEE,e.MIDDLENAMEOFEMPLOYEE,e.LASTNAMEOFEMPLOYEE,e.EMPLOYEEID,e.EMPLOYEECONTACTNUMBER,e.EMPLOYEEEMAIL,t.HOUSENAME,t.STREETNAME,t.CITY,t.STATENAME,t.PINCODE from EMPLOYEEPERSONAL e join EMPLOYEEADDRESS t on e.EMPLOYEEID=t.EMPLOYEEID where t.ADDRESS_TYPE in (1,0)";
+            String query = "select e.FIRSTNAMEOFEMPLOYEE,e.MIDDLENAMEOFEMPLOYEE,e.LASTNAMEOFEMPLOYEE,e.EMPLOYEEID,e.EMPLOYEECONTACTNUMBER,e.EMPLOYEEEMAIL, p.HOUSENAME,p.STREETNAME,p.CITY,p.STATENAME,p.PINCODE, t.HOUSENAME,t.STREETNAME,t.CITY,t.STATENAME,t.PINCODE from EMPLOYEEPERSONAL e inner join EMPLOYEEADDRESS p ON e.EMPLOYEEID = p.EMPLOYEEID AND p.ADDRESS_TYPE = 1 inner join EMPLOYEEADDRESS t ON e.EMPLOYEEID = t.EMPLOYEEID AND t.ADDRESS_TYPE = 1 where t.PINCODE=? or p.PINCODE=?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, pinCode);
+            preparedStatement.setInt(2, pinCode);
+
+            resultSetOne = preparedStatement.executeQuery();
+            while (resultSetOne.next()) {
                 EmployeePersonalDetails employee = new EmployeePersonalDetails();
                 EmployeeAddressDetails permenantAddress = new EmployeeAddressDetails();
                 EmployeeAddressDetails temporaryAddress = new EmployeeAddressDetails();
-                resultSet = preparedStatement.executeQuery();
-                while (resultSet.next()) {
-                    employee.setFirstNameOfEmployee(resultSet.getString(1));
-                    employee.setEmployeeEmail(resultSet.getString(2));
-                    employee.setEmployeeID(resultSet.getInt(3));
+                employee.setFirstNameOfEmployee(resultSetOne.getString(1));
+                employee.setMiddleNameOfEmployee(resultSetOne.getString(2));
+                employee.setLastNameOfEmployee(resultSetOne.getString(3));
+                employee.setEmployeeID(resultSetOne.getInt(4));
+                employee.setEmployeeContactNumber(resultSetOne.getLong(5));
+                employee.setEmployeeEmail(resultSetOne.getString(6));
+                permenantAddress.setHouseName(resultSetOne.getString(7));
+                permenantAddress.setStreetName(resultSetOne.getString(8));
+                permenantAddress.setCity(resultSetOne.getString(9));
+                permenantAddress.setState(resultSetOne.getString(10));
+                permenantAddress.setPincode(resultSetOne.getInt(11));
+//                if (resultSetOne.next()) {
+                temporaryAddress.setHouseName(resultSetOne.getString(12));
+                temporaryAddress.setStreetName(resultSetOne.getString(13));
+                temporaryAddress.setCity(resultSetOne.getString(14));
+                temporaryAddress.setState(resultSetOne.getString(15));
+                temporaryAddress.setPincode(resultSetOne.getInt(16));
+//                    temporaryAddress.setHouseName(resultSetOne.getString(7));
+//                    temporaryAddress.setStreetName(resultSetOne.getString(8));
+//                    temporaryAddress.setCity(resultSetOne.getString(9));
+//                    temporaryAddress.setState(resultSetOne.getString(10));
+//                    temporaryAddress.setPincode(resultSetOne.getInt(11));
+//                }
 
-                    permenantAddress.setHouseName(resultSet.getString(4));
-                    permenantAddress.setStreetName(resultSet.getString(5));
-                    permenantAddress.setCity(resultSet.getString(6));
-                    permenantAddress.setState(resultSet.getString(7));
-                    permenantAddress.setPincode(resultSet.getInt(8));
-
-                    temporaryAddress.setHouseName(resultSet.getString(9));
-                    temporaryAddress.setStreetName(resultSet.getString(10));
-                    temporaryAddress.setCity(resultSet.getString(11));
-                    temporaryAddress.setState(resultSet.getString(12));
-                    temporaryAddress.setPincode(resultSet.getInt(13));
-
-                    employee.setPermanentAddress(permenantAddress);
-                    employee.setTemporaryAddress(temporaryAddress);
-                    employeeList.add(employee);
-                }
-                preparedStatement.close();
-                connection.close();
-                resultSet.close();
-
-
-
-            } catch (SQLException exp) {
-                throw new SQLException();
+                employee.setPermanentAddress(permenantAddress);
+                employee.setTemporaryAddress(temporaryAddress);
+                employeeList.add(employee);
             }
-        }catch (ConnectionException | SQLException connectionExcp){
-            throw new ConnectionException();
-        }
-        return employeeList;
-    }
+            preparedStatement.close();
+            connection.close();
+            resultSetOne.close();
 
+
+        } catch (ConnectionException exp) {
+            throw new ConnectionException();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (employeeList.equals(null)) {
+            throw new EmployeeException(resourceBundle.getString("Employee pincode not found"));
+        } else {
+            return employeeList;
+        }
+    }
+//        List<EmployeePersonalDetails> employeeList = new ArrayList<>();
+//        try {
+//            DriverInitializer setConnection = new DriverInitializer();
+//            Connection connection = setConnection.makeConnection();
+//            ResultSet resultSet;
+//            try {
+//                String query="select e.FIRSTNAMEOFEMPLOYEE,e.EMPLOYEEEMAIL,e.EMPLOYEEID,a.PERMANENTHOUSENAME,a.PERMANENTSTREETNAME,a.PERMANENTCITY,a.PERMANENTSTATENAME,a.PERMANENTPINCODE, a.TEMPORARYHOUSENAME,a.TEMPORARYSTREETNAME,a.TEMPORARYCITY,a.TEMPORARYSTATENAME,a.TEMPORARYPINCODE from EMPLOYEEPERSONAL e join EMPLOYEEADDRESS a on e.EMPLOYEEID=a.EMPLOYEEID where a.PERMANENTPINCODE=? or a.TEMPORARYPINCODE=?";
+//                PreparedStatement preparedStatement = connection.prepareStatement(query);
+//                preparedStatement.setInt(1, pin);
+//                preparedStatement.setInt(2, pin);
+//                EmployeePersonalDetails employee = new EmployeePersonalDetails();
+//                EmployeeAddressDetails temporaryAddress = new EmployeeAddressDetails();
+//                EmployeeAddressDetails permenantAddress = new EmployeeAddressDetails();
+//                resultSet = preparedStatement.executeQuery();
+//                while (resultSet.next()) {
+//                    employee.setFirstNameOfEmployee(resultSet.getString(1));
+//                    employee.setEmployeeEmail(resultSet.getString(2));
+//                    employee.setEmployeeID(resultSet.getInt(3));
+//                    permenantAddress.setHouseName(resultSet.getString(4));
+//                    permenantAddress.setStreetName(resultSet.getString(5));
+//                    permenantAddress.setCity(resultSet.getString(6));
+//                    permenantAddress.setState(resultSet.getString(7));
+//                    permenantAddress.setPincode(resultSet.getInt(8));
+//                    if(resultSet.next()) {
+//                        temporaryAddress.setHouseName(resultSet.getString(9));
+//                        temporaryAddress.setStreetName(resultSet.getString(10));
+//                        temporaryAddress.setCity(resultSet.getString(11));
+//                        temporaryAddress.setState(resultSet.getString(12));
+//                        temporaryAddress.setPincode(resultSet.getInt(13));
+//                    }
+//                    employee.setPermanentAddress(permenantAddress);
+//                    employee.setTemporaryAddress(temporaryAddress);
+//                    employeeList.add(employee);
+//                }
+//                preparedStatement.close();
+//                connection.close();
+//                resultSet.close();
+//
+//
+//
+//            } catch (SQLException exp) {
+//                throw new SQLException();
+//            }
+//        }catch (ConnectionException | SQLException connectionExcp){
+//            throw new ConnectionException();
+//        }
+//        return employeeList;
+//    }
+//    }
     @Override
     public boolean delete(int employeeID) {
         try{

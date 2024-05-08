@@ -5,7 +5,6 @@ org\backend\EmployeeDB.class
 org\exception\ConnectionException.class
 org\backend\App.class
 org\exception\NoDataException.class
-org\backend\EmployeeException.class
 org\backend\DriverException.class
 org\exception\InvalidUserException.class
 org\exception\UserExist.class

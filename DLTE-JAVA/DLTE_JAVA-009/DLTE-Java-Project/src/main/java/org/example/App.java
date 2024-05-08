@@ -1,10 +1,13 @@
 package org.example;
-import org.database.DatabaseTarget;
+import org.database.*;
 import org.database.StorageTarget;
 import org.database.User;
 import org.database.UserServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.sql.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -30,22 +33,28 @@ public class App
 
         services=new UserServices(storageTarget);
         int option=0;
-        do{
+//        do{
+        while(true){
             System.out.println(resourceBundle.getString("app.greet")); // welcome
             System.out.println(resourceBundle.getString("app.menu")); // login/create account
             option=scanner.nextInt();
-            switch (option){
-                case 1:loggingIn();
-                if (user!=null) {
-                    System.out.println(resourceBundle.getString("app.greet"));
-                    System.out.println("Hello "+user.getUsername());
-                    System.out.println(resourceBundle.getString("app.menu2"));
-                    return;
-                }
-                break;
-                case 2:
+            switch (option) {
+                case 1:
+                    loggingIn();
+                    if (user != null) {
+                        System.out.println(resourceBundle.getString("app.greet"));
+                        System.out.println("Hello " + user.getUsername());
+                        System.out.println(resourceBundle.getString("app.menu2"));
+                        return;
+                    }
+                    break;
+                case 2:{
                     System.out.println("Enter the account details");
-                    org.database.User user =new User();
+//                    List<Transaction> transactions=services.callFindByDateAndUsername("sanath",Date.valueOf("2024-03-12"));
+//                    for(Transaction each:transactions){
+//                        System.out.println(each);
+//                    }
+                    org.database.User user = new User();
                     System.out.println("Enter user name");
                     user.setUsername(scanner.next());
                     System.out.println(user.getUsername());
@@ -80,27 +89,29 @@ public class App
                     user.setAddress(scanner.nextLine());
                     System.out.println("Enter the initial Balance");
                     user.setBalance(scanner.nextDouble());
-                    while (user.getBalance()<=0) {
+                    while (user.getBalance() <= 0) {
                         logger.warn(resourceBundle.getString("app.balance.invalid"));
-                        user.setUsername(scanner.next());
+                        user.setBalance(scanner.nextDouble());
                     }
-                    try{
+                    try {
                         services.callSave(user);
-                    }
-                    catch(UserException userException){
+                    } catch (UserException userException) {
                         System.out.println(userException);
                     }
-                    break;
+            }
+//                    break;
                 default:return;
             }
-        }while(true);
+        }
 
     }
     public static void loggingIn(){
         org.database.User current=null;
+//        int runner=0;
         try{
             System.out.println(resourceBundle.getString("app.username"));
             current=services.callFindById(scanner.next());
+
             int maxAttempts = 5;
             int attempts = 0;
             String validPassword = current.getPassword(); // Replace with your desired valid password
@@ -129,6 +140,7 @@ public class App
 
         }catch (UserException userException){
             System.out.println(userException);
+            System.out.println("in catch block");
             App.loggingIn();
         }
     }

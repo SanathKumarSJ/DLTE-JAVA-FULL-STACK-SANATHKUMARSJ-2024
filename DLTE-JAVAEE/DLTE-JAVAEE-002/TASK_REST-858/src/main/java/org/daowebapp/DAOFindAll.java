@@ -28,4 +28,8 @@ public class DAOFindAll extends HttpServlet {
         StorageTarget storageTarget = new DatabaseTarget();
         userService = new UserServices(storageTarget);
     }
+
+    @Override
+    public void destroy() {
+    }
 }

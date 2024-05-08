@@ -1,15 +1,24 @@
 <configuration>
+<!--ENABLE OR DISABLE THE LOG LEVEL-->
+<!--    <logger name="org.exceptionlog" level="WARN" />-->
 
     <!-- Define appenders -->
     <appender name="myAccount" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
+            <pattern>%highlight([%thread]) %highlight(%-5level) -%logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
+<!--                            Threadname              Level       classname              -->
         </encoder>
     </appender>
 
-     Define file appender
-    <appender name="myGPayLogs" class="ch.qos.logback.core.FileAppender">
+    <!-- Define file appender-->
+    <appender name="myGPayLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>C:\DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024\DLTE-JAVA\DLTE-JAVA-005\TASK_EXPTN_LOG-429\src\main\gpay.log </file> <!-- Define log file name and path -->
+
+<!--LOGFILE CREATION BASED ON DATE-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>C:\DLTE-JAVA-FULL-STACK-SANATHKUMARSJ-2024\DLTE-JAVA\DLTE-JAVA-005\TASK_EXPTN_LOG-429\src\main\gpay-%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
         </encoder>

@@ -50,7 +50,7 @@ public class Gpay extends Account {
         while (!getUpiPin().equals(checkpin)){
             attempt++;
             if(attempt>=5){
-                logger.info(resourceBundle.getString("pin.block"));
+                logger.warn(resourceBundle.getString("pin.block"));
                 throw new MyBankException(resourceBundle.getString("bank.visit"));
             }
             // attempting

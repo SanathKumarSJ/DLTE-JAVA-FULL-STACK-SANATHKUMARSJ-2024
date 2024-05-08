@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
@@ -25,13 +26,37 @@ public class FindByUsername extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("name");
-        resp.setContentType("application/json");
+        resp.setContentType("application/html");
         try {
             logger.info(resourceBundle.getString("user.ok"));
             User user=userService.callFindById(username);
             Gson gson=new Gson();
             String result=gson.toJson(user);
             resp.getWriter().println(result);
+
+
+            PrintWriter out = resp.getWriter();
+
+            //  HTML response
+            out.println("<html>");
+            out.println("<head><title>User_Account</title></head>");
+            out.println("<body>");
+            out.println("<h2>User Details</h2>");
+            out.println("<table border='2'>");
+            out.println("<tr><th>Name</th><th>Balance</th><th>Address</th><th>Email</th><th>Password</th><th>Contact</th></tr>");
+            out.println("<tr>");
+            out.println("<td>" + user.getUsername()+ "</td>");
+            out.println("<td>" + user.getBalance()+ "</td>");
+            out.println("<td>" + user.getAddress() + "</td>");
+            out.println("<td>" + user.getEmail() + "</td>");
+            out.println("<td>" + user.getPassword() + "</td>");
+            out.println("<td>" + user.getContact() + "</td>");
+            out.println("</tr>");
+            out.println("</table>");
+            out.println("</body>");
+            out.println("</html>");
+
+
         } catch (UserException userexceptoin) {
             throw new UserException();
         }

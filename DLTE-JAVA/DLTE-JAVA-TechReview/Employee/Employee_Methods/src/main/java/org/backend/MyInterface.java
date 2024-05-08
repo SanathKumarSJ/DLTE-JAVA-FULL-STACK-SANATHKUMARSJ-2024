@@ -1,7 +1,4 @@
-package org.backend.controller;
-
-import org.backend.entity.EmployeeAddressDetails;
-import org.backend.entity.EmployeePersonalDetails;
+package org.backend;
 
 import java.io.IOException;
 import java.sql.SQLException;

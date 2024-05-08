@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://employee.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://employee.services" targetNamespace="http://employee.services">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://employee.services">
+
+    <xsd:complexType name="employeePersonal">
+        <xsd:sequence>
+            <xsd:element name="firstNameOfEmployee" type="xsd:string"/>
+            <xsd:element name="middleNameOfEmployee" type="xsd:string"/>
+            <xsd:element name="lastNameOfEmployee" type="xsd:string"/>
+            <xsd:element name="employeeID" type="xsd:int"/>
+            <xsd:element name="employeeContactNumber" type="xsd:long"/>
+            <xsd:element name="employeeEmail" type="xsd:string"/>
+            <xsd:element name="employeePermanentAddress" type="tns:employeeAddress"/>
+            <xsd:element name="employeeTemporaryAddress" type="tns:employeeAddress"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- EmployeeAddress -->
+    <xsd:complexType name="employeeAddress">
+        <xsd:sequence>
+            <xsd:element name="houseName" type="xsd:string"/>
+            <xsd:element name="streetName" type="xsd:string"/>
+            <xsd:element name="city" type="xsd:string"/>
+            <xsd:element name="state" type="xsd:string"/>
+            <xsd:element name="pincode" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="serviceStatus">
+        <xsd:sequence>
+            <xsd:element name="status" type="xsd:int"/>
+            <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+<!--    Create new employee-->
+    <!-- Request element -->
+    <xsd:element name="newEmployeeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="employeePersonal" type="tns:employeePersonal"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- Response element -->
+    <xsd:element name="newEmployeeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Employee" type="tns:employeePersonal"/>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--    Find all employee-->
+    <xsd:element name="findAllEmployeeRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="findAllEmployeeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element maxOccurs="unbounded" name="employee" type="tns:employeePersonal"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+<!--    Find employee by Pincode-->
+    <!-- Request element -->
+    <xsd:element name="getEmployeeByPinCodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="pincode" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- Response element -->
+    <xsd:element name="getEmployeeByPinCodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element maxOccurs="unbounded" name="employee" type="tns:employeePersonal"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="findAllEmployeeRequest">
+    <wsdl:part element="tns:findAllEmployeeRequest" name="findAllEmployeeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByPinCodeRequest">
+    <wsdl:part element="tns:getEmployeeByPinCodeRequest" name="getEmployeeByPinCodeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newEmployeeResponse">
+    <wsdl:part element="tns:newEmployeeResponse" name="newEmployeeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmployeeResponse">
+    <wsdl:part element="tns:findAllEmployeeResponse" name="findAllEmployeeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newEmployeeRequest">
+    <wsdl:part element="tns:newEmployeeRequest" name="newEmployeeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByPinCodeResponse">
+    <wsdl:part element="tns:getEmployeeByPinCodeResponse" name="getEmployeeByPinCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmployeePort">
+    <wsdl:operation name="findAllEmployee">
+      <wsdl:input message="tns:findAllEmployeeRequest" name="findAllEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllEmployeeResponse" name="findAllEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByPinCode">
+      <wsdl:input message="tns:getEmployeeByPinCodeRequest" name="getEmployeeByPinCodeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmployeeByPinCodeResponse" name="getEmployeeByPinCodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newEmployee">
+      <wsdl:input message="tns:newEmployeeRequest" name="newEmployeeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:newEmployeeResponse" name="newEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeePortSoap11" type="tns:EmployeePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findAllEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findAllEmployeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByPinCode">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEmployeeByPinCodeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByPinCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="newEmployeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="newEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeePortService">
+    <wsdl:port binding="tns:EmployeePortSoap11" name="EmployeePortSoap11">
+      <soap:address location="http://localhost:8081/emprepo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

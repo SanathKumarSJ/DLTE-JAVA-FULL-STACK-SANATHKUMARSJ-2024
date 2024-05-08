@@ -1,10 +1,7 @@
 package org.database;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -65,6 +62,7 @@ public class UserDatabaseRepository implements UserRepository {
 
     }
 
+
     @Override
     public User findById(String username) {
         User user=null;
@@ -91,5 +89,130 @@ public class UserDatabaseRepository implements UserRepository {
             System.out.println(sqlException);
         }
         return user;
+    }
+
+    @Override
+    public List<User> findAll() {
+        List<User> userList = new ArrayList<>();
+        try {
+            String query = "select * from mybank_users";
+            preparedStatement=connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            User user = null;
+            while (resultSet.next()) {
+                user = new User();
+                user.setUsername(resultSet.getString(1));
+                user.setPassword(resultSet.getString(2));
+                user.setAddress(resultSet.getString(3));
+                user.setEmail(resultSet.getString(4));
+                user.setContact(resultSet.getLong(5));
+                user.setBalance(resultSet.getDouble(6));
+                userList.add(user);
+            }
+        } catch (SQLException sqlException) {
+            System.out.println(sqlException);
+        }
+        return userList;
+    }
+
+    @Override
+    public List<Transaction> findAllByUsername(String username) {
+        List<Transaction> transactionList = new ArrayList<>();
+        try {
+            String query = "select * from transactions where transaction_doneBy=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            resultSet = preparedStatement.executeQuery();
+            Transaction transaction = null;
+            while (resultSet.next()) {
+                transaction = new Transaction();
+                transaction.setTransactionDoneBy(resultSet.getString(1));
+                transaction.setTransactionType(resultSet.getString(2));
+                transaction.setTransactionAmount(resultSet.getDouble(3));
+                transaction.setTransactionDate(resultSet.getDate(4));
+                transactionList.add(transaction);
+            }
+            if(transactionList.size()==0)
+                throw new UserException();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return transactionList;
+    }
+
+    @Override
+    public List<Transaction> findAllByDateAndUsername(String username, Date transactionDate) {
+        List<Transaction> transactionList = new ArrayList<>();
+        try {
+            String query = "select * from transactions where transaction_doneBy=? and transaction_date=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            preparedStatement.setDate(2, transactionDate);
+            resultSet = preparedStatement.executeQuery();
+            Transaction transaction = null;
+            while (resultSet.next()) {
+                transaction = new Transaction();
+                transaction.setTransactionDoneBy(resultSet.getString(1));
+                transaction.setTransactionType(resultSet.getString(2));
+                transaction.setTransactionAmount(resultSet.getDouble(3));
+                transaction.setTransactionDate(resultSet.getDate(4));
+                transactionList.add(transaction);
+            }
+            if(transactionList.size()==0)
+                throw new UserException();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return transactionList;
+    }
+
+    @Override
+    public void callSaveTransaction(Transaction transaction) {
+        try {
+            String query = "insert into TRANSACTIONS values(?,?,?,?,?)";
+            preparedStatement=connection.prepareStatement(query);
+
+            preparedStatement.setString(1,transaction.getTransactionDoneBy());
+            preparedStatement.setString(2, transaction.getTransactionType());
+            preparedStatement.setString(3,transaction.getTransactionType());
+            preparedStatement.setDate(4, (Date) transaction.getTransactionDate());
+            preparedStatement.setDouble(5,transaction.getTransactionAmount());
+
+            int result = preparedStatement.executeUpdate();
+            if (result!=0) {
+                logger.log(Level.INFO, resourceBundle.getString("record.push.ok"));
+                System.out.println(resourceBundle.getString("record.push.ok"));
+            }
+            else {
+                logger.log(Level.INFO, resourceBundle.getString("record.push.fail"));
+                System.out.println(resourceBundle.getString("record.push.fail"));
+            }
+
+        } catch (SQLException sqlException) {
+            System.out.println(resourceBundle.getString("account.not.ok"));
+        }
+
+    }
+    @Override
+    public List<Transaction> findAllTransaction() {
+        List<Transaction> transactionList = new ArrayList<>();
+        try {
+            String query = "select * from Transactions";
+            preparedStatement=connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            Transaction user = null;
+            while (resultSet.next()) {
+                user = new Transaction();
+                user.setTransactionDoneBy(resultSet.getString(1));
+                user.setTransactionType(resultSet.getString(2));
+
+                user.setTransactionAmount(resultSet.getDouble(3));
+                user.setTransactionDate(resultSet.getDate(4));
+                transactionList.add(user);
+            }
+        } catch (SQLException sqlException) {
+            System.out.println(sqlException);
+        }
+        return transactionList;
     }
 }

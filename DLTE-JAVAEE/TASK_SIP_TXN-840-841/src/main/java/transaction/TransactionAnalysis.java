@@ -69,8 +69,5 @@ public class TransactionAnalysis  extends HttpServlet {
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.getWriter().println(transaction.getTransactionId()+" from "+transaction.getTransactionFrom()+" has added to the records");
 
-
-
-
     }
 }

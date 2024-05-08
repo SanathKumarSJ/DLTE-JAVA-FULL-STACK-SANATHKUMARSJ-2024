@@ -1,4 +1,4 @@
-package org.backend.entity;
+package org.backend;
 
 import java.io.Serializable;
 

@@ -1,3 +1,20 @@
-15:47:37.985 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
-15:47:49.831 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mIncorrect Pin[0;39m 
-15:47:54.908 [34m[main][0;39m INFO  org.exceptionlog.Gpay - [34mTransaction Completed[0;39m 
+14:17:31.658 [34m[ActiveMQ Task-1][0;39m INFO  o.a.a.t.failover.FailoverTransport - [34mSuccessfully connected to tcp://localhost:61616[0;39m 
+14:18:01.295 [34m[ActiveMQ Task-1][0;39m INFO  o.a.a.t.failover.FailoverTransport - [34mSuccessfully connected to tcp://localhost:61616[0;39m 
+14:30:57.476 [31m[ActiveMQ Transport: tcp://localhost/127.0.0.1:61616@59228][0;39m WARN  o.a.a.t.failover.FailoverTransport - [31mTransport (tcp://localhost:61616) failed, attempting to automatically reconnect[0;39m 
+java.io.EOFException: null
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:268)
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:240)
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:232)
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:215)
+	at java.lang.Thread.run(Thread.java:748)
+14:30:57.488 [31m[ActiveMQ Transport: tcp://localhost/127.0.0.1:61616@59238][0;39m WARN  o.a.a.t.failover.FailoverTransport - [31mTransport (tcp://localhost:61616) failed, attempting to automatically reconnect[0;39m 
+java.io.EOFException: null
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:268)
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:240)
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:232)
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:215)
+	at java.lang.Thread.run(Thread.java:748)
+14:30:59.531 [31m[ActiveMQ Task-3][0;39m WARN  o.a.a.t.failover.FailoverTransport - [31mFailed to connect to [tcp://localhost:61616] after: 1 attempt(s) with Connection refused: connect, continuing to retry.[0;39m 
+14:30:59.531 [31m[ActiveMQ Task-3][0;39m WARN  o.a.a.t.failover.FailoverTransport - [31mFailed to connect to [tcp://localhost:61616] after: 1 attempt(s) with Connection refused: connect, continuing to retry.[0;39m 

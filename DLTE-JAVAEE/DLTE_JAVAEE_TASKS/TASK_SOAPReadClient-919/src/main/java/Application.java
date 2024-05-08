@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Application {
 
+    //client -- server : write a client program to test SOAP and REST API
+
+
     public static void main(String[] args) {
         //creating object of TransactionSoapService
         TransactionSoapService transactionSoapService= new TransactionSoapService();

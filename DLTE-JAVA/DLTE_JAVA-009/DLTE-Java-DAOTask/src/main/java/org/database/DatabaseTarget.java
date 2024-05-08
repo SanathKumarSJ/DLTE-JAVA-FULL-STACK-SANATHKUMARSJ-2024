@@ -14,6 +14,7 @@ public class DatabaseTarget implements StorageTarget {
     public DatabaseTarget(){
         try{
             Driver driver=new OracleDriver();
+//            Driver driver1=new
             DriverManager.registerDriver(driver);
             connection=DriverManager.getConnection(resourceBundle.getString("db.url"),resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
         }

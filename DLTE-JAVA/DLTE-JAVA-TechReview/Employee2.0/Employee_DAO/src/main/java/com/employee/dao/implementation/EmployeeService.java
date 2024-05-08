@@ -118,19 +118,19 @@ public class EmployeeService implements MyInterface {
             employeeDetails.setEmployeeEmail(rs.getString("EMPLOYEEEMAIL"));
             // Mapping for primary address
             EmployeeAddressDetails primaryAddress = new EmployeeAddressDetails();
-            primaryAddress.setHouseName(rs.getString("HOUSENAME"));
-            primaryAddress.setStreetName(rs.getString("STREETNAME"));
-            primaryAddress.setCity(rs.getString("CITY"));
-            primaryAddress.setState(rs.getString("STATENAME"));
-            primaryAddress.setPincode(rs.getInt("PINCODE"));
+            primaryAddress.setHouseName(rs.getString(7));
+            primaryAddress.setStreetName(rs.getString(8));
+            primaryAddress.setCity(rs.getString(9));
+            primaryAddress.setState(rs.getString(10));
+            primaryAddress.setPincode(rs.getInt(11));
             employeeDetails.setPermanentAddress(primaryAddress);
             // Mapping for temporary address
             EmployeeAddressDetails temporaryAddress = new EmployeeAddressDetails();
-            temporaryAddress.setHouseName(rs.getString("HOUSENAME"));
-            temporaryAddress.setStreetName(rs.getString("STREETNAME"));
-            temporaryAddress.setCity(rs.getString("CITY"));
-            temporaryAddress.setState(rs.getString("STATENAME"));
-            temporaryAddress.setPincode(rs.getInt("PINCODE"));
+            temporaryAddress.setHouseName(rs.getString(12));
+            temporaryAddress.setStreetName(rs.getString(13));
+            temporaryAddress.setCity(rs.getString(14));
+            temporaryAddress.setState(rs.getString(15));
+            temporaryAddress.setPincode(rs.getInt(16));
             employeeDetails.setTemporaryAddress(temporaryAddress);
             return employeeDetails;
         }

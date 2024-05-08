@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 //@WebServlet("/first/api/*") -->also valid
-@WebServlet(name="MyFirstServlet",value = "/first/api/") //*-> capable to work with doget dopost and also some keyword can be added after API
+@WebServlet(name="MySecondServlet",value = "/first/api/") //*-> capable to work with doget dopost and also some keyword can be added after API
 // for example --> /first/api/*-- /first/api/Acc1 or /first/api/Acc2 etc.., can get called
 
 public class MyFirstServlet extends HttpServlet {
@@ -42,8 +42,10 @@ public class MyFirstServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-        logger.info("Servlet POST has executed");
+        String path = req.getPathInfo();
+        if (path.equals("/post")) {
+            logger.info("Servlet POST has executed");
+        }
     }
 
     @Override

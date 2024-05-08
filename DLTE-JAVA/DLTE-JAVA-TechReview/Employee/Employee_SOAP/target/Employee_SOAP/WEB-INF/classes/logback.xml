@@ -1,0 +1,38 @@
+<configuration>
+
+    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/JAVA_WORKSPACE/Logs/mylogs/app.log</file> <!-- Define log file name and path -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:/JAVA_WORKSPACE/Logs/mylogs/app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>2KB</maxFileSize>
+            <totalSizeCap>3KB</totalSizeCap>
+            <maxHistory>1</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define archive appender -->
+    <appender name="myLogsArchive" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/JAVA_WORKSPACE/Logs/Zips/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:/JAVA_WORKSPACE/Logs/Zips/app-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxFileSize>3KB</maxFileSize>
+            <totalSizeCap>3KB</totalSizeCap>
+            <maxHistory>1</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger settings -->
+    <root level="INFO">
+        <appender-ref ref="myLogs" /> <!-- Attach file appender -->
+        <appender-ref ref="myLogsArchive" /> <!-- Attach archive appender -->
+    </root>
+
+</configuration>

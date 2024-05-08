@@ -1,11 +1,5 @@
 package org.exceptionlog;
 
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.ResourceBundle;
-
 public class AccountAnalysis {
 
     public static void main(String[] args) {
@@ -15,6 +9,7 @@ public class AccountAnalysis {
 
         gpaycustomer[0] = new Gpay(784510202L, "SanathKumar", 40000.00, "sanathkumarsj", 8858);
         // Biller details
+
         try {
             gpaycustomer[0].payBills("Rohith", 20000.00, "Friend");
         } catch (MyBankException e) {
