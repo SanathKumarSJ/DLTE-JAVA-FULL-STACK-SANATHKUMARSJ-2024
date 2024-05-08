@@ -85,13 +85,13 @@
 <i>11</i>&nbsp;
 <i>12</i>&nbsp;    private Long senderAccountNumber;
 <i>13</i>&nbsp;
-<i>14</i>&nbsp;    @Range(min = 100000000000L, max = 999999999999L,message = &quot;{payee.payeeAcc}&quot;)
-<i>15</i>&nbsp;    @NotNull(message = &quot;{payee.payeeAcc}&quot;)
-<i>16</i>&nbsp;    @Digits(integer = 12, fraction = 0, message = &quot;{payee.payeeAcc}&quot;)
+<i>14</i>&nbsp;    @Range(min = 100000000000L, max = 999999999999L,message = &quot;{EXB001}&quot;)
+<i>15</i>&nbsp;    @NotNull(message = &quot;{EXB001}&quot;)
+<i>16</i>&nbsp;    @Digits(integer = 12, fraction = 0, message = &quot;{EXB001}&quot;)
 <i>17</i>&nbsp;    private Long payeeAccountNumber;
 <i>18</i>&nbsp;
-<i>19</i>&nbsp;    @NotNull(message = &quot;{payee.holder}&quot;)
-<i>20</i>&nbsp;    @Pattern(regexp = &quot;^[a-zA-Z\\s]*$&quot;,message = &quot;{payee.holder}&quot;)
+<i>19</i>&nbsp;    @NotNull(message = &quot;{EXB002}&quot;)
+<i>20</i>&nbsp;    @Pattern(regexp = &quot;^[a-zA-Z\\s]*$&quot;,message = &quot;{EXB002}&quot;)
 <i>21</i>&nbsp;    private String payeeName;
 <i>22</i>&nbsp;
 <b class="fc"><i>23</i>&nbsp;    public Payee() {</b>
@@ -143,7 +143,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-05 00:29</div>
+    <div style="float:right;">generated on 2024-05-07 15:52</div>
 </div>
 </body>
 </html>

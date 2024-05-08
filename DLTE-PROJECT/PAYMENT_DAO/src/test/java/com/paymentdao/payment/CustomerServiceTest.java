@@ -100,7 +100,7 @@ public class CustomerServiceTest {
         when(myBankOfficialsService.findAllUsername()).thenReturn(customerList);
 
 
-        assertThrows(UsernameNotFoundException.class, () -> myBankOfficialsService.findByUsername("sa"));
+        assertThrows(UsernameNotFoundException.class, () -> myBankOfficialsService.findByUsername("san"));
 
     }
 
@@ -151,9 +151,7 @@ public class CustomerServiceTest {
     @Test
     void testGetAccountException(){
         Long customerId = 123L;
-
         when(jdbcTemplate.queryForList(anyString(), any(Object[].class), eq(Long.class))).thenThrow(EmptyResultDataAccessException.class);
-
         assertThrows(PayeeException.class, () -> {
             myBankOfficialsService.getAccountList(customerId);
         });

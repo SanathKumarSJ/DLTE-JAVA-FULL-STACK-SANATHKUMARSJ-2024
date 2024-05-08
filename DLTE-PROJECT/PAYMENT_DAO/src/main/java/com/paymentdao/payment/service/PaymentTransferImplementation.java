@@ -39,7 +39,16 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
             logger.info(resourceBundle.getString("no.payee"));
             throw new PayeeException(resourceBundle.getString("no.payee")+" "+accountNumber);
         }
+
         logger.info(resourceBundle.getString("yes.payee"));
+        if (!payees.isEmpty()) {
+            for (Payee payee : payees) {
+                logger.info("Payee details: PayeeId - " + payee.getPayeeId() +
+                        ", Sender Account Number - " + payee.getSenderAccountNumber() +
+                        ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                        ", Payee Name - " + payee.getPayeeName());
+            }
+        }
         return payees;
     }
 
@@ -47,6 +56,9 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
 
     @Override
     public String addNewPayee(Payee payee) {
+        logger.info("Sender Account Number - " + payee.getSenderAccountNumber() +
+                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                ", Payee Name - " + payee.getPayeeName());
         try {
             String sql = "{call UPDATE_PAYEE_DETAILS(PAYEE_SEQ.nextval, ?, ?, ?)}";
             jdbcTemplate.update(sql, payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
@@ -76,6 +88,12 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
             }
         }
         logger.info(resourceBundle.getString("insert.ok"));
+
+        logger.info("Sender Account Number - " + payee.getSenderAccountNumber() +
+                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                ", Payee Name - " + payee.getPayeeName());
+
+
         return resourceBundle.getString("insert.ok");
     }
 

@@ -58,10 +58,10 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    85.7%
+    100%
   </span>
   <span class="absValue">
-    (30/ 35)
+    (42/ 42)
   </span>
 </td>
 </tr>
@@ -146,36 +146,44 @@
 <b class="fc"><i>72</i>&nbsp;                findAllPayeeResponse.setServiceStatus(serviceStatus);</b>
 <i>73</i>&nbsp;
 <b class="fc"><i>74</i>&nbsp;                findAllPayeeResponse.getPayee().addAll(payees);</b>
-<i>75</i>&nbsp;
-<b class="fc"><i>76</i>&nbsp;                return findAllPayeeResponse;</b>
-<i>77</i>&nbsp;
-<b class="nc"><i>78</i>&nbsp;            } catch (PayeeException payeeEx) {</b>
-<b class="nc"><i>79</i>&nbsp;                serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());</b>
-<b class="nc"><i>80</i>&nbsp;                serviceStatus.setMessage(payeeEx.getMessage());</b>
-<b class="nc"><i>81</i>&nbsp;                findAllPayeeResponse.setServiceStatus(serviceStatus);</b>
-<b class="nc"><i>82</i>&nbsp;                return findAllPayeeResponse;</b>
-<i>83</i>&nbsp;            }
-<i>84</i>&nbsp;        } else {
-<b class="fc"><i>85</i>&nbsp;            serviceStatus.setStatus(HttpStatus.SERVICE_UNAVAILABLE.value());</b>
-<i>86</i>&nbsp;
-<b class="fc"><i>87</i>&nbsp;            serviceStatus.setMessage(resourceBundle.getString(&quot;no.access&quot;));</b>
-<i>88</i>&nbsp;
-<b class="fc"><i>89</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;no.access&quot;));</b>
-<i>90</i>&nbsp;
-<b class="fc"><i>91</i>&nbsp;            findAllPayeeResponse.setServiceStatus(serviceStatus);</b>
-<i>92</i>&nbsp;
-<b class="fc"><i>93</i>&nbsp;            findAllPayeeResponse.getPayee().addAll(payees);</b>
+<b class="fc"><i>75</i>&nbsp;                if (!payees.isEmpty()) {</b>
+<b class="fc"><i>76</i>&nbsp;                    for (Payee payee : payees) {</b>
+<b class="fc"><i>77</i>&nbsp;                        logger.info(&quot;Payee details: PayeeId - &quot; + payee.getPayeeId() +</b>
+<b class="fc"><i>78</i>&nbsp;                                &quot;, Sender Account Number - &quot; + payee.getSenderAccountNumber() +</b>
+<b class="fc"><i>79</i>&nbsp;                                &quot;, Payee Account Number - &quot; + payee.getPayeeAccountNumber() +</b>
+<b class="fc"><i>80</i>&nbsp;                                &quot;, Payee Name - &quot; + payee.getPayeeName());</b>
+<b class="fc"><i>81</i>&nbsp;                    }</b>
+<i>82</i>&nbsp;                }
+<i>83</i>&nbsp;
+<b class="fc"><i>84</i>&nbsp;                return findAllPayeeResponse;</b>
+<i>85</i>&nbsp;
+<b class="fc"><i>86</i>&nbsp;            } catch (PayeeException payeeEx) {</b>
+<b class="fc"><i>87</i>&nbsp;                serviceStatus.setStatus(HttpStatus.OK.value());</b>
+<b class="fc"><i>88</i>&nbsp;                serviceStatus.setMessage(resourceBundle.getString(&quot;payee.error.five&quot;)+payeeEx.getMessage());</b>
+<b class="fc"><i>89</i>&nbsp;                findAllPayeeResponse.setServiceStatus(serviceStatus);</b>
+<b class="fc"><i>90</i>&nbsp;                return findAllPayeeResponse;</b>
+<i>91</i>&nbsp;            }
+<i>92</i>&nbsp;        } else {
+<b class="fc"><i>93</i>&nbsp;            serviceStatus.setStatus(HttpStatus.FORBIDDEN.value());</b>
 <i>94</i>&nbsp;
-<b class="fc"><i>95</i>&nbsp;            return findAllPayeeResponse;</b>
-<i>96</i>&nbsp;        }
-<i>97</i>&nbsp;    }
-<i>98</i>&nbsp;}
+<b class="fc"><i>95</i>&nbsp;            serviceStatus.setMessage(resourceBundle.getString(&quot;no.access&quot;));</b>
+<i>96</i>&nbsp;
+<b class="fc"><i>97</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;no.access&quot;));</b>
+<i>98</i>&nbsp;
+<b class="fc"><i>99</i>&nbsp;            findAllPayeeResponse.setServiceStatus(serviceStatus);</b>
+<i>100</i>&nbsp;
+<b class="fc"><i>101</i>&nbsp;            findAllPayeeResponse.getPayee().addAll(payees);</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;            return findAllPayeeResponse;</b>
+<i>104</i>&nbsp;        }
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-30 11:14</div>
+    <div style="float:right;">generated on 2024-05-07 15:53</div>
 </div>
 </body>
 </html>

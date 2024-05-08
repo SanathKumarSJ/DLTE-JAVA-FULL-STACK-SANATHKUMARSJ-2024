@@ -53,20 +53,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(MockitoExtension.class)
 public class RestEndPointTest {
 
-
-    @Mock
-    private HttpServletRequest request;
-    @Mock
-    private HttpServletResponse response;
-    @Mock
-    private Authentication authentication;
-
-    @InjectMocks
-    private MyBankSuccessHandler customerSuccessHandler;
-
-    @InjectMocks
-    private MyBankSuccessHandler successHandler;
-
     @MockBean
     private PaymentTransferRepository paymentTransferRepository;
 
@@ -436,6 +422,5 @@ public class RestEndPointTest {
                 .andExpect(content().string(""));
 
     }
-
 
 }

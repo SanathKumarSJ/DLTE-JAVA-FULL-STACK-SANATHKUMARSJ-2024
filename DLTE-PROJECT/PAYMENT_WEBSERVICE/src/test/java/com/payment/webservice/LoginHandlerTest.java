@@ -10,6 +10,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -17,25 +20,44 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest
+@AutoConfigureMockMvc
+
 public class LoginHandlerTest {
     @Mock
     private MyBankOfficialsService myBankOfficialsService;
 
-    @InjectMocks
-    private MyBankSuccessHandler successHandler;
+
+    @Autowired
+    private MockMvc mockMvc;
 
     @InjectMocks
-    private MyBankFailureHandler failureHandler;
+    private MyBankSuccessHandler successHandler;
+    @Mock
+    private HttpServletRequest request;
+    @Mock
+    private HttpServletResponse response;
+
+    @InjectMocks
+    private MyBankSuccessHandler customerSuccessHandler;
+
+
+    @Mock
+    private Authentication authentication;
 
     @Test
     public void testMaxAttemptsReached() throws IOException, ServletException {
@@ -67,6 +89,69 @@ public class LoginHandlerTest {
         successHandler.onAuthenticationSuccess(request, response, authentication);
 
         assertEquals("/payee/dashboard", response.getRedirectedUrl());
+
+    }
+    @Test
+    public void testOnAuthenticationSuccess() throws Exception {
+        Customer customer = new Customer();
+        customer.setCustomerStatus("inactive");
+        when(authentication.getPrincipal()).thenReturn(customer);
+
+        customerSuccessHandler.onAuthenticationSuccess(request, response, authentication);
+
+        verify(response).encodeRedirectURL("null/payee/?errors=Max attempts reached contact admin");
+    }
+
+    @Test
+    public void testOnAuthenticationSuccess2() throws Exception {
+        Customer customer = new Customer();
+        customer.setCustomerId(123L);
+        customer.setCustomerName("sanath");
+        customer.setCustomerAddress("sringeri");
+        customer.setCustomerStatus("active");
+        customer.setCustomerContact(8277263396L);
+        customer.setUserName("user");
+        customer.setPassword("1234");
+        customer.setAttempts(1);
+        when(authentication.getPrincipal()).thenReturn(customer);
+
+        customerSuccessHandler.onAuthenticationSuccess(request, response, authentication);
+
+        verify(response).encodeRedirectURL("null/payee/dashboard");
+    }
+
+    @Mock
+    private SpringApplicationBuilder mockApplicationBuilder;
+
+    @Test
+    void configureTest() {
+        ServletInitializer servletInitializer = new ServletInitializer();
+
+        servletInitializer.configure(mockApplicationBuilder);
+
+        verify(mockApplicationBuilder).sources(WebserviceApplication.class);
+    }
+
+    @Test
+    void onAuthenticationFailureTest() throws Exception {
+
+//        customerFailureHandler.setUseForward(true);
+        Customer customer = new Customer();
+        customer.setCustomerId(123L);
+        customer.setCustomerName("sanath");
+        customer.setCustomerAddress("sringeri");
+        customer.setCustomerStatus("active");
+        customer.setCustomerContact(8277263396L);
+        customer.setUserName("user");
+        customer.setPassword("1234");
+        customer.setAttempts(1);
+        when(myBankOfficialsService.findByUsername("user")).thenReturn(customer);
+
+        // Mocking the request parameters
+        mockMvc.perform(MockMvcRequestBuilders.post("/payee/")
+                .param("username", customer.getUserName())
+                .param("password", customer.getPassword()))
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/payee/?error=Username not found"));
 
     }
 

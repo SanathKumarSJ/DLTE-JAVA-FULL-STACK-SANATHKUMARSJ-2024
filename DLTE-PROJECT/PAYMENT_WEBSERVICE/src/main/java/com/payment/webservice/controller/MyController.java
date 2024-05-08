@@ -48,7 +48,9 @@ public class MyController {
             @ApiResponse(responseCode = "EXC004", description = "Access denied for this account number")
     })
     public ResponseEntity<String> newPayee(@Valid @RequestBody Payee payee) {
-
+        logger.info("Sender Account Number - " + payee.getSenderAccountNumber() +
+                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                ", Payee Name - " + payee.getPayeeName());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String username = authentication.getName();
@@ -60,6 +62,7 @@ public class MyController {
         if (senderAccountNumberList.contains(payee.getSenderAccountNumber())) {
             try {
                 String check = paymentTransferRepository.addNewPayee(payee);
+                logger.info(check);
 
             } catch (PayeeException e) {
                 logger.error(resourceBundle.getString("payee.error.one")+e.getMessage());

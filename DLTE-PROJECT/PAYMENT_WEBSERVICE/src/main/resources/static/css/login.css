@@ -31,13 +31,12 @@ img{
 }
 
 .login-info {
-    color: white; /* Changed text color to black */
+    color: white;
     text-align: left;
     padding-left: 20px;
     padding-bottom: 40px;
 }
 
-/* Added styles for text */
 .login-info p {
     margin: 0;
     font-family: 'Poppins', sans-serif;

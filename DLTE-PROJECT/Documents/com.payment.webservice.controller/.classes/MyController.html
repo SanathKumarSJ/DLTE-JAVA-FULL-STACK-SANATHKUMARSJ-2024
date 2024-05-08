@@ -50,18 +50,18 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    25%
+    100%
   </span>
   <span class="absValue">
-    (1/ 4)
+    (5/ 5)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    8.6%
+    100%
   </span>
   <span class="absValue">
-    (3/ 35)
+    (38/ 38)
   </span>
 </td>
 </tr>
@@ -76,28 +76,28 @@
 <i>2</i>&nbsp;
 <i>3</i>&nbsp;import com.paymentdao.payment.entity.Customer;
 <i>4</i>&nbsp;import com.paymentdao.payment.entity.Payee;
-<i>5</i>&nbsp;import com.paymentdao.payment.exception.InactiveException;
-<i>6</i>&nbsp;import com.paymentdao.payment.exception.PayeeException;
-<i>7</i>&nbsp;import com.paymentdao.payment.exception.PayeeExistException;
-<i>8</i>&nbsp;import com.paymentdao.payment.exception.PayeeNotExistException;
-<i>9</i>&nbsp;import com.paymentdao.payment.remote.PaymentTransferRepository;
-<i>10</i>&nbsp;import com.paymentdao.payment.service.MyBankOfficialsService;
-<i>11</i>&nbsp;import io.swagger.v3.oas.annotations.Operation;
-<i>12</i>&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponse;
-<i>13</i>&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponses;
-<i>14</i>&nbsp;import org.slf4j.LoggerFactory;
-<i>15</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
-<i>16</i>&nbsp;import org.springframework.context.annotation.ComponentScan;
-<i>17</i>&nbsp;import org.springframework.http.HttpStatus;
-<i>18</i>&nbsp;import org.springframework.http.ResponseEntity;
-<i>19</i>&nbsp;import org.springframework.security.core.Authentication;
-<i>20</i>&nbsp;import org.springframework.security.core.context.SecurityContextHolder;
-<i>21</i>&nbsp;import org.springframework.validation.FieldError;
-<i>22</i>&nbsp;import org.springframework.web.bind.MethodArgumentNotValidException;
-<i>23</i>&nbsp;import org.springframework.web.bind.annotation.*;
-<i>24</i>&nbsp;import javax.validation.Valid;
-<i>25</i>&nbsp;import java.time.LocalDateTime;
-<i>26</i>&nbsp;import java.util.*;
+<i>5</i>&nbsp;import com.paymentdao.payment.exception.PayeeException;
+<i>6</i>&nbsp;import com.paymentdao.payment.exception.PayeeExistException;
+<i>7</i>&nbsp;import com.paymentdao.payment.exception.PayeeNotExistException;
+<i>8</i>&nbsp;import com.paymentdao.payment.remote.PaymentTransferRepository;
+<i>9</i>&nbsp;import com.paymentdao.payment.service.MyBankOfficialsService;
+<i>10</i>&nbsp;import io.swagger.v3.oas.annotations.Operation;
+<i>11</i>&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponse;
+<i>12</i>&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponses;
+<i>13</i>&nbsp;import org.slf4j.LoggerFactory;
+<i>14</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>15</i>&nbsp;import org.springframework.context.annotation.ComponentScan;
+<i>16</i>&nbsp;import org.springframework.http.HttpStatus;
+<i>17</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i>18</i>&nbsp;import org.springframework.security.core.Authentication;
+<i>19</i>&nbsp;import org.springframework.security.core.context.SecurityContextHolder;
+<i>20</i>&nbsp;import org.springframework.validation.FieldError;
+<i>21</i>&nbsp;import org.springframework.web.bind.MethodArgumentNotValidException;
+<i>22</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>23</i>&nbsp;import javax.validation.Valid;
+<i>24</i>&nbsp;import java.time.LocalDateTime;
+<i>25</i>&nbsp;import java.util.*;
+<i>26</i>&nbsp;
 <i>27</i>&nbsp;
 <i>28</i>&nbsp;@RestController
 <i>29</i>&nbsp;@ComponentScan(&quot;com.paymentdao.payment&quot;)
@@ -105,83 +105,89 @@
 <b class="fc"><i>31</i>&nbsp;public class MyController {</b>
 <b class="fc"><i>32</i>&nbsp;    ResourceBundle resourceBundle = ResourceBundle.getBundle(&quot;payee&quot;);</b>
 <b class="fc"><i>33</i>&nbsp;    org.slf4j.Logger logger = LoggerFactory.getLogger(MyController.class);</b>
-<i>34</i>&nbsp;    @Autowired
-<i>35</i>&nbsp;    PaymentTransferRepository paymentTransferRepository;
-<i>36</i>&nbsp;
-<i>37</i>&nbsp;    @Autowired
-<i>38</i>&nbsp;    MyBankOfficialsService service;
-<i>39</i>&nbsp;
-<i>40</i>&nbsp;    @Operation(summary = &quot;This is used for adding new Payee&quot;)
-<i>41</i>&nbsp;    @PostMapping(&quot;/add&quot;)
-<i>42</i>&nbsp;    @ApiResponses(value = {
-<i>43</i>&nbsp;            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Payee Inserted successfully&quot;),
-<i>44</i>&nbsp;            @ApiResponse(responseCode = &quot;409&quot;, description = &quot;Payee account and sender&#39;s account cannot be same&quot;),
-<i>45</i>&nbsp;            @ApiResponse(responseCode = &quot;204&quot;, description = &quot;No record exists&quot;),
-<i>46</i>&nbsp;            @ApiResponse(responseCode = &quot;403&quot;, description = &quot;Sender account is inactive&quot;),
-<i>47</i>&nbsp;            @ApiResponse(responseCode = &quot;500&quot;, description = &quot;Internal server error&quot;)
-<i>48</i>&nbsp;    })
-<i>49</i>&nbsp;    public ResponseEntity&lt;String&gt; newPayee(@Valid @RequestBody Payee payee) {
-<i>50</i>&nbsp;
-<b class="nc"><i>51</i>&nbsp;        String time= LocalDateTime.now().toString();</b>
-<b class="nc"><i>52</i>&nbsp;        String classPath=this.getClass().getCanonicalName();</b>
-<b class="nc"><i>53</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
-<i>54</i>&nbsp;
-<b class="nc"><i>55</i>&nbsp;        String username = authentication.getName();</b>
-<i>56</i>&nbsp;
-<b class="nc"><i>57</i>&nbsp;        Customer customer = service.findByUsername(username);</b>
-<i>58</i>&nbsp;
-<b class="nc"><i>59</i>&nbsp;        List&lt;Long&gt; senderAccountNumberList = service.getAccountList(customer.getCustomerId());</b>
-<i>60</i>&nbsp;
-<b class="nc"><i>61</i>&nbsp;        if (senderAccountNumberList.contains(payee.getSenderAccountNumber())) {</b>
-<i>62</i>&nbsp;            try {
-<b class="nc"><i>63</i>&nbsp;                String check = paymentTransferRepository.addNewPayee(payee);</b>
-<i>64</i>&nbsp;
-<b class="nc"><i>65</i>&nbsp;            } catch (PayeeException e) {</b>
-<b class="nc"><i>66</i>&nbsp;                logger.error(e.getMessage());</b>
-<b class="nc"><i>67</i>&nbsp;                String responseBody=&quot;{\&quot;timestamp\&quot;:\&quot;&quot;+time+&quot;\&quot;,\&quot;Status Code\&quot;:\&quot;&quot;+HttpStatus.BAD_GATEWAY.value()+&quot;\&quot;,\&quot;Error\&quot;:\&quot;&quot;+HttpStatus.BAD_GATEWAY.getReasonPhrase()+&quot;\&quot;,\&quot;message\&quot;:\&quot;&quot;+e.getMessage()+&quot;\&quot;,\&quot;Path\&quot;:\&quot;&quot;+classPath+&quot;\&quot;}&quot;;</b>
-<b class="nc"><i>68</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).header(&quot;Content-Type&quot;,&quot;application/json&quot;).body(responseBody);</b>
-<i>69</i>&nbsp;//                return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(responseBody);
-<i>70</i>&nbsp;
-<b class="nc"><i>71</i>&nbsp;            } catch (PayeeExistException e) {</b>
-<b class="nc"><i>72</i>&nbsp;                logger.error(e.getMessage());</b>
-<b class="nc"><i>73</i>&nbsp;                String responseBody=&quot;{\&quot;timestamp\&quot;:\&quot;&quot;+time+&quot;\&quot;,\&quot;Status Code\&quot;:\&quot;&quot;+HttpStatus.CONFLICT.value()+&quot;\&quot;,\&quot;Error\&quot;:\&quot;&quot;+HttpStatus.CONFLICT.getReasonPhrase()+&quot;\&quot;,\&quot;message\&quot;:\&quot;&quot;+e.getMessage()+&quot;\&quot;,\&quot;Path\&quot;:\&quot;&quot;+classPath+&quot;\&quot;}&quot;;</b>
-<b class="nc"><i>74</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());</b>
-<i>75</i>&nbsp;//                return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
-<i>76</i>&nbsp;
-<b class="nc"><i>77</i>&nbsp;            } catch (PayeeNotExistException e) {</b>
-<b class="nc"><i>78</i>&nbsp;                logger.error(e.getMessage());</b>
-<b class="nc"><i>79</i>&nbsp;                String responseBody=&quot;{\&quot;timestamp\&quot;:\&quot;&quot;+time+&quot;\&quot;,\&quot;Status Code\&quot;:\&quot;&quot;+HttpStatus.NOT_FOUND.value()+&quot;\&quot;,\&quot;Error\&quot;:\&quot;&quot;+HttpStatus.NOT_FOUND.getReasonPhrase()+&quot;\&quot;,\&quot;message\&quot;:\&quot;&quot;+e.getMessage()+&quot;\&quot;,\&quot;Path\&quot;:\&quot;&quot;+classPath+&quot;\&quot;}&quot;;</b>
-<b class="nc"><i>80</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());</b>
-<i>81</i>&nbsp;//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-<b class="nc"><i>82</i>&nbsp;            }</b>
-<b class="nc"><i>83</i>&nbsp;            logger.info(resourceBundle.getString(&quot;payee.ok&quot;));</b>
-<b class="nc"><i>84</i>&nbsp;            return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;payee.ok&quot;));</b>
-<i>85</i>&nbsp;        }else{
-<b class="nc"><i>86</i>&nbsp;            String responseBody=&quot;{\&quot;timestamp\&quot;:\&quot;&quot;+time+&quot;\&quot;,\&quot;Status Code\&quot;:\&quot;&quot;+HttpStatus.SERVICE_UNAVAILABLE.value()+&quot;\&quot;,\&quot;Error\&quot;:\&quot;&quot;+HttpStatus.SERVICE_UNAVAILABLE.getReasonPhrase()+&quot;\&quot;,\&quot;message\&quot;:\&quot;&quot;+resourceBundle.getString(&quot;no.access&quot;)+&quot;\&quot;,\&quot;Path\&quot;:\&quot;&quot;+classPath+&quot;\&quot;}&quot;;</b>
-<b class="nc"><i>87</i>&nbsp;            return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;no.access&quot;));</b>
-<i>88</i>&nbsp;//            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(payee.getSenderAccountNumber()+&quot; &quot;+resourceBundle.getString(&quot;no.access&quot;));
-<i>89</i>&nbsp;        }
-<i>90</i>&nbsp;    }
-<i>91</i>&nbsp;
-<i>92</i>&nbsp;
-<i>93</i>&nbsp;    @ResponseStatus(HttpStatus.OK)
-<i>94</i>&nbsp;    @ExceptionHandler(MethodArgumentNotValidException.class)
-<i>95</i>&nbsp;    public Map&lt;String, String&gt; handleValidationExceptions(MethodArgumentNotValidException ex) {
-<b class="nc"><i>96</i>&nbsp;        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</b>
-<b class="nc"><i>97</i>&nbsp;        ex.getBindingResult().getAllErrors().forEach((error) -&gt; {</b>
-<b class="nc"><i>98</i>&nbsp;            String fieldName = ((FieldError) error).getField();</b>
-<b class="nc"><i>99</i>&nbsp;            String errorMessage = error.getDefaultMessage();</b>
-<b class="nc"><i>100</i>&nbsp;            errors.put(fieldName, errorMessage);</b>
-<b class="nc"><i>101</i>&nbsp;        });</b>
-<b class="nc"><i>102</i>&nbsp;        return errors;</b>
-<i>103</i>&nbsp;    }
-<i>104</i>&nbsp;}
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    @Autowired
+<i>36</i>&nbsp;    PaymentTransferRepository paymentTransferRepository;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @Autowired
+<i>39</i>&nbsp;    MyBankOfficialsService service;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    @Operation(summary = &quot;This is used for adding new Payee&quot;)
+<i>42</i>&nbsp;    @PostMapping(&quot;/add&quot;)
+<i>43</i>&nbsp;    @ApiResponses(value = {
+<i>44</i>&nbsp;            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Payee Inserted successfully&quot;),
+<i>45</i>&nbsp;            @ApiResponse(responseCode = &quot;EXC001&quot;, description = &quot;Payee account and sender&#39;s account cannot be same&quot;),
+<i>46</i>&nbsp;            @ApiResponse(responseCode = &quot;EXC002&quot;, description = &quot;Payee account already exists with sender account&quot;),
+<i>47</i>&nbsp;            @ApiResponse(responseCode = &quot;EXC003&quot;, description = &quot;Payee account doesn&#39;t exist&quot;),
+<i>48</i>&nbsp;            @ApiResponse(responseCode = &quot;EXC004&quot;, description = &quot;Access denied for this account number&quot;)
+<i>49</i>&nbsp;    })
+<i>50</i>&nbsp;    public ResponseEntity&lt;String&gt; newPayee(@Valid @RequestBody Payee payee) {
+<i>51</i>&nbsp;
+<b class="fc"><i>52</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
+<i>53</i>&nbsp;
+<b class="fc"><i>54</i>&nbsp;        String username = authentication.getName();</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;        Customer customer = service.findByUsername(username);</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        List&lt;Long&gt; senderAccountNumberList = service.getAccountList(customer.getCustomerId());</b>
+<i>59</i>&nbsp;
+<b class="fc"><i>60</i>&nbsp;        if (senderAccountNumberList.contains(payee.getSenderAccountNumber())) {</b>
+<i>61</i>&nbsp;            try {
+<b class="fc"><i>62</i>&nbsp;                String check = paymentTransferRepository.addNewPayee(payee);</b>
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;            } catch (PayeeException e) {</b>
+<b class="fc"><i>65</i>&nbsp;                logger.error(resourceBundle.getString(&quot;payee.error.one&quot;)+e.getMessage());</b>
+<b class="fc"><i>66</i>&nbsp;                String responseBody=resourceBundle.getString(&quot;payee.error.one&quot;)+e.getMessage();</b>
+<b class="fc"><i>67</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(responseBody);</b>
+<i>68</i>&nbsp;
+<b class="fc"><i>69</i>&nbsp;            } catch (PayeeExistException e) {</b>
+<b class="fc"><i>70</i>&nbsp;                logger.error(resourceBundle.getString(&quot;payee.error.two&quot;)+e.getMessage());</b>
+<b class="fc"><i>71</i>&nbsp;                String responseBody=resourceBundle.getString(&quot;payee.error.two&quot;)+e.getMessage();</b>
+<b class="fc"><i>72</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(responseBody);</b>
+<i>73</i>&nbsp;
+<b class="fc"><i>74</i>&nbsp;            } catch (PayeeNotExistException e) {</b>
+<b class="fc"><i>75</i>&nbsp;                logger.error(resourceBundle.getString(&quot;payee.error.three&quot;)+e.getMessage());</b>
+<b class="fc"><i>76</i>&nbsp;                String responseBody=resourceBundle.getString(&quot;payee.error.three&quot;)+e.getMessage();</b>
+<b class="fc"><i>77</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(responseBody);</b>
+<i>78</i>&nbsp;
+<b class="fc"><i>79</i>&nbsp;            }</b>
+<b class="fc"><i>80</i>&nbsp;            logger.info(resourceBundle.getString(&quot;payee.ok&quot;));</b>
+<b class="fc"><i>81</i>&nbsp;            return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;payee.ok&quot;));</b>
+<i>82</i>&nbsp;        }else{
+<b class="fc"><i>83</i>&nbsp;            String responseBody=resourceBundle.getString(&quot;payee.error.four&quot;)+resourceBundle.getString(&quot;no.access&quot;);</b>
+<b class="fc"><i>84</i>&nbsp;            return ResponseEntity.status(HttpStatus.OK).body(responseBody);</b>
+<i>85</i>&nbsp;        }
+<i>86</i>&nbsp;    }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    @GetMapping(&quot;/getAccount&quot;)
+<i>90</i>&nbsp;    public List&lt;Long&gt; getAccountNumber(){
+<b class="fc"><i>91</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
+<b class="fc"><i>92</i>&nbsp;        String username = authentication.getName();</b>
+<b class="fc"><i>93</i>&nbsp;        Customer customer=service.findByUsername(username);</b>
+<b class="fc"><i>94</i>&nbsp;        List&lt;Long&gt; senderAccountNumber=service.getAccountList(customer.getCustomerId());</b>
+<b class="fc"><i>95</i>&nbsp;        return senderAccountNumber;</b>
+<i>96</i>&nbsp;    }
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    @ResponseStatus(HttpStatus.OK)
+<i>100</i>&nbsp;    @ExceptionHandler(MethodArgumentNotValidException.class)
+<i>101</i>&nbsp;    public Map&lt;String, String&gt; handleValidationExceptions(MethodArgumentNotValidException ex) {
+<b class="fc"><i>102</i>&nbsp;        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</b>
+<b class="fc"><i>103</i>&nbsp;        ex.getBindingResult().getAllErrors().forEach((error) -&gt; {</b>
+<b class="fc"><i>104</i>&nbsp;            String fieldName = ((FieldError) error).getField();</b>
+<b class="fc"><i>105</i>&nbsp;            String errorMessage = error.getDefaultMessage();</b>
+<b class="fc"><i>106</i>&nbsp;            errors.put(fieldName, errorMessage);</b>
+<b class="fc"><i>107</i>&nbsp;        });</b>
+<b class="fc"><i>108</i>&nbsp;        return errors;</b>
+<i>109</i>&nbsp;    }
+<i>110</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-30 11:14</div>
+    <div style="float:right;">generated on 2024-05-07 15:53</div>
 </div>
 </body>
 </html>

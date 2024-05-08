@@ -87,89 +87,88 @@
 <i>13</i>&nbsp;import org.springframework.security.core.userdetails.UsernameNotFoundException;
 <i>14</i>&nbsp;import org.springframework.stereotype.Service;
 <i>15</i>&nbsp;
-<i>16</i>&nbsp;import java.util.Collections;
-<i>17</i>&nbsp;import java.util.List;
-<i>18</i>&nbsp;
-<i>19</i>&nbsp;@Service
-<b class="fc"><i>20</i>&nbsp;public class MyBankOfficialsService implements UserDetailsService {</b>
-<i>21</i>&nbsp;    @Autowired
-<i>22</i>&nbsp;    private JdbcTemplate jdbcTemplate;
-<i>23</i>&nbsp;
-<b class="fc"><i>24</i>&nbsp;    Logger logger= LoggerFactory.getLogger(MyBankOfficialsService.class);</b>
-<i>25</i>&nbsp;
-<i>26</i>&nbsp;    public Customer signingUp(Customer myBankOfficials){
-<b class="fc"><i>27</i>&nbsp;        int ack = jdbcTemplate.update(&quot;insert into MYBANK_APP_CUSTOMER values(CUSTOMERID_SEQ.nextval,?,?,?,?,?,?,1)&quot;,new Object[]{</b>
-<b class="fc"><i>28</i>&nbsp;                myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),myBankOfficials.getCustomerContact(),myBankOfficials.getUserName(),myBankOfficials.getPassword()</b>
-<i>29</i>&nbsp;        });
-<b class="fc"><i>30</i>&nbsp;        return myBankOfficials;</b>
-<i>31</i>&nbsp;    }
+<i>16</i>&nbsp;import java.util.List;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;@Service
+<b class="fc"><i>19</i>&nbsp;public class MyBankOfficialsService implements UserDetailsService {</b>
+<i>20</i>&nbsp;    @Autowired
+<i>21</i>&nbsp;    private JdbcTemplate jdbcTemplate;
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;    Logger logger= LoggerFactory.getLogger(MyBankOfficialsService.class);</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public Customer signingUp(Customer myBankOfficials){
+<b class="fc"><i>26</i>&nbsp;        int ack = jdbcTemplate.update(&quot;insert into MYBANK_APP_CUSTOMER values(CUSTOMERID_SEQ.nextval,?,?,?,?,?,?,1)&quot;,new Object[]{</b>
+<b class="fc"><i>27</i>&nbsp;                myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),myBankOfficials.getCustomerContact(),myBankOfficials.getUserName(),myBankOfficials.getPassword()</b>
+<i>28</i>&nbsp;        });
+<b class="fc"><i>29</i>&nbsp;        return myBankOfficials;</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
 <i>32</i>&nbsp;
 <i>33</i>&nbsp;
-<i>34</i>&nbsp;
-<i>35</i>&nbsp;    public List&lt;Customer&gt; findAllUsername(){
-<i>36</i>&nbsp;        List&lt;Customer&gt; customerList;
-<b class="fc"><i>37</i>&nbsp;        customerList=jdbcTemplate.query(&quot;select * from MYBANK_APP_CUSTOMER&quot;,new BeanPropertyRowMapper&lt;&gt;(Customer.class));</b>
-<b class="fc"><i>38</i>&nbsp;        return customerList;</b>
-<i>39</i>&nbsp;    }
+<i>34</i>&nbsp;    public List&lt;Customer&gt; findAllUsername(){
+<i>35</i>&nbsp;        List&lt;Customer&gt; customerList;
+<b class="fc"><i>36</i>&nbsp;        customerList=jdbcTemplate.query(&quot;select * from MYBANK_APP_CUSTOMER&quot;,new BeanPropertyRowMapper&lt;&gt;(Customer.class));</b>
+<b class="fc"><i>37</i>&nbsp;        return customerList;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
 <i>40</i>&nbsp;
-<i>41</i>&nbsp;
-<i>42</i>&nbsp;    //find customer by username
-<i>43</i>&nbsp;    public Customer findByUsername(String userName){
-<b class="fc"><i>44</i>&nbsp;        List&lt;Customer&gt; customers=findAllUsername();</b>
-<b class="fc"><i>45</i>&nbsp;        Customer customer = customers.stream()</b>
-<b class="fc"><i>46</i>&nbsp;                .filter(each -&gt; each.getUsername().equals(userName)).findFirst().orElse(null);</b>
-<i>47</i>&nbsp;
-<b class="fc"><i>48</i>&nbsp;        if(customer==null){</b>
-<b class="fc"><i>49</i>&nbsp;                throw new UsernameNotFoundException(userName);</b>
-<i>50</i>&nbsp;        }
-<b class="nc"><i>51</i>&nbsp;        return customer;</b>
-<i>52</i>&nbsp;    }
-<i>53</i>&nbsp;
-<i>54</i>&nbsp;    //update the login attempts
-<i>55</i>&nbsp;    public void updateAttempts(Customer customer){
-<b class="fc"><i>56</i>&nbsp;        jdbcTemplate.update(&quot;update MYBANK_APP_CUSTOMER set ATTEMPTS=? where USERNAME=?&quot;,</b>
-<b class="fc"><i>57</i>&nbsp;                new Object[]{customer.getAttempts(),customer.getUsername()});</b>
-<b class="fc"><i>58</i>&nbsp;        logger.info(&quot;Attempts are updated&quot;);</b>
-<b class="fc"><i>59</i>&nbsp;    }</b>
-<i>60</i>&nbsp;
-<i>61</i>&nbsp;    //update the customer login status
-<i>62</i>&nbsp;    public void updateStatus(Customer customer){
-<b class="fc"><i>63</i>&nbsp;        jdbcTemplate.update(&quot;update MYBANK_APP_CUSTOMER set CUSTOMER_STATUS=&#39;inactive&#39; where username=?&quot;,</b>
-<b class="fc"><i>64</i>&nbsp;                new Object[]{customer.getUsername()});</b>
-<b class="fc"><i>65</i>&nbsp;        logger.info(&quot;Status has changed&quot;);</b>
-<b class="fc"><i>66</i>&nbsp;    }</b>
+<i>41</i>&nbsp;    //find customer by username
+<i>42</i>&nbsp;    public Customer findByUsername(String userName){
+<b class="fc"><i>43</i>&nbsp;        List&lt;Customer&gt; customers=findAllUsername();</b>
+<b class="fc"><i>44</i>&nbsp;        Customer customer = customers.stream()</b>
+<b class="fc"><i>45</i>&nbsp;                .filter(each -&gt; each.getUsername().equals(userName)).findFirst().orElse(null);</b>
+<i>46</i>&nbsp;
+<b class="fc"><i>47</i>&nbsp;        if(customer==null){</b>
+<b class="fc"><i>48</i>&nbsp;                throw new UsernameNotFoundException(userName);</b>
+<i>49</i>&nbsp;        }
+<b class="nc"><i>50</i>&nbsp;        return customer;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    //update the login attempts
+<i>54</i>&nbsp;    public void updateAttempts(Customer customer){
+<b class="fc"><i>55</i>&nbsp;        jdbcTemplate.update(&quot;update MYBANK_APP_CUSTOMER set ATTEMPTS=? where USERNAME=?&quot;,</b>
+<b class="fc"><i>56</i>&nbsp;                new Object[]{customer.getAttempts(),customer.getUsername()});</b>
+<b class="fc"><i>57</i>&nbsp;        logger.info(&quot;Attempts are updated&quot;);</b>
+<b class="fc"><i>58</i>&nbsp;    }</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    //update the customer login status
+<i>61</i>&nbsp;    public void updateStatus(Customer customer){
+<b class="fc"><i>62</i>&nbsp;        jdbcTemplate.update(&quot;update MYBANK_APP_CUSTOMER set CUSTOMER_STATUS=&#39;inactive&#39; where username=?&quot;,</b>
+<b class="fc"><i>63</i>&nbsp;                new Object[]{customer.getUsername()});</b>
+<b class="fc"><i>64</i>&nbsp;        logger.info(&quot;Status has changed&quot;);</b>
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;
 <i>67</i>&nbsp;
-<i>68</i>&nbsp;
-<i>69</i>&nbsp;    public List&lt;Long&gt; getAccountList(Long customerId) {
-<b class="fc"><i>70</i>&nbsp;        String sql = &quot;SELECT a.ACCOUNT_NUMBER &quot; +</b>
-<i>71</i>&nbsp;                &quot;FROM MYBANK_APP_CUSTOMER c &quot; +
-<i>72</i>&nbsp;                &quot;JOIN MYBANK_APP_ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID &quot; +
-<i>73</i>&nbsp;                &quot;WHERE c.CUSTOMER_ID = ?&quot;;
-<i>74</i>&nbsp;        try {
-<b class="fc"><i>75</i>&nbsp;            return jdbcTemplate.queryForList(sql, new Object[]{customerId}, Long.class);</b>
-<b class="fc"><i>76</i>&nbsp;        } catch (EmptyResultDataAccessException e) {</b>
-<b class="fc"><i>77</i>&nbsp;            throw new PayeeException(&quot;No account found for customer ID: &quot; + customerId);</b>
-<i>78</i>&nbsp;        }
-<i>79</i>&nbsp;    }
+<i>68</i>&nbsp;    public List&lt;Long&gt; getAccountList(Long customerId) {
+<b class="fc"><i>69</i>&nbsp;        String sql = &quot;SELECT a.ACCOUNT_NUMBER &quot; +</b>
+<i>70</i>&nbsp;                &quot;FROM MYBANK_APP_CUSTOMER c &quot; +
+<i>71</i>&nbsp;                &quot;JOIN MYBANK_APP_ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID &quot; +
+<i>72</i>&nbsp;                &quot;WHERE c.CUSTOMER_ID = ?&quot;;
+<i>73</i>&nbsp;        try {
+<b class="fc"><i>74</i>&nbsp;            return jdbcTemplate.queryForList(sql, new Object[]{customerId}, Long.class);</b>
+<b class="fc"><i>75</i>&nbsp;        } catch (EmptyResultDataAccessException e) {</b>
+<b class="fc"><i>76</i>&nbsp;            throw new PayeeException(&quot;No account found for customer ID: &quot; + customerId);</b>
+<i>77</i>&nbsp;        }
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;
 <i>80</i>&nbsp;
-<i>81</i>&nbsp;
-<i>82</i>&nbsp;    //method by UserDetailsService
-<i>83</i>&nbsp;    @Override
-<i>84</i>&nbsp;    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-<b class="nc"><i>85</i>&nbsp;        Customer customer = findByUsername(username);</b>
-<b class="nc"><i>86</i>&nbsp;        if(customer==null)</b>
-<b class="nc"><i>87</i>&nbsp;            throw new UsernameNotFoundException(username);</b>
-<b class="nc"><i>88</i>&nbsp;        return customer;</b>
-<i>89</i>&nbsp;    }
+<i>81</i>&nbsp;    //method by UserDetailsService
+<i>82</i>&nbsp;    @Override
+<i>83</i>&nbsp;    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+<b class="nc"><i>84</i>&nbsp;        Customer customer = findByUsername(username);</b>
+<b class="nc"><i>85</i>&nbsp;        if(customer==null)</b>
+<b class="nc"><i>86</i>&nbsp;            throw new UsernameNotFoundException(username);</b>
+<b class="nc"><i>87</i>&nbsp;        return customer;</b>
+<i>88</i>&nbsp;    }
+<i>89</i>&nbsp;
 <i>90</i>&nbsp;
-<i>91</i>&nbsp;
-<i>92</i>&nbsp;}
+<i>91</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-05 00:29</div>
+    <div style="float:right;">generated on 2024-05-07 15:52</div>
 </div>
 </body>
 </html>

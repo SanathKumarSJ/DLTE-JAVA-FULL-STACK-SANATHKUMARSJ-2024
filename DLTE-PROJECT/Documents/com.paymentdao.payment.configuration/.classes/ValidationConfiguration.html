@@ -55,10 +55,10 @@
 </td>
 </tr>
   <tr>
-    <td class="name">ValidationConfiguration$$EnhancerBySpringCGLIB$$e3e431ad</td>
+    <td class="name">ValidationConfiguration$$EnhancerBySpringCGLIB$$464f7fe1</td>
   </tr>
   <tr>
-    <td class="name">ValidationConfiguration$$EnhancerBySpringCGLIB$$e3e431ad$$FastClassBySpringCGLIB$$2d7f27ef</td>
+    <td class="name">ValidationConfiguration$$EnhancerBySpringCGLIB$$464f7fe1$$FastClassBySpringCGLIB$$993dfc80</td>
   </tr>
   <tr>
     <td class="name">ValidationConfiguration$$FastClassBySpringCGLIB$$d1d09f28</td>
@@ -94,30 +94,32 @@
 <i>4</i>&nbsp;import org.springframework.context.annotation.Configuration;
 <i>5</i>&nbsp;import org.springframework.context.support.ResourceBundleMessageSource;
 <i>6</i>&nbsp;import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-<i>7</i>&nbsp;@Configuration
-<b class="fc"><i>8</i>&nbsp;public class ValidationConfiguration {</b>
-<i>9</i>&nbsp;    @Bean
-<i>10</i>&nbsp;    public MessageSource messageSource() {
-<b class="fc"><i>11</i>&nbsp;        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();</b>
-<b class="fc"><i>12</i>&nbsp;        messageSource.setBasename(&quot;payee&quot;);</b>
-<b class="fc"><i>13</i>&nbsp;        messageSource.setDefaultEncoding(&quot;UTF-8&quot;);</b>
-<b class="fc"><i>14</i>&nbsp;        return messageSource;</b>
-<i>15</i>&nbsp;    }
-<i>16</i>&nbsp;
-<i>17</i>&nbsp;    @Bean
-<i>18</i>&nbsp;    public LocalValidatorFactoryBean getValidator(MessageSource messageSource) {
-<b class="fc"><i>19</i>&nbsp;        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();</b>
-<b class="fc"><i>20</i>&nbsp;        bean.setValidationMessageSource(messageSource);</b>
-<b class="fc"><i>21</i>&nbsp;        return bean;</b>
-<i>22</i>&nbsp;    }
-<i>23</i>&nbsp;}
-<i>24</i>&nbsp; 
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;@Configuration
+<b class="fc"><i>10</i>&nbsp;public class ValidationConfiguration {</b>
+<i>11</i>&nbsp;    @Bean
+<i>12</i>&nbsp;    public MessageSource messageSource() {
+<b class="fc"><i>13</i>&nbsp;        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();</b>
+<b class="fc"><i>14</i>&nbsp;        messageSource.setBasename(&quot;payee&quot;);</b>
+<b class="fc"><i>15</i>&nbsp;        messageSource.setDefaultEncoding(&quot;UTF-8&quot;);</b>
+<b class="fc"><i>16</i>&nbsp;        return messageSource;</b>
+<i>17</i>&nbsp;    }
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @Bean
+<i>20</i>&nbsp;    public LocalValidatorFactoryBean getValidator(MessageSource messageSource) {
+<b class="fc"><i>21</i>&nbsp;        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();</b>
+<b class="fc"><i>22</i>&nbsp;        bean.setValidationMessageSource(messageSource);</b>
+<b class="fc"><i>23</i>&nbsp;        return bean;</b>
+<i>24</i>&nbsp;    }
+<i>25</i>&nbsp;}
+<i>26</i>&nbsp; 
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-05 00:29</div>
+    <div style="float:right;">generated on 2024-05-07 15:52</div>
 </div>
 </body>
 </html>

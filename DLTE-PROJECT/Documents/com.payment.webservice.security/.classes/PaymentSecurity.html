@@ -50,21 +50,15 @@
     100%
   </span>
   <span class="absValue">
-    (20/ 20)
+    (21/ 21)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">PaymentSecurity$$EnhancerBySpringCGLIB$$3d7418f7</td>
+    <td class="name">PaymentSecurity$$EnhancerBySpringCGLIB$$34adb021</td>
   </tr>
   <tr>
-    <td class="name">PaymentSecurity$$EnhancerBySpringCGLIB$$3d7418f7$$FastClassBySpringCGLIB$$681b612f</td>
-  </tr>
-  <tr>
-    <td class="name">PaymentSecurity$$EnhancerBySpringCGLIB$$6dfef5b1</td>
-  </tr>
-  <tr>
-    <td class="name">PaymentSecurity$$EnhancerBySpringCGLIB$$6dfef5b1$$FastClassBySpringCGLIB$$f2bd3894</td>
+    <td class="name">PaymentSecurity$$EnhancerBySpringCGLIB$$34adb021$$FastClassBySpringCGLIB$$c756591a</td>
   </tr>
   <tr>
     <td class="name">PaymentSecurity$$FastClassBySpringCGLIB$$de298030</td>
@@ -84,7 +78,7 @@
     100%
   </span>
   <span class="absValue">
-    (20/ 20)
+    (21/ 21)
   </span>
 </td>
 </tr>
@@ -106,60 +100,65 @@
 <i>10</i>&nbsp;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 <i>11</i>&nbsp;import org.springframework.security.crypto.password.PasswordEncoder;
 <i>12</i>&nbsp;import org.springframework.security.web.SecurityFilterChain;
-<i>13</i>&nbsp;
-<i>14</i>&nbsp;@Configuration
-<b class="fc"><i>15</i>&nbsp;public class PaymentSecurity {</b>
+<i>13</i>&nbsp;import org.springframework.web.cors.CorsConfiguration;
+<i>14</i>&nbsp;import org.springframework.web.cors.CorsConfigurationSource;
+<i>15</i>&nbsp;import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 <i>16</i>&nbsp;
-<i>17</i>&nbsp;    @Autowired
-<i>18</i>&nbsp;    private MyBankOfficialsService service;
-<i>19</i>&nbsp;
-<i>20</i>&nbsp;    AuthenticationManager manager;
+<i>17</i>&nbsp;import java.util.Arrays;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;@Configuration
+<b class="fc"><i>20</i>&nbsp;public class PaymentSecurity {</b>
 <i>21</i>&nbsp;
 <i>22</i>&nbsp;    @Autowired
-<i>23</i>&nbsp;    MyBankFailureHandler myBankFailureHandler;
-<i>24</i>&nbsp;    @Autowired
-<i>25</i>&nbsp;    MyBankSuccessHandler myBankSuccessHandler;
+<i>23</i>&nbsp;    private MyBankOfficialsService service;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    AuthenticationManager manager;
 <i>26</i>&nbsp;
-<i>27</i>&nbsp;    @Bean
-<i>28</i>&nbsp;    public PasswordEncoder passwordEncoder() {
-<b class="fc"><i>29</i>&nbsp;        return new BCryptPasswordEncoder();</b>
-<i>30</i>&nbsp;    }
+<i>27</i>&nbsp;    @Autowired
+<i>28</i>&nbsp;    MyBankFailureHandler myBankFailureHandler;
+<i>29</i>&nbsp;    @Autowired
+<i>30</i>&nbsp;    MyBankSuccessHandler myBankSuccessHandler;
 <i>31</i>&nbsp;
 <i>32</i>&nbsp;    @Bean
-<i>33</i>&nbsp;    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-<i>34</i>&nbsp;
-<b class="fc"><i>35</i>&nbsp;        httpSecurity.httpBasic();</b>
+<i>33</i>&nbsp;    public PasswordEncoder passwordEncoder() {
+<b class="fc"><i>34</i>&nbsp;        return new BCryptPasswordEncoder();</b>
+<i>35</i>&nbsp;    }
 <i>36</i>&nbsp;
-<b class="fc"><i>37</i>&nbsp;        httpSecurity.csrf().disable(); //Cross-Site Request Forgery to avoid  unintended requests to a web application.</b>
-<i>38</i>&nbsp;
-<i>39</i>&nbsp;
-<b class="fc"><i>40</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/payee/**&quot;).permitAll();</b>
-<b class="fc"><i>41</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/images/**&quot;).permitAll();</b>
-<b class="fc"><i>42</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/css/**&quot;).permitAll();</b>
-<b class="fc"><i>43</i>&nbsp;        httpSecurity.formLogin().loginPage(&quot;/payee/&quot;).</b>
-<b class="fc"><i>44</i>&nbsp;                usernameParameter(&quot;username&quot;).</b>
-<b class="fc"><i>45</i>&nbsp;                failureHandler(myBankFailureHandler).</b>
-<b class="fc"><i>46</i>&nbsp;                successHandler(myBankSuccessHandler);</b>
-<b class="fc"><i>47</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/profile/register&quot;).permitAll();</b>
-<b class="fc"><i>48</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/v3/api-docs&quot;).permitAll();</b>
-<b class="fc"><i>49</i>&nbsp;        httpSecurity.authorizeRequests().anyRequest().authenticated();</b>
-<i>50</i>&nbsp;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @Bean
+<i>39</i>&nbsp;    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+<i>40</i>&nbsp;
+<b class="fc"><i>41</i>&nbsp;        httpSecurity.httpBasic();</b>
+<b class="fc"><i>42</i>&nbsp;        httpSecurity.formLogin().loginPage(&quot;/payee/&quot;).</b>
+<b class="fc"><i>43</i>&nbsp;                usernameParameter(&quot;username&quot;).</b>
+<b class="fc"><i>44</i>&nbsp;                failureHandler(myBankFailureHandler).</b>
+<b class="fc"><i>45</i>&nbsp;                successHandler(myBankSuccessHandler);</b>
+<i>46</i>&nbsp;
+<b class="fc"><i>47</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/payee/*&quot;).permitAll();</b>
+<b class="fc"><i>48</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/scripts/**&quot;).permitAll();</b>
+<b class="fc"><i>49</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/images/**&quot;).permitAll();</b>
+<b class="fc"><i>50</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/css/**&quot;).permitAll();</b>
 <i>51</i>&nbsp;
-<b class="fc"><i>52</i>&nbsp;        AuthenticationManagerBuilder builder = httpSecurity.</b>
-<b class="fc"><i>53</i>&nbsp;                getSharedObject(AuthenticationManagerBuilder.class);</b>
-<b class="fc"><i>54</i>&nbsp;        builder.userDetailsService(service);</b>
-<b class="fc"><i>55</i>&nbsp;        manager = builder.build();</b>
-<b class="fc"><i>56</i>&nbsp;        httpSecurity.authenticationManager(manager);</b>
-<b class="fc"><i>57</i>&nbsp;        return httpSecurity.build();</b>
-<i>58</i>&nbsp;    }
-<i>59</i>&nbsp;
-<i>60</i>&nbsp;}
+<b class="fc"><i>52</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/profile/register&quot;).permitAll();</b>
+<b class="fc"><i>53</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/v3/api-docs&quot;).permitAll();</b>
+<b class="fc"><i>54</i>&nbsp;        httpSecurity.authorizeRequests().anyRequest().authenticated();</b>
+<b class="fc"><i>55</i>&nbsp;        httpSecurity.logout().permitAll();</b>
+<b class="fc"><i>56</i>&nbsp;        httpSecurity.csrf().disable();</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        AuthenticationManagerBuilder builder = httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);</b>
+<b class="fc"><i>59</i>&nbsp;        builder.userDetailsService(service);</b>
+<b class="fc"><i>60</i>&nbsp;        manager = builder.build();</b>
+<b class="fc"><i>61</i>&nbsp;        httpSecurity.authenticationManager(manager);</b>
+<b class="fc"><i>62</i>&nbsp;        return httpSecurity.build();</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    }
+<i>65</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-30 11:14</div>
+    <div style="float:right;">generated on 2024-05-07 15:53</div>
 </div>
 </body>
 </html>
